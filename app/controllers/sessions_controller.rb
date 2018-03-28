@@ -13,7 +13,6 @@ class SessionsController < ApplicationController
         render 'new'
       else
         log_in user
-        update_browser_uuid user.uuid
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
         flash[:success] = "用户登录成功!"
         redirect_to  edit_user_path(user)
