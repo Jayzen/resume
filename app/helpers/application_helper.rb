@@ -57,14 +57,6 @@ module ApplicationHelper
     session[:forwarding_url] = request.original_url if request.get?
   end
 
-  def admin_user
-    redirect_to(root_url) unless current_user.admin?
-  end
-
-  def superadmin_user
-    redirect_to(root_url) unless current_user.superadmin?
-  end
-
   def remember(user)
     user.remember
     cookies.permanent.signed[:user_id] = user.id
