@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :gender
       t.text :description
       t.string :slug
+      t.integer :template, default: 1
 
       t.timestamps
     end

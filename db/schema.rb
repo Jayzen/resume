@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2018_03_09_042239) do
     t.string "gender"
     t.text "description"
     t.string "slug"
+    t.integer "template", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
