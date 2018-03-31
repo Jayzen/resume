@@ -1,0 +1,22 @@
+<div class="col-md-10 col-sm-8">
+    <div class="card">
+      <div class="card-header text-secondary text-center">
+        项目经历列表
+      </div>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          <% @projects.each do |project| %>
+            <li class="list-group-item text-secondary">
+              <%= project.name %> &nbsp
+              <%= link_to "查看", project_path(project), class: "text-secondary" %>|
+              <%= link_to "编辑", edit_project_path(project), class: "text-secondary" %>|
+              <%= link_to "删除", project, method: :delete, data: { confirm: "确定删除?"}, class: "text-secondary" %>
+            </li>
+          <% end %>
+          <li class="list-group-item text-secondary">
+            <%= link_to "新建项目经历", new_project_path, class: "btn btn-primary btn-sm" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>

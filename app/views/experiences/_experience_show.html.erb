@@ -1,0 +1,28 @@
+<div class="col-md-10">
+    <div class="card">
+      <div class="card-header text-secondary text-center">
+        工作经历|<%= @experience.company %>
+      </div>
+      <div class="card-body">
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label text-secondary">公司: <%= @experience.company %></label>
+        </div>
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label text-secondary">职位: <%= @experience.position %></label>
+        </div> 
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label text-secondary">时期: <%= @experience.datetime %></label>
+        </div>
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label text-secondary">工作描述: <%= @experience.description %></label>
+        </div>
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label text-secondary">权重: <%= @experience.weight %></label>
+        </div>
+     
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label"><%= link_to "返回工作经历列表", experiences_path, class: "btn btn-primary btn-sm" %></label>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="col-md-10 col-sm-8">
+    <div class="card">
+      <div class="card-header text-secondary text-center">
+        技术介绍列表
+      </div>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          <% @skills.each do |skill| %>
+            <li class="list-group-item text-secondary">
+              <%= skill.name %> &nbsp
+              <%= link_to "查看", skill_path(skill), class: "text-secondary" %>|
+              <%= link_to "编辑", edit_skill_path(skill), class: "text-secondary" %>|
+              <%= link_to "删除", skill, method: :delete, data: { confirm: "确定删除?"}, class: "text-secondary" %>
+            </li>
+          <% end %>
+          <li class="list-group-item text-secondary">
+            <%= link_to "新建技术介绍", new_skill_path, class: "btn btn-primary btn-sm" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>

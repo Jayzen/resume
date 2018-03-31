@@ -1,0 +1,31 @@
+<div class="col-md-10">
+    <div class="card">
+      <div class="card-header text-secondary text-center">
+        教育经历|<%= @education.school %>
+      </div>
+      <div class="card-body">
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label text-secondary">学校: <%= @education.school %></label>
+        </div>
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label text-secondary">学位: <%= @education.degree %></label>
+        </div> 
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label text-secondary">专业: <%= @education.major %></label>
+        </div>
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label text-secondary">GPA: <%= @education.gpa %></label>
+        </div>
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label text-secondary">时期: <%= @education.time %></label>
+        </div>
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label text-secondary">权重: <%= @education.weight %></label>
+        </div>
+     
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label"><%= link_to "返回教育经历列表", educations_path, class: "btn btn-primary btn-sm" %></label>
+        </div>
+      </div>
+    </div>
+</div>

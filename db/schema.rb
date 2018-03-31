@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_09_042239) do
+ActiveRecord::Schema.define(version: 2018_03_31_120503) do
+
+  create_table "educations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "school"
+    t.string "degree"
+    t.string "major"
+    t.decimal "gpa", precision: 5, scale: 2
+    t.string "time"
+    t.integer "weight"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_educations_on_user_id"
+  end
+
+  create_table "experiences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "company"
+    t.string "position"
+    t.string "datetime"
+    t.text "description"
+    t.integer "weight"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_experiences_on_user_id"
+  end
 
   create_table "friendly_id_slugs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "slug", null: false
@@ -24,6 +49,28 @@ ActiveRecord::Schema.define(version: 2018_03_09_042239) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
+  create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "tag"
+    t.string "time"
+    t.text "description"
+    t.integer "weight"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
+  create_table "skills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "weight"
+    t.text "description"
+    t.index ["user_id"], name: "index_skills_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
@@ -33,11 +80,12 @@ ActiveRecord::Schema.define(version: 2018_03_09_042239) do
     t.string "gender"
     t.text "description"
     t.string "slug"
-    t.integer "template", default: 0
+    t.integer "template", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
+  add_foreign_key "skills", "users"
 end

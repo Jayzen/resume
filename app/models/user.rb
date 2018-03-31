@@ -14,10 +14,11 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }, allow_nil: true
     
   has_secure_password
-
-  has_many :addresses, -> { where(address_type: Address::AddressType::User).order("id desc") }
-  belongs_to :default_address, class_name: :Address, optional: true
-  has_many :orders
+  
+  has_many :skills
+  has_many :educations
+  has_many :experiences
+  has_many :projects
 
   def crop_avatar
     avatar.recreate_versions! if crop_x.present?

@@ -1,0 +1,59 @@
+<div class="col-md-10">
+    <div class="card">
+      <div class="card-header text-secondary text-center">
+        教育经历
+      </div>
+      <div class="card-body">
+        <%= form_for(@education, url: education_path, method: 'put') do |f| %>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label text-secondary">学校</label>
+          <div class="col-sm-10">
+            <%= f.text_field :school, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label text-secondary">学位</label>
+          <div class="col-sm-10">
+            <%= f.text_field :degree, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label text-secondary">专业</label>
+          <div class="col-sm-10">
+            <%= f.text_field :major, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label text-secondary">GPA</label>
+          <div class="col-sm-10">
+            <%= f.text_field :gpa, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label text-secondary">时期</label>
+          <div class="col-sm-10">
+            <%= f.text_field :time, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+         <label class="col-sm-2 col-form-label text-secondary">权重</label>
+          <div class="col-sm-10">
+            <%= f.number_field :weight, class: "form-control"%>
+          </div>
+        </div> 
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label"></label>
+          <div class="col-sm-10">
+            <%= f.submit "更新教育经历", class: "btn btn-primary btn-sm"%>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+</div>

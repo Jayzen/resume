@@ -1,0 +1,21 @@
+<div class="col-md-10">
+    <div class="card">
+      <div class="card-header text-secondary text-center">
+        技术介绍|<%= @skill.name %>
+      </div>
+      <div class="card-body">
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label text-secondary">名称: <%= @skill.name %></label>
+        </div>
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label text-secondary">权重: <%= @skill.weight %></label>
+        </div> 
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label text-secondary">描述: <%= @skill.description %></label>
+        </div>
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label"><%= link_to "返回技术介绍列表", skills_path, class: "btn btn-primary btn-sm" %></label>
+        </div>
+      </div>
+    </div>
+</div>
