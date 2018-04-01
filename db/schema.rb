@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_31_120503) do
+ActiveRecord::Schema.define(version: 2018_04_01_010557) do
 
   create_table "educations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "school"
@@ -77,12 +77,12 @@ ActiveRecord::Schema.define(version: 2018_03_31_120503) do
     t.string "name"
     t.string "remember_digest"
     t.string "avatar"
-    t.string "gender"
     t.text "description"
     t.string "slug"
     t.integer "template", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "city"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["slug"], name: "index_users_on_slug", unique: true
   end

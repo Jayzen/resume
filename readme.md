@@ -1,1 +1,1 @@
-An Blog and Resume Platform
+A Simple Resume Template

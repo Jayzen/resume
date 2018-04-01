@@ -15,10 +15,10 @@ class User < ApplicationRecord
     
   has_secure_password
   
-  has_many :skills
-  has_many :educations
-  has_many :experiences
-  has_many :projects
+  has_many :skills, dependent: :destroy
+  has_many :educations, dependent: :destroy
+  has_many :experiences, dependent: :destroy
+  has_many :projects, dependent: :destroy
 
   def crop_avatar
     avatar.recreate_versions! if crop_x.present?
