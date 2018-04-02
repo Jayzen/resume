@@ -1,0 +1,22 @@
+<div class="col-md-10 col-sm-8">
+    <div class="card">
+      <div class="card-header text-secondary text-center">
+        社交信息列表
+      </div>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          <% @socials.each do |social| %>
+            <li class="list-group-item text-secondary">
+              <%= social.name %> &nbsp
+              <%= link_to "查看", social_path(social), class: "text-secondary" %>|
+              <%= link_to "编辑", edit_social_path(social), class: "text-secondary" %>|
+              <%= link_to "删除", social, method: :delete, data: { confirm: "确定删除?"}, class: "text-secondary" %>
+            </li>
+          <% end %>
+          <li class="list-group-item text-secondary">
+            <%= link_to "新建社交信息", new_social_path, class: "btn btn-primary btn-sm" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>

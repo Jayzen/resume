@@ -1,0 +1,41 @@
+<div class="col-md-10">
+    <div class="card">
+      <div class="card-header text-secondary text-center">
+        社交信息
+      </div>
+      <div class="card-body">
+        <%= render 'errors' %>
+        <%= form_for(@social, url: social_path, method: 'put') do |f| %>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label text-secondary">名称</label>
+          <div class="col-sm-10">
+            <select name="social[name]" class="form-control">
+              <%= options_for_select([["Dollar"], ["Kroner"]]) %>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label text-secondary">url</label>
+          <div class="col-sm-10">
+            <%= f.text_field :url, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+         <label class="col-sm-2 col-form-label text-secondary">权重</label>
+          <div class="col-sm-10">
+            <%= f.number_field :weight, class: "form-control"%>
+          </div>
+        </div> 
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label"></label>
+          <div class="col-sm-10">
+            <%= f.submit "更新社交信息", class: "btn btn-primary btn-sm"%>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+</div>

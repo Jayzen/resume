@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token, :old_password, 
-                :crop_x, :crop_y, :crop_w, :crop_h
+  attr_accessor :remember_token, :old_password, :crop_x, :crop_y, :crop_w, :crop_h
 
   mount_uploader :avatar, AvatarUploader
   after_update :crop_avatar
@@ -19,6 +18,7 @@ class User < ApplicationRecord
   has_many :educations, dependent: :destroy
   has_many :experiences, dependent: :destroy
   has_many :projects, dependent: :destroy
+  has_many :socials, dependent: :destroy
 
   def crop_avatar
     avatar.recreate_versions! if crop_x.present?

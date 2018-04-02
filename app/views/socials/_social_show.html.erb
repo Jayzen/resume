@@ -1,0 +1,22 @@
+<div class="col-md-10">
+    <div class="card">
+      <div class="card-header text-secondary text-center">
+        社交信息|<%= @social.name %>
+      </div>
+      <div class="card-body">
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label text-secondary">名称: <%= @social.name %></label>
+        </div>
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label text-secondary">url: <%= @social.url %></label>
+        </div>
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label text-secondary">权重: <%= @social.weight %></label>
+        </div>
+     
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label"><%= link_to "返回社交信息", socials_path, class: "btn btn-primary btn-sm" %></label>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,6 +1,10 @@
-<% case @template %>
-<% when 1 %>
-  <%= render 'template_one' %>
-<% when 2%>
-  <%= render 'template_two' %>
+<% if logged_in? %>
+  <% case @template %>
+  <% when 1 %>
+    <%= render 'template_one' %>
+  <% when 2%>
+    <%= render 'template_two' %>
+  <% end %>
+<% else %>
+  <%= render 'unlogin' %>
 <% end %>
