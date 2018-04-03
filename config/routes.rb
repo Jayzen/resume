@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   resources :educations
   resources :experiences 
   resources :socials
+  resources :wechats
+  resources :set_templates
 end

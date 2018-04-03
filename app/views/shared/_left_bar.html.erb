@@ -14,27 +14,15 @@
         </div>
         <div class="p-1 item-hl align-self-center">
           <a href="<%= socials_path %>", class="btn <%= controller_name == 'socials' ? 'btn-primary' : 'btn-outline-secondary' %>">
-            <i class="fa fa-file-image-o fa-fw"></i> 社交信息</a>
+            <i class="fa fa-qq fa-fw"></i> 社交信息</a>
         </div> 
-        <div class="p-1 item-hl align-self-center">
-          <a href="<%= skills_path %>", class="btn <%= controller_name == 'skills' ? 'btn-primary' : 'btn-outline-secondary' %>">
-            <i class="fa fa-user fa-fw"></i> 技术介绍</a>
-        </div>
-        <div class="p-1 item-hl align-self-center">
-          <a href="<%= educations_path %>", class="btn <%= controller_name == 'educations' ? 'btn-primary' : 'btn-outline-secondary' %>">
-            <i class="fa fa-key fa-fw"></i> 教育经历</a>
-        </div>
-        <div class="p-1 item-hl align-self-center">
-          <a href="<%= experiences_path %>", class="btn <%= controller_name == 'experiences' ? 'btn-primary' : 'btn-outline-secondary' %>">
-            <i class="fa fa-file-image-o fa-fw"></i> 工作经历</a>
-        </div>
-        <div class="p-1 item-hl align-self-center">
-          <a href="<%= projects_path %>", class="btn <%= controller_name == 'projects' ? 'btn-primary' : 'btn-outline-secondary' %>">
-            <i class="fa fa-file-image-o fa-fw"></i> 项目经历</a>
-        </div>
         <div class="p-1 item-hl align-self-center">
           <a href="<%= edit_password_alter_path(current_user) %>", class="btn <%= controller_name == 'password_alters' ? 'btn-primary' : 'btn-outline-secondary' %>">
             <i class="fa fa-key fa-fw"></i> 修改密码</a>
+        </div>
+        <div class="p-1 item-hl align-self-center">
+          <a href="<%= edit_set_template_path(current_user) %>", class="btn <%= controller_name == 'templates' ? 'btn-primary' : 'btn-outline-secondary' %>">
+            <i class="fa fa-exchange fa-fw"></i> 设置模板</a>
         </div>
       </div>
     </div>
