@@ -32,8 +32,6 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'carrierwave'
 gem 'rails-assets-jcrop', source: 'https://rails-assets.org'
-gem 'friendly_id'
-gem 'babosa'
 gem 'mini_magick', '~> 4.8'
 gem 'mysql2', '~> 0.4.4'
 # Use Capistrano for deployment

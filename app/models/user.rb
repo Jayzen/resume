@@ -40,17 +40,6 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
-  extend FriendlyId
-  friendly_id :name, use: [:slugged, :history]
-
-  def should_generate_new_friendly_id?
-    name_changed?
-  end
-  
-  def normalize_friendly_id(input)
-    input.to_s.to_slug.normalize.to_s
-  end
-
   class << self
     def digest(string)
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
