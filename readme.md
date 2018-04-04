@@ -1,1 +1,1 @@
-A Simple Resume Template
+Resume with Rails 
