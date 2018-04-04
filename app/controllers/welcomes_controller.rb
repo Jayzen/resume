@@ -8,6 +8,10 @@ class WelcomesController < ApplicationController
   private
     def get_variables
       @socials = Social.order("weight desc")
+      @projects = Project.all
+      @educations = Education.all
+      @skills = Skill.all
+      @experiences = Experience.all
     end
 
     def set_template

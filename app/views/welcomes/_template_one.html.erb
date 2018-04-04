@@ -2,7 +2,11 @@
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
         <span class="d-block d-lg-none">Hello World</span>
         <span class="d-none d-lg-block">
-          <%= image_tag "avatar", class: "img-fluid img-profile rounded-circle mx-auto mb-2" %>
+          <% if logged_in? %>
+            <%= image_tag current_user.avatar.large.url, class: "img-fluid img-profile rounded-circle mx-auto mb-2" %>
+          <% else %>
+            <%= image_tag "avatar", class: "img-fluid img-profile rounded-circle mx-auto mb-2" %>
+          <% end %>
         </span>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +25,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#experience">experience</a>
-          </li>
+          </li> 
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
           </li>
@@ -34,18 +38,18 @@
       <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
         <div class="my-auto">
           <h1 class="mb-0">
-            <span class="text-primary">tag</span>
+            <span class="text-primary"><%= current_user.name if logged_in? %></span>
           </h1>
-          <div class="subheading mb-5">tag
-            <a href="mailto:zhengjiajun121@gmail.com">tag</a>
+          <div class="subheading mb-5"><%= current_user.city if logged_in? %>
+          <a href="mailto:<%= current_user.email if logged_in? %>"><%= current_user.email if logged_in? %></a>
           </div>
-          <p class="mb-5">tag</p>
+          <p class="mb-5"><%= current_user.description if logged_in? %></p>
           <ul class="list-inline list-social-icons mb-0">
             <% @socials.each do |social| %>
               <% case social.name %>
                 <% when "github" %> 
                   <li class="list-inline-item">
-                    <a href="https://github.com/Jayzen">
+                    <a href="<%= social.url %>">
                       <span class="fa-stack fa-lg">
                         <i class="fa fa-circle fa-stack-2x"></i>
                         <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -54,7 +58,7 @@
                   </li>
                 <% when "weibo" %>
                   <li class="list-inline-item">
-                    <a href="https://jayzen.gitbooks.io/web-development/">
+                    <a href="<%= social.url %>">
                       <span class="fa-stack fa-lg">
                         <i class="fa fa-circle fa-stack-2x"></i>
                         <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
@@ -63,7 +67,7 @@
                   </li>
                 <% when "facebook" %>
                   <li class="list-inline-item">
-                    <a href="https://jayzen.gitbooks.io/web-development/">
+                    <a href="<%= social.url %>">
                       <span class="fa-stack fa-lg">
                         <i class="fa fa-circle fa-stack-2x"></i>
                         <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -72,7 +76,7 @@
                   </li>
                   <% when "twitter" %>
                   <li class="list-inline-item">
-                    <a href="https://jayzen.gitbooks.io/web-development/">
+                    <a href="<%= social.url %>">
                       <span class="fa-stack fa-lg">
                         <i class="fa fa-circle fa-stack-2x"></i>
                         <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -89,52 +93,55 @@
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="projects">
         <div class="my-auto">
           <h2 class="mb-5">PROJECTS</h2>
-            <div class="resume-item d-flex flex-column flex-md-row mb-5">
-              <div class="resume-content mr-auto">
-                <h3 class="mb-0">tag</h3>
-                <div class="subheading mb-3">tag</div>
-                <p>tag</p>
+            <% @projects.each do |project| %>
+              <div class="resume-item d-flex flex-column flex-md-row mb-5">
+                <div class="resume-content mr-auto">
+                  <h3 class="mb-0"><%= project.name %></h3>
+                  <div class="subheading mb-3"><%= project.tag %></div>
+                  <p><%= project.description %></p>
+                </div>
+                <div class="resume-date text-md-right">
+                  <span class="text-primary"><%= project.time %></span>
+                </div>
               </div>
-              <div class="resume-date text-md-right">
-                <span class="text-primary">tag</span>
-              </div>
-            </div>
-
+            <% end %>
         </div>
-
       </section>
 
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="education">
         <div class="my-auto">
           <h2 class="mb-5">Education</h2>
-            <div class="resume-item d-flex flex-column flex-md-row mb-5">
-              <div class="resume-content mr-auto">
-                <h3 class="mb-0">tag</h3>
-                <div class="subheading mb-3">tag</div>
-                <div>tag</div>
-                <p>GPA: tag</p>
+           <% @educations.each do |education| %>
+             <div class="resume-item d-flex flex-column flex-md-row mb-5">
+               <div class="resume-content mr-auto">
+                 <h3 class="mb-0"><%= education.school %></h3>
+                 <div class="subheading mb-3"><%= education.degree %></div>
+                 <div><%= education.major%></div>
+                 <p>GPA: <%= education.gpa %></p>
+               </div>
+               <div class="resume-date text-md-right">
+                 <span class="text-primary"><%= education.time %></span>
+               </div>
               </div>
-              <div class="resume-date text-md-right">
-                <span class="text-primary">tag</span>
-              </div>
-            </div>
-
+            <% end %>
         </div>
       </section>
 
      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
         <div class="my-auto">
           <h2 class="mb-5">Experience</h2>
-            <div class="resume-item d-flex flex-column flex-md-row">
-              <div class="resume-content mr-auto">
-                <h3 class="mb-0">tag</h3>
-                <div class="subheading mb-3">tag</div>
-                <p>tag</p>
+            <% @experiences.each do |experience| %>
+              <div class="resume-item d-flex flex-column flex-md-row">
+                <div class="resume-content mr-auto">
+                  <h3 class="mb-0"><%= experience.company%></h3>
+                  <div class="subheading mb-3"><%= experience.position %></div>
+                  <p><%= experience.description %></p>
+                </div>
+                <div class="resume-date text-md-right">
+                  <span class="text-primary"><%= experience.datetime %></span>
+                </div>
               </div>
-              <div class="resume-date text-md-right">
-                <span class="text-primary">tag</span>
-              </div>
-            </div>
+            <% end %>
         </div>
 
       </section>
@@ -142,13 +149,12 @@
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
         <div class="my-auto">
           <h2 class="mb-5">Skills</h2>
-
           <div class="subheading mb-3">Programming Languages &amp; Tools</div>
+          <% @skills.each do |skill| %>
             <ul class="fa-ul mb-0">
-              <li>
-                <i class="fa-li fa fa-check"></i>
-                tag</li>
+              <li><i class="fa-li fa fa-check"></i><%= skill.name%>|<%= skill.description %></li>
             </ul>
+          <% end %>
         </div>
       </section>
 
