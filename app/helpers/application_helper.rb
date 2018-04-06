@@ -62,4 +62,13 @@ module ApplicationHelper
     cookies.permanent.signed[:user_id] = user.id
     cookies.permanent[:remember_token] = user.remember_token
   end
+
+  def full_title(page_title = '')
+    base_title = "Resume"
+    if page_title.empty?
+      base_title
+    else
+      page_title + " | " + base_title
+    end
+  end
 end
