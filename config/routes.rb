@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :socials
   resources :wechats
   resources :set_templates
+  resources :pdf_resumes
 end

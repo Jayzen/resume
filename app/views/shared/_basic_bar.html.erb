@@ -21,8 +21,12 @@
             <i class="fa fa-key fa-fw"></i> 修改密码</a>
         </div>
         <div class="p-1 item-hl align-self-center">
-          <a href="<%= edit_set_template_path(current_user) %>", class="btn <%= controller_name == 'templates' ? 'btn-primary' : 'btn-outline-secondary' %>">
+          <a href="<%= edit_set_template_path(current_user) %>", class="btn <%= controller_name == 'set_templates' ? 'btn-primary' : 'btn-outline-secondary' %>">
             <i class="fa fa-exchange fa-fw"></i> 设置模板</a>
+        </div>
+        <div class="p-1 item-hl align-self-center">
+          <a href="<%= pdf_resumes_path %>", class="btn <%= controller_name == 'pdf_resumes' ? 'btn-primary' : 'btn-outline-secondary' %>">
+            <i class="fa fa-cloud fa-fw"></i> 上传简历</a>
         </div>
       </div>
     </div>

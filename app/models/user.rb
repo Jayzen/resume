@@ -20,6 +20,7 @@ class User < ApplicationRecord
   has_many :projects, dependent: :destroy
   has_many :socials, dependent: :destroy
   has_one :wechat, dependent: :destroy
+  has_one :pdf_resume, dependent: :destroy
 
   def crop_avatar
     avatar.recreate_versions! if crop_x.present?

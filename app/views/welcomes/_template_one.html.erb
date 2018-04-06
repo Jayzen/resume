@@ -29,6 +29,10 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#download">Download</a>
+          </li>
+
         </ul>
       </div>
     </nav>
@@ -38,13 +42,23 @@
       <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
         <div class="my-auto">
           <h1 class="mb-0">
-            <span class="text-primary"><%= current_user.name if logged_in? %></span>
+            <span class="text-primary"><%= current_user.name %></span>
           </h1>
-          <div class="subheading mb-5"><%= current_user.city if logged_in? %>
-          <a href="mailto:<%= current_user.email if logged_in? %>"><%= current_user.email if logged_in? %></a>
+          <div class="subheading mb-5"><%= current_user.city %>
+          <a href="mailto:<%= current_user.email %>"><%= current_user.email %></a>
           </div>
-          <p class="mb-5"><%= current_user.description if logged_in? %></p>
+          <p class="mb-5"><%= current_user.description %></p>
           <ul class="list-inline list-social-icons mb-0">
+            <% if current_user.wechat %>
+              <li class="list-inline-item">
+                <a href="#" data-toggle="tooltip" title='<%= image_tag current_user.wechat.name.middle.url, width: "200" %>'>
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li> 
+            <% end %>
             <% @socials.each do |social| %>
               <% case social.name %>
                 <% when "github" %> 
@@ -155,6 +169,15 @@
               <li><i class="fa-li fa fa-check"></i><%= skill.name%>|<%= skill.description %></li>
             </ul>
           <% end %>
+        </div>
+      </section>
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="download">
+        <div class="my-auto">
+          <h2 class="mb-5">Download</h2>
+          <div class="subheading mb-3">
+            <a href="#" class="btn btn-secondary btn-lg"><i class="fa fa-cloud"></i> Download Resume</a>
+          </div>
         </div>
       </section>
 

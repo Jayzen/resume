@@ -1,88 +1,132 @@
 <div class="container">
   <header id="main-header">
-      <div class="row no-gutters">
-        <div class="col-lg-4 col-md-5">
-          <%= image_tag "bear.jpeg" %>
-        </div>
-        <div class="col-lg-8 col-md-7">
-          <div class="d-flex flex-column">
-            <div class="p-5 bg-dark text-white">
-              <div class="name d-flex flex-row justify-content-between align-items-center">
-                <h1 class="display-4">Jayzen</h1>
-                <div><i class="fa fa-twitter"></i></div>
-                <div><i class="fa fa-facebook"></i></div>
-                <div><i class="fa fa-instagram"></i></div>
-                <div><i class="fa fa-github"></i></div>
+    <div class="row no-gutters">
+      <div class="col-lg-4 col-md-5">
+        <%= image_tag current_user.avatar.large.url %>
+      </div>
+      <div class="col-lg-8 col-md-7">
+        <div class="d-flex flex-column">
+          <div class="p-5 bg-dark text-white">
+            <div class="name d-flex flex-row justify-content-between align-items-center">
+              <h1 class="display-4"><%= current_user.name %></h1>
+              <% if current_user.wechat %>
+                <div>
+                  <a href="#" data-toggle="tooltip" title='<%= image_tag current_user.wechat.name.middle.url, width: "200" %>'>
+                    <i class="fa fa-wechat"></i>
+                  </a>
+                </div>
+              <% end %>
+              <% @socials.each do |social| %>
+                <% case social.name %>
+                  <% when "github" %>
+                    <div><a href="<%= social.url %>"><i class="fa fa-github"></i></a></div>
+                  <% when "weibo" %>
+                    <div><a href="<%= social.url %>"><i class="fa fa-weibo"></i></a></div>
+                  <% when "facebook" %>
+                    <div><a href="<%= social.url %>"><i class="fa fa-facebook"></i></a></div>
+                  <% when "twitter" %>
+                    <div><a href="<%= social.url %>"><i class="fa fa-twitter"></i></a></div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="p-4 bg-black"><%= current_user.description %></div>
+
+          <div>
+            <div class="d-flex flex-row text-white align-items-stretch text-center">
+              <div class="port-item p-4 bg-primary" data-toggle="collapse" data-target="#project">
+                <i class="fa fa-home d-block"></i>
               </div>
-            </div>
-
-            <div class="p-4 bg-black">
-              Ruby开发工程师，Rails Web开发工程师
-            </div>
-
-            <div>
-              <div class="d-flex flex-row text-white align-items-stretch text-center">
-                <div class="port-item p-4 bg-primary" data-toggle="collapse" data-target="#home">
-                  <i class="fa fa-home d-block"></i>SKILLS
-                </div>
-                <div class="port-item p-4 bg-success" data-toggle="collapse" data-target="#resume">
-                  <i class="fa fa-graduation-cap d-block"></i> EDUCATION
-                </div>
-                <div class="port-item p-4 bg-warning" data-toggle="collapse" data-target="#work">
-                  <i class="fa fa-folder-open d-block"></i> EXPERIENCE
-                </div>
-                <div class="port-item p-4 bg-danger" data-toggle="collapse" data-target="#contact">
-                  <i class="fa fa-envelope d-block"></i> PROJECTS
-                </div>
+              <div class="port-item p-4 bg-success" data-toggle="collapse" data-target="#education">
+                <i class="fa fa-graduation-cap d-block"></i>
+              </div>
+              <div class="port-item p-4 bg-warning" data-toggle="collapse" data-target="#experience">
+                <i class="fa fa-folder-open d-block"></i>
+              </div>
+              <div class="port-item p-4 bg-danger" data-toggle="collapse" data-target="#skill">
+                <i class="fa fa-envelope d-block"></i>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </header> 
+    </div>
+  </header>
   
-  <div id="home" class="collapse">
+  <div id="project" class="collapse">
     <div class="card card-body bg-primary text-white py-5">
-      <h2>技术背景</h2>
-      <p>擅长Ruby开发和Rails Web开发</p>
+      <h2>Projects</h2>
+      <div>
+        <% @projects.each do |project| %>
+          <ul class="fa-ul mb-0">
+            <li><i class="fa-li fa fa-check"></i><%= project.tag%>|<%= project.name %>|<%= project.time%>|<%= project.description %></li>
+          </ul>
+        <% end %>
+      </div> 
     </div>
-  </div>
-  
-  <div id="resume" class="collapse">
-    <div class="card card-body bg-success text-white py-5">
-      <h2>教育经历</h2>
-      <p>毕业于浙江大学，获浙江大学优秀研究生称号 </p>
-    </div>
-  </div>
-  
-  
-  <div id="work" class="collapse">
-    <div class="card card-body bg-warning text-white py-5">
-      <h2>工作经历</h2>
-      <p>读研期间主要在浙江大学计算机集成制造实验室从事软件研发工作，毕业之后在浙江能源从事项目管理工作</p>
-    </div>
-  </div>
+  </div> 
 
-  <div id="contact" class="collapse">
+  <div id="education" class="collapse">
+    <div class="card card-body bg-success text-white py-5">
+      <h2>Education</h2>
+      <div>
+        <% @educations.each do |education| %>
+          <ul class="fa-ul mb-0">
+            <li><i class="fa-li fa fa-check"></i><%= education.school%>|<%= education.degree %>|<%= education.major%>|GPA:<%= education.gpa%>|<%= education.time %></li>
+          </ul>
+        <% end %> 
+      </div>
+    </div>
+  </div>  
+  
+  <div id="experience" class="collapse">
+    <div class="card card-body bg-warning text-white py-5">
+      <h2>Experience</h2>
+      <div>
+        <% @experiences.each do |experience| %>
+          <ul class="fa-ul mb-0">
+            <li><i class="fa-li fa fa-check"></i><%= experience.datetime%>|<%= experience.company %>|<%= experience.position%>|<%= experience.description%></li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  
+  <div id="skill" class="collapse">
     <div class="card card-body bg-danger text-white py-5">
-      <h2>个人作品</h2>
-      <p>主要是基于Rails的Web项目</p>
+      <h2>Skills</h2>
+      <div>
+        <% @skills.each do |skill| %>
+          <ul class="fa-ul mb-0">
+            <li><i class="fa-li fa fa-check"></i><%= skill.name%>|<%= skill.description %></li>
+          </ul>
+        <% end %>
+      </div>
     </div>
   </div>
 
   <footer id="main-footer" class="p-5 bg-dark text-white">
     <div class="row">
       <div class="col-md-6">
-        <a href="#" class="btn btn-outline-light"><i class="fa fa-cloud"></i> 获取简历</a>
+        <a href="#" class="btn btn-outline-light"><i class="fa fa-cloud"></i> Download Resume</a>
       </div>
     </div>
-  </footer>
+  </footer> 
 </div>
+
+
 <%= content_for :javascripts do %>
   <script>
     $('.port-item').click(function(){
       $('.collapse').collapse('hide');
     });
+
+    $('a[data-toggle="tooltip"]').tooltip({
+      animated: 'fade',
+      placement: 'bottom',
+      html: true
+    }); 
   </script>
 <% end %>
 
