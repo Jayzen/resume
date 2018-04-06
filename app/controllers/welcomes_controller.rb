@@ -24,7 +24,7 @@ class WelcomesController < ApplicationController
           render layout: "template_two"
         end
       else
-        render layout: "template_two"
+        render layout: "unlogin"
       end
     end
 end
