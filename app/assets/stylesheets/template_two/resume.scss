@@ -51,3 +51,18 @@
 .d-font {
   font-size: 14px;
 }
+
+a.color:link {
+  color: #FFFFFF; 
+  text-decoration:none;
+}
+
+a.color:hover {
+  color: #FFFFFF; 
+  text-decoration:underline;
+}
+
+a.color:visited{
+  color: #FFFFFF; 
+  text-decoration:none;
+}

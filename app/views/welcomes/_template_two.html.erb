@@ -11,7 +11,7 @@
               <h1 class="display-4"><%= current_user.name %></h1>
               <% if current_user.wechat %>
                 <div>
-                  <a href="#" data-toggle="tooltip" title='<%= image_tag current_user.wechat.name.middle.url, width: "200" %>'>
+                  <a class="color" href="#" data-toggle="tooltip" title='<%= image_tag current_user.wechat.name.middle.url, width: "200" %>'>
                     <i class="fa fa-wechat"></i>
                   </a>
                 </div>
@@ -19,13 +19,13 @@
               <% @socials.each do |social| %>
                 <% case social.name %>
                   <% when "github" %>
-                    <div><a href="<%= social.url %>"><i class="fa fa-github"></i></a></div>
+                    <div><a class="color" href="<%= social.url %>"><i class="fa fa-github"></i></a></div>
                   <% when "weibo" %>
-                    <div><a href="<%= social.url %>"><i class="fa fa-weibo"></i></a></div>
+                    <div><a class="color" href="<%= social.url %>"><i class="fa fa-weibo"></i></a></div>
                   <% when "facebook" %>
-                    <div><a href="<%= social.url %>"><i class="fa fa-facebook"></i></a></div>
+                    <div><a class="color" href="<%= social.url %>"><i class="fa fa-facebook"></i></a></div>
                   <% when "twitter" %>
-                    <div><a href="<%= social.url %>"><i class="fa fa-twitter"></i></a></div>
+                    <div><a class="color" href="<%= social.url %>"><i class="fa fa-twitter"></i></a></div>
                 <% end %>
               <% end %>
             </div>

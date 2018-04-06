@@ -9,11 +9,33 @@
   </header>
 
   <main role="main" class="inner cover">
-    <h1 class="cover-heading">Resume Customization</h1>
-    <p class="lead"> a customized and neat resume platform.</p>
-    <p class="lead">
-    <a href="<%= login_path %>" class="btn btn-lg btn-secondary">Login</a>
-    </p>
+    <div class="col-md-12">
+      <div class="card">
+        <div class="col-md-12">
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <%= image_tag "carousel_one.png", class: "d-block w-100" %>
+              </div>
+              <div class="carousel-item">
+                <%= image_tag "carousel_two.png", class: "d-block w-100" %>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <p class="lead mt-4"> A customized and neat resume platform.</p>
+    <p class="lead"><a href="<%= login_path %>" class="btn btn-lg btn-secondary">Login</a></p>
   </main>
 
   <footer class="mastfoot mt-auto">
