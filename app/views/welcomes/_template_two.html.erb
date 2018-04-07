@@ -86,7 +86,7 @@
       <div>
         <% @experiences.each do |experience| %>
           <ul class="fa-ul mb-0">
-            <li><i class="fa-li fa fa-check"></i><%= experience.datetime%>|<%= experience.company %>|<%= experience.position%>|<%= experience.description%></li>
+            <li><i class="fa-li fa fa-check"></i><%= experience.time%>|<%= experience.company %>|<%= experience.position%>|<%= experience.description%></li>
           </ul>
         <% end %>
       </div>

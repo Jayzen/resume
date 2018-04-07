@@ -1,0 +1,4 @@
+jayzen:
+  name: jayzen
+  email: jayzen@foxmail.com
+  password_digest: <%= User.digest('password') %>
