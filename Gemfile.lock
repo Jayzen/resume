@@ -144,6 +144,8 @@ GEM
     public_suffix (3.0.2)
     puma (3.11.3)
     rack (2.0.4)
+    rack-mini-profiler (0.10.7)
+      rack (>= 1.2.0)
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
     rails (5.2.0.rc2)
@@ -246,6 +248,7 @@ DEPENDENCIES
   mini_magick (~> 4.8)
   mysql2 (~> 0.4.4)
   puma (~> 3.11)
+  rack-mini-profiler
   rails (~> 5.2.0.rc1)
   rails-assets-jcrop!
   redis
