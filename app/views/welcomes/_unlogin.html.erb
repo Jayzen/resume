@@ -9,10 +9,15 @@
   </header>
 
   <main role="main" class="inner cover">
-    <div class="col-md-12">
+    <div class="col-md-12 mb-4">
       <div class="card">
         <div class="col-md-12">
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleControls" data-slide-to="1"></li>
+            </ol>
+
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <%= image_tag "carousel_one.png", class: "d-block w-100" %>
@@ -40,7 +45,7 @@
 
   <footer class="mastfoot mt-auto">
     <div class="inner">
-      <p>Resume template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://zhengjiajun.me/">jayzen</a>.</p>
+      <p><a href="https://getbootstrap.com/">Bootstrap</a> template, by <a href="https://zhengjiajun.me/">jayzen</a>.</p>
     </div>
   </footer>
 </div>
