@@ -9,9 +9,12 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    @project.update(project_params)
-    flash[:success] = "项目经历更新成功"
-    redirect_to project_path(@project)
+    if @project.update(project_params)
+      flash[:success] = "项目经历更新成功"
+      redirect_to project_path(@project)
+    else
+      render 'edit'
+    end
   end
 
   def index
@@ -24,9 +27,12 @@ class ProjectsController < ApplicationController
 
   def create
     @project = current_user.projects.build(project_params)
-    @project.save
-    flash[:success] = "项目经历创建成功"
-    redirect_to projects_path
+     if @project.save
+       flash[:success] = "项目经历创建成功"
+       redirect_to projects_path
+     else
+       render 'new'
+     end
   end
 
   def destroy

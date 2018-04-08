@@ -4,6 +4,7 @@
         工作经历
       </div>
       <div class="card-body">
+        <%= render 'errors' %>
         <%= form_for(@experience, url: experience_path, method: 'put') do |f| %>
         <div class="form-group row">
           <label class="col-sm-2 col-form-label text-secondary">公司</label>

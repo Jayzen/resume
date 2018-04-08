@@ -9,9 +9,12 @@ class SkillsController < ApplicationController
   end
 
   def update
-    @skill.update(skill_params)
-    flash[:success] = "技术介绍更新成功"
-    redirect_to skill_path(@skill)
+    if @skill.update(skill_params)
+      flash[:success] = "技术介绍更新成功"
+      redirect_to skill_path(@skill)
+    else
+      render 'edit'
+    end
   end
 
   def index
@@ -24,9 +27,12 @@ class SkillsController < ApplicationController
 
   def create
     @skill = current_user.skills.build(skill_params)
-    @skill.save
-    flash[:success] = "技术介绍创建成功"
-    redirect_to skills_path
+    if @skill.save
+      flash[:success] = "技术介绍创建成功"
+      redirect_to skills_path
+    else
+      render 'new'
+    end
   end
 
   def destroy

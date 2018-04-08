@@ -9,9 +9,12 @@ class EducationsController < ApplicationController
   end
 
   def update
-    @education.update(education_params)
-    flash[:success] = "教育经历更新成功"
-    redirect_to education_path(@education)
+    if @education.update(education_params)
+      flash[:success] = "教育经历更新成功"
+      redirect_to education_path(@education)
+    else
+      render 'edit'
+    end
   end
 
   def index
@@ -24,9 +27,12 @@ class EducationsController < ApplicationController
 
   def create
     @education = current_user.educations.build(education_params)
-    @education.save
-    flash[:success] = "教育经历创建成功"
-    redirect_to educations_path
+    if @education.save
+      flash[:success] = "教育经历创建成功"
+      redirect_to educations_path
+    else
+      render 'new'
+    end
   end
 
   def destroy

@@ -9,9 +9,12 @@ class ExperiencesController < ApplicationController
   end
 
   def update
-    @experience.update(experience_params)
-    flash[:success] = "工作经历更新成功"
-    redirect_to experience_path(@experience)
+    if @experience.update(experience_params)
+      flash[:success] = "工作经历更新成功"
+      redirect_to experience_path(@experience)
+    else
+      render 'edit'
+    end
   end
 
   def index
@@ -24,9 +27,12 @@ class ExperiencesController < ApplicationController
 
   def create
     @experience = current_user.experiences.build(experience_params)
-    @experience.save
-    flash[:success] = "工作经历创建成功"
-    redirect_to experiences_path
+    if @experience.save
+      flash[:success] = "工作经历创建成功"
+      redirect_to experiences_path
+    else
+      render 'new'
+    end
   end
 
   def destroy

@@ -4,6 +4,7 @@
         技术介绍
       </div>
       <div class="card-body">
+        <%= render 'errors' %>
         <%= form_for(@skill, url: skill_path(@skill), method: 'put') do |f| %>
         <div class="form-group row">
           <label class="col-sm-2 col-form-label text-secondary">名称</label>

@@ -82,3 +82,51 @@ zh:
           attributes:
             content:
               blank: "评论内容不能为空"
+        project:
+          attributes:
+            name:
+              blank: "名称不能为空"
+            tag:
+              blank: "标签不能为空"
+            time:
+              blank: "时期不能为空"
+            description:
+              blank: "项目描述不能为空"
+            weight:
+              blank: "权重值不能为空"
+        education:
+          attributes:
+            school:
+              blank: "学校不能为空"
+            degree:
+              blank: "学位不能为空"
+            major:
+              blank: "专业不能为空"
+            gpa:
+              blank: "GPA值不能为空"
+            time:
+              blank: "时期不能为空"
+            weight:
+              blank: "权重值不能为空"
+        skill:
+          attributes:
+            name:
+              blank: "名称不能为空"
+            weight: 
+              blank: "权重值不能为空"
+            description:
+              blank: "描述不能为空"
+        experience:
+          attributes:
+            company:
+              blank: "公司不能为空"
+            position:
+              blank: "职位不能为空"
+            description:
+              blank: "职位描述不能为空"
+            weight:
+              blank: "权重值不能为空"
+            time:
+              blank: "时期不能为空"
+
+
