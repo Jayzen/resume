@@ -7,11 +7,13 @@ class WelcomesController < ApplicationController
 
   private
     def get_variables
-      @socials = Social.order("weight desc")
-      @projects = Project.order("weight desc")
-      @educations = Education.order("weight desc")
-      @skills = Skill.order("weight desc")
-      @experiences = Experience.order("weight desc")
+      if logged_in?
+        @socials = current_user.socials.order("weight desc")
+        @projects = current_user.projects.order("weight desc")
+        @educations = current_user.educations.order("weight desc")
+        @skills = current_user.skills.order("weight desc")
+        @experiences = current_user.skills.order("weight desc")
+      end
     end
 
     def set_template

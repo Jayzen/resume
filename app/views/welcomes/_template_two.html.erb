@@ -2,7 +2,11 @@
   <header id="main-header">
     <div class="row no-gutters">
       <div class="col-lg-4 col-md-5">
-        <%= image_tag current_user.avatar.large.url %>
+        <% unless current_user.avatar.to_s.size == 0 %>
+          <%= image_tag current_user.avatar.large.url %>
+        <% else %>
+          <%= image_tag "avatar"%>
+        <% end %>
       </div>
       <div class="col-lg-8 col-md-7">
         <div class="d-flex flex-column">

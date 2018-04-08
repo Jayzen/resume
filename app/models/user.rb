@@ -4,11 +4,11 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   after_update :crop_avatar
 
-  before_save { self.email = email.downcase }
+  before_save :downcase_email, if: Proc.new { |user| user.email? }
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :name, presence: true, length: { maximum: 50 }
-  validates :email, presence: true, length: { maximum: 255}, uniqueness: { case_sensitive: false }
+  validates :name, presence: true, length: { maximum: 50 }, allow_nil: true
+  validates :email, presence: true, length: { maximum: 255}, uniqueness: { case_sensitive: false }, allow_nil: true
   validates :email, format: { with: VALID_EMAIL_REGEX }, unless: proc{ |user| user.email.blank? }
   validates :password, length: { minimum: 6 }, allow_nil: true
     
@@ -21,6 +21,10 @@ class User < ApplicationRecord
   has_many :socials, dependent: :destroy
   has_one :wechat, dependent: :destroy
   has_one :pdf_resume, dependent: :destroy
+
+  def downcase_email
+    self.email = email.downcase
+  end
 
   def crop_avatar
     avatar.recreate_versions! if crop_x.present?
@@ -50,6 +54,21 @@ class User < ApplicationRecord
 
     def new_token
       SecureRandom.urlsafe_base64
+    end
+
+    def find_by_omniauth(auth)
+      user = User.find_by_provider_and_nickname(auth["provider"], auth["info"]["nickname"])
+      user ? user : User.create_with_omniauth(auth)
+    end
+
+    def create_with_omniauth(auth)
+      create! do |user|
+        random_password = SecureRandom.hex(9)
+        user.provider = auth["provider"]
+        user.nickname = auth["info"]["nickname"]
+        user.password = random_password
+        user.password_confirmation = random_password
+      end
     end
   end
 end
