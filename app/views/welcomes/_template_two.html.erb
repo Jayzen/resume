@@ -112,9 +112,11 @@
 
   <footer id="main-footer" class="p-5 bg-dark text-white">
     <div class="row">
-      <div class="col-md-6">
-        <a href="#" class="btn btn-outline-light"><i class="fa fa-cloud"></i> Download Resume</a>
-      </div>
+      <% if current_user.pdf_resume %>
+        <div class="col-md-6">
+          <a href="<%= @pdf_resume.name.url %>" class="btn btn-outline-light"><i class="fa fa-cloud"></i> Download Resume</a>
+        </div>
+      <% end %>
     </div>
   </footer> 
 </div>
