@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.slug = nil
     if @user.update_attributes(user_params)
       flash[:success] = "用户更新成功!"
       redirect_to edit_user_path(@user)

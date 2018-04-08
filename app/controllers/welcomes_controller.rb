@@ -12,7 +12,7 @@ class WelcomesController < ApplicationController
         @projects = current_user.projects.order("weight desc")
         @educations = current_user.educations.order("weight desc")
         @skills = current_user.skills.order("weight desc")
-        @experiences = current_user.skills.order("weight desc")
+        @experiences = current_user.experiences.order("weight desc")
         @pdf_resume = current_user.pdf_resume
       end
     end
