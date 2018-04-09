@@ -78,6 +78,8 @@ zh:
             url:
               blank: "url不能为空"
               invalid: "url格式不正确"
+            weight:
+              blank: "权重值不能为空"
         comment:
           attributes:
             content:
