@@ -28,6 +28,7 @@ class WelcomesController < ApplicationController
     @skills = @user.skills.order("weight desc")
     @experiences = @user.experiences.order("weight desc")
     @pdf_resume = @user.pdf_resume 
+    @wechat = @user.wechat
     @template = @user.template
     case @template
     when 1
