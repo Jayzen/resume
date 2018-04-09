@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   resources :wechats
   resources :set_templates
   resources :pdf_resumes
+  get ":user_name", to: "welcomes#show", as: :online
 end

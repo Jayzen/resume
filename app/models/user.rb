@@ -68,6 +68,7 @@ class User < ApplicationRecord
         user.nickname = auth["info"]["nickname"]
         user.password = random_password
         user.password_confirmation = random_password
+        user.name = auth["info"]["nickname"] + "-" +RandomCode.generate_name_uuid
       end
     end
   end
