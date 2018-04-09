@@ -16,10 +16,12 @@
           <a href="<%= socials_path %>", class="btn <%= controller_name == 'socials' ? 'btn-primary' : 'btn-outline-secondary' %>">
             <i class="fa fa-qq fa-fw"></i> 社交信息</a>
         </div> 
-        <div class="p-1 item-hl align-self-center">
-          <a href="<%= edit_password_alter_path(current_user) %>", class="btn <%= controller_name == 'password_alters' ? 'btn-primary' : 'btn-outline-secondary' %>">
-            <i class="fa fa-key fa-fw"></i> 修改密码</a>
-        </div>
+        <% unless current_user.provider %>
+          <div class="p-1 item-hl align-self-center">
+            <a href="<%= edit_password_alter_path(current_user) %>", class="btn <%= controller_name == 'password_alters' ? 'btn-primary' : 'btn-outline-secondary' %>">
+              <i class="fa fa-key fa-fw"></i> 修改密码</a>
+          </div>
+        <% end %>
         <div class="p-1 item-hl align-self-center">
           <a href="<%= pdf_resumes_path %>", class="btn <%= controller_name == 'pdf_resumes' ? 'btn-primary' : 'btn-outline-secondary' %>">
             <i class="fa fa-cloud-upload fa-fw"></i> 上传简历</a>
