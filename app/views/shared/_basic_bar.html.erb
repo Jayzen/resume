@@ -27,12 +27,12 @@
             <i class="fa fa-cloud-upload fa-fw"></i> 上传简历</a>
         </div>
         <div class="p-1 item-hl align-self-center">
-          <a href="<%= online_path(current_user.name) %>", class="btn btn-outline-secondary", target="_blank">
-            <i class="fa fa-cloud fa-fw"></i> 在线简历</a>
-        </div>
-        <div class="p-1 item-hl align-self-center">
           <a href="<%= edit_set_template_path(current_user) %>", class="btn <%= controller_name == 'set_templates' ? 'btn-primary' : 'btn-outline-secondary' %>">
             <i class="fa fa-exchange fa-fw"></i> 设置模板</a>
+        </div>
+        <div class="p-1 item-hl align-self-center">
+          <a href="<%= online_path(current_user.name) %>", class="btn btn-outline-secondary", target="_blank">
+            <i class="fa fa-cloud fa-fw"></i> 在线简历</a>
         </div>
       </div>
     </div>

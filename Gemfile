@@ -35,6 +35,8 @@ gem 'rails-assets-jcrop', source: 'https://rails-assets.org'
 gem 'mini_magick', '~> 4.8'
 gem 'mysql2', '~> 0.4.4'
 gem 'omniauth-github'
+gem 'rack-mini-profiler'
+gem 'redis-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

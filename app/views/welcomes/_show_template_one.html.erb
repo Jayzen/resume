@@ -41,65 +41,70 @@
 
       <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
         <div class="my-auto">
-          <h1 class="mb-0">
-            <span class="text-primary"><%= @user.name %></span>
-          </h1>
-          <div class="subheading mb-5"><%= @user.city %>
-          <a href="mailto:<%= @user.email %>"><%= @user.email %></a>
-          </div>
-          <p class="mb-5"><%= @user.description %></p>
+          <% cache @user do %>
+            <h1 class="mb-0">
+              <span class="text-primary"><%= @user.name %></span>
+            </h1>
+            <div class="subheading mb-5"><%= @user.city %>
+              <a href="mailto:<%= @user.email %>"><%= @user.email %></a>
+            </div>
+            <p class="mb-5"><%= @user.description %></p>
+          <% end %>
           <ul class="list-inline list-social-icons mb-0">
             <% if @wechat %>
-              <li class="list-inline-item">
-                <a href="#" data-toggle="tooltip" title='<%= image_tag @wechat.name.middle.url, width: "200" %>'>
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li> 
-            <% end %>
-            <% @socials.each do |social| %>
-              <% case social.name %>
-                <% when "github" %> 
-                  <li class="list-inline-item">
-                    <a href="<%= social.url %>">
-                      <span class="fa-stack fa-lg">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                      </span>
-                    </a>
-                  </li>
-                <% when "weibo" %>
-                  <li class="list-inline-item">
-                    <a href="<%= social.url %>">
-                      <span class="fa-stack fa-lg">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                      </span>
-                    </a>
-                  </li>
-                <% when "facebook" %>
-                  <li class="list-inline-item">
-                    <a href="<%= social.url %>">
-                      <span class="fa-stack fa-lg">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                      </span>
-                    </a>
-                  </li>
-                  <% when "twitter" %>
-                  <li class="list-inline-item">
-                    <a href="<%= social.url %>">
-                      <span class="fa-stack fa-lg">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                      </span>
-                    </a>
-                  </li>
+              <% cache_if @wechat, @wechat do %>
+                <li class="list-inline-item">
+                  <a href="#" data-toggle="tooltip" title='<%= image_tag @wechat.name.middle.url, width: "200" %>'>
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                    </span>
+                  </a>
+                </li>
               <% end %>
             <% end %>
-
+            <% cache @socials do %>
+              <% @socials.each do |social| %>
+                <% case social.name %>
+                  <% when "github" %> 
+                    <li class="list-inline-item">
+                      <a href="<%= social.url %>">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                  <% when "weibo" %>
+                    <li class="list-inline-item">
+                      <a href="<%= social.url %>">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                  <% when "facebook" %>
+                    <li class="list-inline-item">
+                      <a href="<%= social.url %>">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    <% when "twitter" %>
+                    <li class="list-inline-item">
+                      <a href="<%= social.url %>">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                <% end %>    
+              <% end %>
+            <% end %>
           </ul>
         </div>
       </section>
@@ -107,7 +112,8 @@
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="projects">
         <div class="my-auto">
           <h2 class="mb-5">PROJECTS</h2>
-            <% @projects.each do |project| %>
+            <% cache @projects do %>
+              <% @projects.each do |project| %>
                 <div class="resume-item d-flex flex-column flex-md-row mb-5">
                   <div class="resume-content mr-auto">
                     <h3 class="mb-0"><%= project.name %></h3>
@@ -118,6 +124,7 @@
                     <span class="text-primary"><%= project.time %></span>
                   </div>
                 </div>
+              <% end %>
             <% end %>
         </div>
       </section>
@@ -125,25 +132,28 @@
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="education">
         <div class="my-auto">
           <h2 class="mb-5">Education</h2>
-           <% @educations.each do |education| %>
-             <div class="resume-item d-flex flex-column flex-md-row mb-5">
-               <div class="resume-content mr-auto">
-                 <h3 class="mb-0"><%= education.school %></h3>
-                 <div class="subheading mb-3"><%= education.degree %></div>
-                 <div><%= education.major%></div>
-                 <p>GPA: <%= education.gpa %></p>
-               </div>
-               <div class="resume-date text-md-right">
-                 <span class="text-primary"><%= education.time %></span>
-               </div>
+          <% cache @educations do %>
+            <% @educations.each do |education| %>
+              <div class="resume-item d-flex flex-column flex-md-row mb-5">
+                <div class="resume-content mr-auto">
+                  <h3 class="mb-0"><%= education.school %></h3>
+                  <div class="subheading mb-3"><%= education.degree %></div>
+                  <div><%= education.major%></div>
+                  <p>GPA: <%= education.gpa %></p>
+                </div>
+                <div class="resume-date text-md-right">
+                  <span class="text-primary"><%= education.time %></span>
+                </div>
               </div>
             <% end %>
+          <% end %>
         </div>
       </section>
 
      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
         <div class="my-auto">
           <h2 class="mb-5">Experience</h2>
+          <% cache @experiences do %>
             <% @experiences.each do |experience| %>
               <div class="resume-item d-flex flex-column flex-md-row">
                 <div class="resume-content mr-auto">
@@ -156,6 +166,7 @@
                 </div>
               </div>
             <% end %>
+          <% end %>
         </div>
 
       </section>
@@ -164,10 +175,12 @@
         <div class="my-auto">
           <h2 class="mb-5">Skills</h2>
           <div class="subheading mb-3">Programming Languages &amp; Tools</div>
-          <% @skills.each do |skill| %>
-            <ul class="fa-ul mb-0">
-              <li><i class="fa-li fa fa-check"></i><%= skill.name%>|<%= skill.description %></li>
-            </ul>
+          <% cache @skills do %>
+            <% @skills.each do |skill| %>
+              <ul class="fa-ul mb-0">
+                <li><i class="fa-li fa fa-check"></i><%= skill.name%>|<%= skill.description %></li>
+              </ul>
+            <% end %>
           <% end %>
         </div>
       </section>
@@ -175,15 +188,15 @@
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="download">
         <div class="my-auto">
           <h2 class="mb-5">Download</h2>
-          <% if @user.pdf_resume %>
-            <div class="subheading mb-3">
-              <a href="<%= @pdf_resume.name.url %>" class="btn btn-secondary btn-lg"><i class="fa fa-cloud"></i> Download Resume</a>
-            </div>
+          <% if @pdf_resume %>
+            <% cache_if @pdf_resume do %>
+              <div class="subheading mb-3">
+                <a href="<%= @pdf_resume.name.url %>" class="btn btn-secondary btn-lg"><i class="fa fa-cloud"></i> Download Resume</a>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </section>
-
-
     </div>
 
 

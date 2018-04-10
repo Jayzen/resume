@@ -22,9 +22,18 @@ Rails.application.configure do
       'Cache-Control' => "public, max-age=#{2.days.to_i}"
     }
   else
-    config.action_controller.perform_caching = false
+    config.action_controller.perform_caching = true
 
-    config.cache_store = :null_store
+    config.cache_store = :redis_store, {
+      host: 'localhost',
+      port: 6379,
+      db: 0,
+      namespace: '056redis'
+    }
+    
+    config.public_file_server.headers = {
+      'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"
+    }
   end
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
