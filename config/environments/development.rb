@@ -25,10 +25,10 @@ Rails.application.configure do
     config.action_controller.perform_caching = true
 
     config.cache_store = :redis_store, {
-      host: 'localhost',
-      port: 6379,
-      db: 0,
-      namespace: '056redis'
+      host: Rails.application.credentials.dig(:development, :redis_host),
+      port: Rails.application.credentials.dig(:development, :redis_port),
+      db: Rails.application.credentials.dig(:development, :redis_db),
+      namespace: Rails.application.credentials.dig(:development, :redis_namespace)
     }
     
     config.public_file_server.headers = {
