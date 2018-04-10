@@ -189,7 +189,7 @@
         <div class="my-auto">
           <h2 class="mb-5">Download</h2>
           <% if @pdf_resume %>
-            <% cache_if @pdf_resume do %>
+            <% cache_if @pdf_resume, @pdf_resume do %>
               <div class="subheading mb-3">
                 <a href="<%= @pdf_resume.name.url %>" class="btn btn-secondary btn-lg"><i class="fa fa-cloud"></i> Download Resume</a>
               </div>
