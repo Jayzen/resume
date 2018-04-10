@@ -27,12 +27,14 @@ class WechatsController < ApplicationController
 
   def edit
     @wechat = current_user.wechat
+    render action: :new
   end
 
   def update
     if params[:wechat].nil?
-      current_user.wechat.errors.add(:name, "必须提交微信二维码!")
-      render 'edit'
+      @wechat = current_user.build_wechat
+      @wechat.errors.add(:name, "必须提交微信二维码!")
+      render 'new'
     elsif
       @wechat = current_user.wechat.update_attributes(wechat_params)
       flash[:success] = "微信二维码更新成功!"

@@ -8,7 +8,7 @@ class PdfResumesController < ApplicationController
   def create
     if params[:pdf_resume].nil? 
       @pdf_resume = current_user.build_pdf_resume
-      @pdf_resume.errors.add(:name, "必须提交PDF格式简历!")
+      @pdf_resume.errors.add(:name, "不能提交空文件!")
       render 'new'
     elsif
       @pdf_resume = current_user.build_pdf_resume(pdf_resume_params)
@@ -27,12 +27,14 @@ class PdfResumesController < ApplicationController
 
   def edit
     @pdf_resume = current_user.pdf_resume
+    render action: :new
   end
 
   def update
     if params[:pdf_resume].nil?
-      current_user.pdf_resume.errors.add(:name, "必须提交PDF格式简历!")
-      render 'edit'
+      @pdf_resume = current_user.build_pdf_resume
+      @pdf_resume.errors.add(:name, "不能提交空文件!")
+      render 'new'
     elsif
       @pdf_resume = current_user.pdf_resume.update_attributes(pdf_resume_params)
       flash[:success] = "PDF简历提交成功!"
