@@ -6,6 +6,7 @@ class SkillsController < ApplicationController
   end
 
   def edit
+    render action: :new
   end
 
   def update

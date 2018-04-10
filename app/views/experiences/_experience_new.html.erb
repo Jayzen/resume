@@ -5,7 +5,9 @@
       </div>
       <div class="card-body">
         <%= render 'errors' %>
-        <%= form_for(@experience, url: experiences_path, method: 'post') do |f| %>
+        <%= form_for(@experience, 
+                     url: (@experience.new_record? ? experiences_path : experience_path(@experience)), 
+                     method: (@experience.new_record? ? 'post' : 'put')) do |f| %>
         <div class="form-group row">
           <label class="col-sm-2 col-form-label text-secondary">公司</label>
           <div class="col-sm-10">

@@ -5,13 +5,23 @@
       </div>
       <div class="card-body">
         <%= render 'errors' %>
-        <%= form_for(@social, url: socials_path, method: 'post') do |f| %>
+        <%= form_for(@social, 
+                     url: (@social.new_record? ? socials_path : social_path(@social)), 
+                     method: (@social.new_record? ? 'post' : 'put')) do |f| %>
         <div class="form-group row">
           <label class="col-sm-2 col-form-label text-secondary">名称</label>
           <div class="col-sm-10">
-            <select name="social[name]" class="form-control">
-              <%= options_for_select([[""],["weibo"], ["github"], ["twitter"], ["facebook"]]) %>
-            </select>
+            <% if @social.new_record? %>
+              <select name="social[name]" class="form-control">
+                <%= options_for_select([[""],["weibo"], ["github"], ["twitter"], ["facebook"]]) %>
+              </select>
+            <% else %>
+              <select name="social[name]" class="form-control">
+                <% ["weibo", "github", "twitter", "facebook"].each do |category| %>
+                  <option value="<%= category %>" <%= @social.name == category ? 'selected' : '' %>><%= category %></option>
+                <% end %>
+              </select>
+            <% end %>
           </div>
         </div>
 

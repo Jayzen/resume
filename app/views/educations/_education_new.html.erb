@@ -5,7 +5,9 @@
       </div>
       <div class="card-body">
         <%= render 'errors' %>
-        <%= form_for(@education, url: educations_path, method: 'post') do |f| %>
+        <%= form_for(@education, 
+                     url: (@education.new_record? ? educations_path : education_path(@education)),
+                     method: (@education.new_record? ? 'post' : 'put')) do |f| %>
         <div class="form-group row">
           <label class="col-sm-2 col-form-label text-secondary">学校</label>
           <div class="col-sm-10">
