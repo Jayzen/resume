@@ -1,28 +1,28 @@
 <div class="col-md-10 col-sm-8">
     <div class="card">
       <div class="card-header text-secondary text-center">
-        社交信息列表
+        <%= t('social_lists') %>
       </div>
       <div class="card-body">
         <ul class="list-group list-group-flush">
           <% @socials.each do |social| %>
             <li class="list-group-item text-secondary">
               <%= social.name %> &nbsp
-              <%= link_to "查看", social_path(social), class: "text-secondary" %>|
-              <%= link_to "编辑", edit_social_path(social), class: "text-secondary" %>|
-              <%= link_to "删除", social, method: :delete, data: { confirm: "确定删除?"}, class: "text-secondary" %>
+              <%= link_to t('show'), social_path(social), class: "text-secondary" %>|
+              <%= link_to t('edit'), edit_social_path(social), class: "text-secondary" %>|
+              <%= link_to t('destroy'), social, method: :delete, data: { confirm: "确定删除?"}, class: "text-secondary" %>
             </li>
           <% end %>
           <% if current_user.wechat %>
             <li class="list-group-item text-secondary">
               wechat &nbsp
-              <%= link_to "查看", wechat_path(current_user.wechat), class: "text-secondary" %>|
-              <%= link_to "编辑", edit_wechat_path(current_user.wechat), class: "text-secondary" %>|
-              <%= link_to "删除", current_user.wechat, method: :delete, data: { confirm: "确定删除?"}, class: "text-secondary" %>
+              <%= link_to t('show'), wechat_path(current_user.wechat), class: "text-secondary" %>|
+              <%= link_to t('edit'), edit_wechat_path(current_user.wechat), class: "text-secondary" %>|
+              <%= link_to t('destroy'), current_user.wechat, method: :delete, data: { confirm: "确定删除?"}, class: "text-secondary" %>
             </li>
           <% end %>
           <li class="list-group-item text-secondary">
-            <%= link_to "新建社交信息", new_social_path, class: "btn btn-primary btn-sm" %>
+            <%= link_to t('new_social'), new_social_path, class: "btn btn-primary btn-sm" %>
             <% unless current_user.wechat %>
               <%= link_to "新建微信信息", new_wechat_path, class: "btn btn-primary btn-sm" %>
             <% end %>

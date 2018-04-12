@@ -1,7 +1,7 @@
 <div class="col-md-10">
     <div class="card">
       <div class="card-header text-secondary text-center">
-        技术介绍
+        <%= @skill.new_record? ? t('new_skill') : t('update_skill') %>
       </div>
       <div class="card-body">
         <%= render 'errors' %>
@@ -9,21 +9,21 @@
                      url: (@skill.new_record? ? skills_path : skill_path(@skill)), 
                      method: (@skill.new_record? ? 'post' : 'put')) do |f| %>
         <div class="form-group row">
-          <label class="col-sm-2 col-form-label text-secondary">名称</label>
+          <label class="col-sm-2 col-form-label text-secondary"><%= t('skill_name') %></label>
           <div class="col-sm-10">
             <%= f.text_field :name, class: "form-control", autofocus: true %>
           </div>
         </div>
 
         <div class="form-group row">
-         <label class="col-sm-2 col-form-label text-secondary">权重</label>
+          <label class="col-sm-2 col-form-label text-secondary"><%= t('weight') %></label>
           <div class="col-sm-10">
             <%= f.number_field :weight, class: "form-control"%>
           </div>
         </div> 
 
         <div class="form-group row">
-         <label class="col-sm-2 col-form-label text-secondary">描述</label>
+          <label class="col-sm-2 col-form-label text-secondary"><%= t('skill_description') %></label>
           <div class="col-sm-10">
             <%= f.text_area :description, class: "form-control" %>
           </div>
@@ -32,7 +32,7 @@
         <div class="form-group row">
           <label class="col-sm-2 col-form-label"></label>
           <div class="col-sm-10">
-            <%= f.submit (@skill.new_record? ? "新建技术介绍" : "更新技术介绍"), class: "btn btn-primary btn-sm"%>
+            <%= f.submit (@skill.new_record? ? t('new_skill') : t('update_skill')), class: "btn btn-primary btn-sm"%>
           </div>
         </div>
         <% end %>

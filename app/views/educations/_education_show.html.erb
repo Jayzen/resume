@@ -1,30 +1,30 @@
 <div class="col-md-10">
     <div class="card">
       <div class="card-header text-secondary text-center">
-        教育经历|<%= @education.school %>
+        <%= t('education_list')%> | <%= @education.school %>
       </div>
       <div class="card-body">
         <div class="form-group mb-0">
-          <label class="col-sm-12 col-form-label text-secondary">学校: <%= @education.school %></label>
+          <label class="col-sm-12 col-form-label text-secondary"><%= t('school') %>: <%= @education.school %></label>
         </div>
         <div class="form-group mb-0">
-          <label class="col-sm-12 col-form-label text-secondary">学位: <%= @education.degree %></label>
+          <label class="col-sm-12 col-form-label text-secondary"><%= t('degree') %>: <%= @education.degree %></label>
         </div> 
         <div class="form-group mb-0">
-          <label class="col-sm-12 col-form-label text-secondary">专业: <%= @education.major %></label>
+          <label class="col-sm-12 col-form-label text-secondary"><%= t('major') %>: <%= @education.major %></label>
         </div>
         <div class="form-group mb-0">
-          <label class="col-sm-12 col-form-label text-secondary">GPA: <%= @education.gpa %></label>
+          <label class="col-sm-12 col-form-label text-secondary"><%= t('gpa') %>: <%= @education.gpa %></label>
         </div>
         <div class="form-group mb-0">
-          <label class="col-sm-12 col-form-label text-secondary">时期: <%= @education.time %></label>
+          <label class="col-sm-12 col-form-label text-secondary"><%= t('education_time') %>: <%= @education.time %></label>
         </div>
         <div class="form-group mb-0">
-          <label class="col-sm-12 col-form-label text-secondary">权重: <%= @education.weight %></label>
+          <label class="col-sm-12 col-form-label text-secondary"><%= t('weight') %>: <%= @education.weight %></label>
         </div>
      
         <div class="form-group mb-0">
-          <label class="col-sm-12 col-form-label"><%= link_to "返回教育经历列表", educations_path, class: "btn btn-primary btn-sm" %></label>
+          <label class="col-sm-12 col-form-label"><%= link_to t('education_list'), educations_path, class: "btn btn-primary btn-sm" %></label>
         </div>
       </div>
     </div>

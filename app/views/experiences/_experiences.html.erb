@@ -1,20 +1,20 @@
 <div class="col-md-10 col-sm-8">
     <div class="card">
       <div class="card-header text-secondary text-center">
-        工作经历列表
+        <%= t('work_experience_list') %>
       </div>
       <div class="card-body">
         <ul class="list-group list-group-flush">
           <% @experiences.each do |experience| %>
             <li class="list-group-item text-secondary">
               <%= experience.company %> &nbsp
-              <%= link_to "查看", experience_path(experience), class: "text-secondary" %>|
-              <%= link_to "编辑", edit_experience_path(experience), class: "text-secondary" %>|
-              <%= link_to "删除", experience, method: :delete, data: { confirm: "确定删除?"}, class: "text-secondary" %>
+              <%= link_to t('show'), experience_path(experience), class: "text-secondary" %>|
+              <%= link_to t('edit'), edit_experience_path(experience), class: "text-secondary" %>|
+              <%= link_to t('destroy'), experience, method: :delete, data: { confirm: "确定删除?"}, class: "text-secondary" %>
             </li>
           <% end %>
           <li class="list-group-item text-secondary">
-            <%= link_to "新建工作经历", new_experience_path, class: "btn btn-primary btn-sm" %>
+            <%= link_to t('new_work_experience'), new_experience_path, class: "btn btn-primary btn-sm" %>
           </li>
         </ul>
       </div>

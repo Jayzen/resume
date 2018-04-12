@@ -13,7 +13,9 @@ module Resume
     config.load_defaults 5.2
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :zh
+    config.i18n.available_locales = [:en, :zh]
     config.encoding = 'utf-8'
+
 
     config.generators do |generator|
       generator.assets false

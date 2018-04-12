@@ -1,34 +1,34 @@
 <div class="col-md-10">
     <div class="card">
       <div class="card-header text-secondary text-center">
-        基本信息
+        <%= t('essential_information') %>
       </div>
       <div class="card-body">
         <%= render 'shared/errors' %>
         <%= form_for(@user, url: user_path(@user), method: 'put') do |f| %>
         <div class="form-group row">
-          <label class="col-sm-2 col-form-label text-secondary">用户名</label>
+          <label class="col-sm-2 col-form-label text-secondary"><%= t('user_name') %></label>
           <div class="col-sm-10">
             <%= f.text_field :name, class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group row">
-          <label class="col-sm-2 col-form-label text-secondary">城市</label>
+          <label class="col-sm-2 col-form-label text-secondary"><%= t('city') %></label>
           <div class="col-sm-10">
             <%= f.text_field :city, class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group row">
-          <label class="col-sm-2 col-form-label text-secondary">邮箱</label>
+          <label class="col-sm-2 col-form-label text-secondary"><%= t('email') %></label>
           <div class="col-sm-10">
             <%= f.email_field :email, class: "form-control"%>
           </div>
         </div>
         
         <div class="form-group row">
-          <label class="col-sm-2 col-form-label text-secondary">个人说明</label>
+          <label class="col-sm-2 col-form-label text-secondary"><%= t('user_description') %></label>
           <div class="col-sm-10">
             <%= f.text_area :description, class: "form-control" %>
           </div>
@@ -37,7 +37,7 @@
         <div class="form-group row">
           <label class="col-sm-2 col-form-label"></label>
           <div class="col-sm-10">
-            <%= f.submit "更新资料", class: "btn btn-primary btn-sm" %>
+            <%= f.submit t('update_information'), class: "btn btn-primary btn-sm" %>
           </div>
         </div>
         <% end %>

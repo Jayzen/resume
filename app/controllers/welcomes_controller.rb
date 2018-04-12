@@ -37,4 +37,14 @@ class WelcomesController < ApplicationController
       render layout: "template_two"
     end
   end
+
+  def set_zh
+    cookies[:locale] = :zh
+    redirect_to root_path
+  end
+
+  def set_en
+    cookies[:locale] = :en
+    redirect_to root_path
+  end
 end

@@ -1,20 +1,20 @@
 <div class="col-md-10 col-sm-8">
     <div class="card">
       <div class="card-header text-secondary text-center">
-        教育经历列表
+        <%= t('education_list') %>
       </div>
       <div class="card-body">
         <ul class="list-group list-group-flush">
           <% @educations.each do |education| %>
             <li class="list-group-item text-secondary">
               <%= education.school %> &nbsp
-              <%= link_to "查看", education_path(education), class: "text-secondary" %>|
-              <%= link_to "编辑", edit_education_path(education), class: "text-secondary" %>|
-              <%= link_to "删除", education, method: :delete, data: { confirm: "确定删除?"}, class: "text-secondary" %>
+              <%= link_to t('show'), education_path(education), class: "text-secondary" %>|
+              <%= link_to t('edit'), edit_education_path(education), class: "text-secondary" %>|
+              <%= link_to t('destroy'), education, method: :delete, data: { confirm: t('confirm_delete') }, class: "text-secondary" %>
             </li>
           <% end %>
           <li class="list-group-item text-secondary">
-            <%= link_to "新建教育经历", new_education_path, class: "btn btn-primary btn-sm" %>
+            <%= link_to t('new_education'), new_education_path, class: "btn btn-primary btn-sm" %>
           </li>
         </ul>
       </div>

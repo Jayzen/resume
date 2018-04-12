@@ -1,7 +1,7 @@
 <div class="col-md-10">
     <div class="card">
       <div class="card-header text-secondary text-center">
-        工作经历
+        <%= @experience.new_record? ? t('new_work_experience') : t('update_work_experience') %>
       </div>
       <div class="card-body">
         <%= render 'errors' %>
@@ -9,35 +9,35 @@
                      url: (@experience.new_record? ? experiences_path : experience_path(@experience)), 
                      method: (@experience.new_record? ? 'post' : 'put')) do |f| %>
         <div class="form-group row">
-          <label class="col-sm-2 col-form-label text-secondary">公司</label>
+          <label class="col-sm-2 col-form-label text-secondary"><%= t('company') %></label>
           <div class="col-sm-10">
             <%= f.text_field :company, class: "form-control", autofocus: true %>
           </div>
         </div>
 
         <div class="form-group row">
-          <label class="col-sm-2 col-form-label text-secondary">职位</label>
+          <label class="col-sm-2 col-form-label text-secondary"><%= t('position') %></label>
           <div class="col-sm-10">
             <%= f.text_field :position, class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group row">
-          <label class="col-sm-2 col-form-label text-secondary">时期</label>
+          <label class="col-sm-2 col-form-label text-secondary"><%= t('work_time') %></label>
           <div class="col-sm-10">
             <%= f.text_field :time, class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group row">
-          <label class="col-sm-2 col-form-label text-secondary">职位描述</label>
+          <label class="col-sm-2 col-form-label text-secondary"><%= t('work_description') %></label>
           <div class="col-sm-10">
             <%= f.text_area :description, class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group row">
-         <label class="col-sm-2 col-form-label text-secondary">权重</label>
+          <label class="col-sm-2 col-form-label text-secondary"><%= t('weight') %></label>
           <div class="col-sm-10">
             <%= f.number_field :weight, class: "form-control"%>
           </div>
@@ -46,7 +46,7 @@
         <div class="form-group row">
           <label class="col-sm-2 col-form-label"></label>
           <div class="col-sm-10">
-            <%= f.submit (@experience.new_record? ? "新建工作经历" : "更新工作经历"), class: "btn btn-primary btn-sm"%>
+            <%= f.submit (@experience.new_record? ? t('new_work_experience') : t('update_work_experience')), class: "btn btn-primary btn-sm"%>
           </div>
         </div>
         <% end %>

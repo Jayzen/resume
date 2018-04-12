@@ -1,27 +1,27 @@
 <div class="col-md-10">
     <div class="card">
       <div class="card-header text-secondary text-center">
-        项目经历|<%= @project.name %>
+        <%= t('project_lists') %>&nbsp|&nbsp<%= @project.name %>
       </div>
       <div class="card-body">
         <div class="form-group mb-0">
-          <label class="col-sm-12 col-form-label text-secondary">公司: <%= @project.name %></label>
+          <label class="col-sm-12 col-form-label text-secondary"><%= t('project_name') %>: <%= @project.name %></label>
         </div>
         <div class="form-group mb-0">
-          <label class="col-sm-12 col-form-label text-secondary">职位: <%= @project.tag %></label>
+          <label class="col-sm-12 col-form-label text-secondary"><%= t('project_tag') %>: <%= @project.tag %></label>
         </div> 
         <div class="form-group mb-0">
-          <label class="col-sm-12 col-form-label text-secondary">时期: <%= @project.time %></label>
+          <label class="col-sm-12 col-form-label text-secondary"><%= t('project_time') %>: <%= @project.time %></label>
         </div>
         <div class="form-group mb-0">
-          <label class="col-sm-12 col-form-label text-secondary">项目描述: <%= @project.description %></label>
+          <label class="col-sm-12 col-form-label text-secondary"><%= t('project_description') %>: <%= @project.description %></label>
         </div>
         <div class="form-group mb-0">
-          <label class="col-sm-12 col-form-label text-secondary">权重: <%= @project.weight %></label>
+          <label class="col-sm-12 col-form-label text-secondary"><%= t('weight') %>: <%= @project.weight %></label>
         </div>
      
         <div class="form-group mb-0">
-          <label class="col-sm-12 col-form-label"><%= link_to "返回项目经历列表", projects_path, class: "btn btn-primary btn-sm" %></label>
+          <label class="col-sm-12 col-form-label"><%= link_to t('project_lists'), projects_path, class: "btn btn-primary btn-sm" %></label>
         </div>
       </div>
     </div>

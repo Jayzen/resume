@@ -1,9 +1,11 @@
 <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
   <header class="masthead mb-auto">
     <div class="inner">
-      <h3 class="masthead-brand">Resume</h3>
+      <h3 class="masthead-brand"><%= t 'resume' %></h3>
       <nav class="nav nav-masthead justify-content-center">
-        <a class="nav-link active" href="<%= root_path %>">Home</a>
+        <a class="nav-link" href="<%= root_path %>"><%= t 'home' %></a>
+        <a class="nav-link <%= cookies[:locale] == "en" ? "active" : "" %>" href="<%= set_en_path %>">English</a>
+        <a class="nav-link <%= cookies[:locale] == "zh" ? "active" : "" %>" href="<%= set_zh_path %>">中文</a>
       </nav>
     </div>
   </header>
@@ -39,8 +41,8 @@
       </div>
     </div>
  
-    <p class="lead mt-4"> A customized and neat resume platform.</p>
-    <p class="lead"><a href="<%= login_path %>" class="btn btn-lg btn-secondary">Login</a></p>
+    <p class="lead mt-4"><%= t 'app_description' %></p>
+    <p class="lead"><a href="<%= login_path %>" class="btn btn-lg btn-secondary"><%= t 'login' %></a></p>
   </main>
 
   <footer class="mastfoot mt-auto">

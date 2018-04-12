@@ -1,7 +1,7 @@
 <div class="col-md-10">
     <div class="card">
       <div class="card-header text-secondary text-center">
-        社交信息
+        <%= @social.new_record? ? t('new_social') : t('update_social') %>
       </div>
       <div class="card-body">
         <%= render 'errors' %>
@@ -9,7 +9,7 @@
                      url: (@social.new_record? ? socials_path : social_path(@social)), 
                      method: (@social.new_record? ? 'post' : 'put')) do |f| %>
         <div class="form-group row">
-          <label class="col-sm-2 col-form-label text-secondary">名称</label>
+          <label class="col-sm-2 col-form-label text-secondary"><%= t('social_name') %></label>
           <div class="col-sm-10">
             <% if @social.new_record? %>
               <select name="social[name]" class="form-control">
@@ -26,14 +26,14 @@
         </div>
 
         <div class="form-group row">
-          <label class="col-sm-2 col-form-label text-secondary">url</label>
+          <label class="col-sm-2 col-form-label text-secondary"><%= t('url') %></label>
           <div class="col-sm-10">
             <%= f.text_field :url, class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group row">
-         <label class="col-sm-2 col-form-label text-secondary">权重</label>
+          <label class="col-sm-2 col-form-label text-secondary"><%= t('weight') %></label>
           <div class="col-sm-10">
             <%= f.number_field :weight, class: "form-control"%>
           </div>
@@ -42,7 +42,7 @@
         <div class="form-group row">
           <label class="col-sm-2 col-form-label"></label>
           <div class="col-sm-10">
-            <%= f.submit (@social.new_record? ? "新建社交信息" : "更新社交信息"), class: "btn btn-primary btn-sm"%>
+            <%= f.submit (@social.new_record? ? t('new_social') : t('update_social')), class: "btn btn-primary btn-sm"%>
           </div>
         </div>
         <% end %>

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm navbar-light mb-3" style="background:  #FFFFFF" id="top">
   <div class="container">
-    <%= link_to "Resume", root_path, class: "navbar-brand text-secondary" %>
+    <%= link_to t('resume'), root_path, class: "navbar-brand text-secondary" %>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
@@ -19,14 +19,14 @@
                 <% end %>
               </a>
               <div class="dropdown-menu dropdown-menu-right">
-                <%= link_to "基本信息设置", edit_user_path(current_user), class: "dropdown-item text-secondary" %>
-                <%= link_to "简历信息设置", projects_path, class: "dropdown-item text-secondary" %>
+                <%= link_to t('basic_settings'), edit_user_path(current_user), class: "dropdown-item text-secondary" %>
+                <%= link_to t('resume_settings'), projects_path, class: "dropdown-item text-secondary" %>
                 <div class="dropdown-divider"></div>
-                <%= link_to "退出", logout_path, method: "delete", class: "dropdown-item text-secondary" %>
+                <%= link_to t('logout'), logout_path, method: "delete", class: "dropdown-item text-secondary" %>
               </div>
             </li>
           <% else %>
-            <li class="nav-item"><%= link_to "登录", login_path, class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to t('login'), login_path, class: "nav-link" %></li>
           <% end -%>
         </ul>
       </div>

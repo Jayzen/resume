@@ -1,13 +1,13 @@
 <% provide(:title, '用户登录') %>
 <%= form_for(:session, url: login_path) do |f| %>
   <div class="form-group row">
-    <label for="staticEmail" class="col-sm-2 col-form-label text-secondary">邮箱</label>
+    <label for="staticEmail" class="col-sm-2 col-form-label text-secondary"><%= t('email') %></label>
     <div class="col-sm-10">
       <%= f.email_field :email, class: "form-control", autofocus: true %>
     </div>
   </div>
   <div class="form-group row mb-0">
-    <label for="inputPassword" class="col-sm-2 col-form-label text-secondary">密码</label>
+    <label for="inputPassword" class="col-sm-2 col-form-label text-secondary"><%= t('password') %></label>
     <div class="col-sm-10">
       <%= f.password_field :password, class: "form-control" %>
     </div>
@@ -18,7 +18,7 @@
     <div class="col-sm-10">
       <div class="form-check">
         <%= f.check_box :remember_me, class: "form-check-input" %>
-        <label class="form-check-label text-secondary"><small>保存登录记录</small></label>
+        <label class="form-check-label text-secondary"><small><%= t('remember_me') %></small></label>
       </div>
     </div>
   </div>
@@ -26,8 +26,8 @@
   <div class="form-group row">
     <label class="col-sm-2 col-form-label"></label>
     <div class="col-sm-10">
-      <%= f.submit "用户登录", class: "btn btn-primary"%>
-      <a href="/auth/github", class="btn btn-primary"><i class="fa fa-github fa-lg"></i>&nbsp登录</a>
+      <%= f.submit t('user_login'), class: "btn btn-primary"%>
+      <a href="/auth/github", class="btn btn-primary"><i class="fa fa-github fa-lg"></i>&nbsp<%= t('login') %></a>
     </div>
   </div>
 <% end %>
