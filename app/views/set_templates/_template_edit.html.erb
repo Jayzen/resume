@@ -1,7 +1,7 @@
 <div class="col-md-10">
   <div class="card">
     <div class="card-header text-secondary text-center">
-      设置模板
+      <%= t('set_template') %>
     </div>
     <div class="col-md-8 m-auto"> 
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -9,13 +9,13 @@
         <div class="carousel-item active">
           <%= image_tag "carousel_one.png", class: "d-block w-100" %>
           <div class="carousel-caption d-none d-md-block">
-            <h5 class="text-danger">模板1</h5>
+            <h5 class="text-danger"><%= t('template_one') %></h5>
           </div>
         </div>
         <div class="carousel-item">
           <%= image_tag "carousel_two.png", class: "d-block w-100" %>
           <div class="carousel-caption d-none d-md-block">
-            <h5 class="text-danger">模板2</h5>
+            <h5 class="text-danger"><%= t('template_two') %></h5>
           </div>
         </div>
       </div>
@@ -38,20 +38,20 @@
             <div class="form-check">
               <input class="form-check-input" type="radio" name="set_template[template]"  value=1  <%= current_user.template == 1 ? "checked" : ""%>>
               <label class="form-check-label text-secondary">
-                模板1
+                <%= t('template_one') %>
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="set_template[template]"  value=2 <%= current_user.template == 2 ? "checked" : ""%>>
               <label class="form-check-label text-secondary">
-                模板2
+                <%= t('template_two') %>
               </label>
             </div>
           </div>
         </div>
         <div class="form-group row">
           <div class="col-sm-10">
-            <%= f.submit "设置模板", class: "btn btn-primary btn-sm"%>
+            <%= f.submit t('set_template'), class: "btn btn-primary btn-sm"%>
           </div> 
         </div>
       <% end %>

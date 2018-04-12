@@ -10,7 +10,7 @@
               <%= social.name %> &nbsp
               <%= link_to t('show'), social_path(social), class: "text-secondary" %>|
               <%= link_to t('edit'), edit_social_path(social), class: "text-secondary" %>|
-              <%= link_to t('destroy'), social, method: :delete, data: { confirm: "确定删除?"}, class: "text-secondary" %>
+              <%= link_to t('destroy'), social, method: :delete, data: { confirm: t('confirm_delete') }, class: "text-secondary" %>
             </li>
           <% end %>
           <% if current_user.wechat %>
@@ -18,13 +18,13 @@
               wechat &nbsp
               <%= link_to t('show'), wechat_path(current_user.wechat), class: "text-secondary" %>|
               <%= link_to t('edit'), edit_wechat_path(current_user.wechat), class: "text-secondary" %>|
-              <%= link_to t('destroy'), current_user.wechat, method: :delete, data: { confirm: "确定删除?"}, class: "text-secondary" %>
+              <%= link_to t('destroy'), current_user.wechat, method: :delete, data: { confirm: t('confirm_delete') }, class: "text-secondary" %>
             </li>
           <% end %>
           <li class="list-group-item text-secondary">
             <%= link_to t('new_social'), new_social_path, class: "btn btn-primary btn-sm" %>
             <% unless current_user.wechat %>
-              <%= link_to "新建微信信息", new_wechat_path, class: "btn btn-primary btn-sm" %>
+              <%= link_to t('new_wechat'), new_wechat_path, class: "btn btn-primary btn-sm" %>
             <% end %>
           </li>
         </ul>

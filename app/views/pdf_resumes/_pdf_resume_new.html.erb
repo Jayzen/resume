@@ -1,7 +1,7 @@
 <div class="col-md-10">
   <div class="card">
     <div class="card-header text-secondary text-center">
-      提交PDF简历
+      <%= t('upload_pdf_resume') %>
     </div>
     <div class="card-body">
       <%= render 'errors' %>
@@ -13,7 +13,7 @@
             <div class="d-flex flex-row row-hl">
               <div class="item-hl">
                 <a href="#", class="btn btn-sm text-secondary", id="button_trigger" >
-                  <i class="fa fa-upload fa-fw"></i>PDF简历上传
+                  <i class="fa fa-upload fa-fw"></i><%= t('upload_pdf_resume') %>
                 </a>
               </div>
               <div class="item-hl">
@@ -26,7 +26,7 @@
   
         <div class="form-group row">
           <div class="col-sm-10">
-            <%= f.submit (@pdf_resume.new_record? ? "提交PDF简历" : "重新提交PDF简历"), class: "btn btn-primary btn-sm" %>
+            <%= f.submit (@pdf_resume.new_record? ? t('upload') : t('reupload')), class: "btn btn-primary btn-sm" %>
           </div> 
         </div>
       <% end %>

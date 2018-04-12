@@ -1,15 +1,15 @@
 <div class="col-md-10">
     <div class="card">
       <div class="card-header text-secondary text-center">
-        PDF简历
+        <%= t('pdf_resume') %>
       </div>
       <div class="card-body">
         <ul class="list-group list-group-flush">
           <li class="list-group-item text-secondary">
-            pdf文件已经上传
-            <%= link_to "下载", @pdf_resume.name.url, class: "text-secondary" %>|
-            <%= link_to "重新上传", edit_pdf_resume_path(@pdf_resume), class: "text-secondary" %>|
-            <%= link_to "删除", @pdf_resume, method: :delete, data: { confirm: "确定删除?"}, class: "text-secondary" %>
+            <%= t('pdf_resume_uploaded') %> | 
+            <%= link_to t('download'), @pdf_resume.name.url, class: "text-secondary" %>|
+            <%= link_to t('reupload'), edit_pdf_resume_path(@pdf_resume), class: "text-secondary" %>|
+            <%= link_to t('destroy'), @pdf_resume, method: :delete, data: { confirm: "确定删除?"}, class: "text-secondary" %>
           </li>
         </ul>
       </div>

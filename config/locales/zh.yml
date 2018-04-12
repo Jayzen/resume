@@ -61,7 +61,22 @@ zh:
   update_social: "更新社交信息"
   social_name: "名称"
   url: "url"
-
+  upload_avatar: "上传头像"
+  upload: "上传"
+  download: "下载"
+  reupload: "重新上传"
+  preview_avatar: "头像预览"
+  tailor_avatar: "头像裁剪"
+  set_template: "设置模板"
+  template_one: "模板1"
+  template_two: "模板2"
+  upload_pdf_resume: "上传PDF简历"
+  pdf_resume: "PDF简历"
+  pdf_resume_uploaded: "PDF简历已经上传"
+  wechat_two_dimension_code: "微信二维码"
+  upload_wechat_two_dimension_code: "上传微信二维码"
+  reupload_wechat_two_dimension_code: "重新上传微信二维码"
+  new_wechat: "新建微信信息"
   views:
     pagination:
       first: "&laquo; 首页"
