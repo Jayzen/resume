@@ -4,7 +4,7 @@
         <%= @social.new_record? ? t('new_social') : t('update_social') %>
       </div>
       <div class="card-body">
-        <%= render 'errors' %>
+        <%= render partial: 'shared/errors', locals: { demo: @social } %>
         <%= form_for(@social, 
                      url: (@social.new_record? ? socials_path : social_path(@social)), 
                      method: (@social.new_record? ? 'post' : 'put')) do |f| %>

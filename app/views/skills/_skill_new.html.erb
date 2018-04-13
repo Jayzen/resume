@@ -4,7 +4,7 @@
         <%= @skill.new_record? ? t('new_skill') : t('update_skill') %>
       </div>
       <div class="card-body">
-        <%= render 'errors' %>
+        <%= render partial: 'shared/errors', locals: { demo: @skill } %>
         <%= form_for(@skill, 
                      url: (@skill.new_record? ? skills_path : skill_path(@skill)), 
                      method: (@skill.new_record? ? 'post' : 'put')) do |f| %>

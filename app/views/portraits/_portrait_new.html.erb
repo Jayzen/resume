@@ -4,7 +4,7 @@
       <%= t('upload_avatar') %>
     </div>
     <div class="card-body">
-      <%= render 'shared/errors' %>
+      <%= render partial: 'shared/errors', locals: { demo: @user } %>
       <%= form_for(:portrait, url: portraits_path) do |f| %>
         <div class="form-group row">
           <div class="col-sm-10">

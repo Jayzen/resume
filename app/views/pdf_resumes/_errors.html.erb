@@ -1,9 +1,0 @@
-<% unless @pdf_resume.errors.blank? %>
-  <div class="alert alert-danger">
-    <ul class="list-unstyled">
-      <% @pdf_resume.errors.messages.values.flatten.each do |error| %>
-        <li><i class="fa fa-exclamation-circle"></i> <%= error %></li>
-      <% end -%>
-    </ul>
-  </div>
-<% end -%>

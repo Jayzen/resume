@@ -4,7 +4,7 @@
         <%= @experience.new_record? ? t('new_work_experience') : t('update_work_experience') %>
       </div>
       <div class="card-body">
-        <%= render 'errors' %>
+        <%= render partial: 'shared/errors', locals: { demo: @experience } %>
         <%= form_for(@experience, 
                      url: (@experience.new_record? ? experiences_path : experience_path(@experience)), 
                      method: (@experience.new_record? ? 'post' : 'put')) do |f| %>

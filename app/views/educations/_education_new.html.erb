@@ -4,7 +4,7 @@
         <%= @education.new_record? ? t('new_education') : t('update_education') %>
       </div>
       <div class="card-body">
-        <%= render 'errors' %>
+        <%= render partial: 'shared/errors', locals: { demo: @education } %>
         <%= form_for(@education, 
                      url: (@education.new_record? ? educations_path : education_path(@education)),
                      method: (@education.new_record? ? 'post' : 'put')) do |f| %>

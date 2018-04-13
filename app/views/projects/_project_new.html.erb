@@ -4,7 +4,7 @@
         <%= @project.new_record? ? t('new_project') : t('update_project') %>
       </div>
       <div class="card-body">
-        <%= render 'errors' %>
+        <%= render partial: 'shared/errors', locals: { demo: @project } %>
         <%= form_for(@project,
                      url: (@project.new_record? ? projects_path : project_path(@project)),
                      method: (@project.new_record? ? 'post' : 'put')) do |f| %>

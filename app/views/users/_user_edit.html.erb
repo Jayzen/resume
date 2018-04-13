@@ -4,7 +4,7 @@
         <%= t('essential_information') %>
       </div>
       <div class="card-body">
-        <%= render 'shared/errors' %>
+        <%= render partial: 'shared/errors', locals: { demo: @user } %>
         <%= form_for(@user, url: user_path(@user), method: 'put') do |f| %>
         <div class="form-group row">
           <label class="col-sm-2 col-form-label text-secondary"><%= t('user_name') %></label>

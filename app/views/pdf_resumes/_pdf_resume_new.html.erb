@@ -4,7 +4,7 @@
       <%= t('upload_pdf_resume') %>
     </div>
     <div class="card-body">
-      <%= render 'errors' %>
+      <%= render partial: 'shared/errors', locals: { demo: @pdf_resume } %>
       <%= form_for(@pdf_resume, 
                    url: (@pdf_resume.new_record? ? pdf_resumes_path : pdf_resume_path(@pdf_resume)), 
                    method: (@pdf_resume.new_record? ? 'post' : 'put')) do |f| %>
