@@ -8,7 +8,7 @@ class PasswordAltersController < ApplicationController
   def update
     @user = current_user
     if !@user.authenticate(params[:password_alter][:old_password])
-      @user.errors.add(:old_password, "旧密码不正确!")
+      @user.errors.add(:old_password, t('incorrect_old_password'))
       render 'edit'
     elsif @user.authenticate(params[:password_alter][:old_password]) && params[:password_alter][:old_password] == params[:password_alter][:password]
       @user.errors.add(:password, "不能使用旧密码进行更新!")
@@ -18,7 +18,7 @@ class PasswordAltersController < ApplicationController
       render 'edit'
     elsif @user.update_attributes(user_params)
       log_in @user
-      flash[:success] = "密码已经被成功重置!"
+      flash[:success] = t('password_reset_successfully')
       redirect_to edit_password_alter_path(@user)
     else
       render 'edit'

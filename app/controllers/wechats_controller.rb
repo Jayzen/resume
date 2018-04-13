@@ -8,12 +8,12 @@ class WechatsController < ApplicationController
   def create
     if params[:wechat].nil? 
       @wechat = current_user.build_wechat
-      @wechat.errors.add(:name, "必须提交微信二维码!")
+      @wechat.errors.add(:name, t('must_upload'))
       render 'new'
     elsif
       @wechat = current_user.build_wechat(wechat_params)
       @wechat.save
-      flash[:success] = "微信二维码上传成功!"
+      flash[:success] = t('upload_successfully')
       redirect_to socials_path
     else
       flash[:danger] = "只能上传照片格式的文件!"
@@ -33,11 +33,11 @@ class WechatsController < ApplicationController
   def update
     if params[:wechat].nil?
       @wechat = current_user.build_wechat
-      @wechat.errors.add(:name, "必须提交微信二维码!")
+      @wechat.errors.add(:name, t('must_upload'))
       render 'new'
     elsif
       @wechat = current_user.wechat.update_attributes(wechat_params)
-      flash[:success] = "微信二维码更新成功!"
+      flash[:success] = t('update_successfully')
       redirect_to socials_path
     else
       flash[:danger] = "只能上传照片格式的文件!"
@@ -47,7 +47,7 @@ class WechatsController < ApplicationController
  
   def destroy
     current_user.wechat.destroy
-    flash[:success] = "微信信息删除成功!"
+    flash[:success] = t('destroy_successfully')
     redirect_to socials_path
   end
 

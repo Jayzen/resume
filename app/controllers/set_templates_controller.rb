@@ -6,7 +6,7 @@ class SetTemplatesController < ApplicationController
 
   def update
     current_user.update_attributes(user_params)
-    flash[:success] = "模板设置成功!"
+    flash[:success] = t('update_successfully')
     redirect_to edit_set_template_path(current_user)
   end
 

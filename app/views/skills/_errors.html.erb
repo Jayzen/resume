@@ -1,7 +1,7 @@
 <% unless @skill.errors.blank? %>
   <div class="alert alert-danger">
     <ul class="list-unstyled">
-      <% @skill.errors.messages.values.flatten.each do |error| %>
+      <% @skill.errors.full_messages.each do |error| %>
         <li><i class="fa fa-exclamation-circle"></i> <%= error %></li>
       <% end -%>
     </ul>

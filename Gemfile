@@ -37,6 +37,7 @@ gem 'mysql2', '~> 0.4.4'
 gem 'omniauth-github'
 gem 'rack-mini-profiler'
 gem 'redis-rails'
+gem 'i18n-tasks', '~> 0.9.21'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -11,7 +11,7 @@ class EducationsController < ApplicationController
 
   def update
     if @education.update(education_params)
-      flash[:success] = "教育经历更新成功"
+      flash[:success] = t('upload_successfully')
       redirect_to education_path(@education)
     else
       render 'edit'
@@ -29,7 +29,7 @@ class EducationsController < ApplicationController
   def create
     @education = current_user.educations.build(education_params)
     if @education.save
-      flash[:success] = "教育经历创建成功"
+      flash[:success] = t('create_successfully')
       redirect_to educations_path
     else
       render 'new'
@@ -38,7 +38,7 @@ class EducationsController < ApplicationController
 
   def destroy
     @education.destroy
-    flash[:success] = "教育经历删除成功"
+    flash[:success] = t('destroy_successfully')
     redirect_to educations_path
   end
 

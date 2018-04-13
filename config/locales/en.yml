@@ -108,3 +108,51 @@ en:
   upload_wechat_two_dimension_code: "Upload WeChat Two Dimension Code"
   reupload_wechat_two_dimension_code: "ReUpload WeChat Two Dimension Code"
   new_wechat: "New WeChat"
+  incorrect_old_password: "incorrect old password"
+  password_reset_successfully: "Password Reset Successfully"
+  create_successfully: "Successfully Create"
+  update_successfully: "Successfully Update"
+  destroy_successfully: "Successfully Destroy"
+  upload_successfully: "Successfully Upload"
+  tailor_successfully: "Successfully Tailor Avatar"
+  login_successfully: "Successful Login"
+  github_login_successfully: "Successful Login in GitHub"
+  email_or_password_error: "Email or Password error"
+  user_need_login: "User must Login"
+  must_upload: "Must Upload"
+  activerecord:
+    attributes:
+      user:
+        name: "Name"
+        email: "Email"
+        city: "City"
+        description: "Description"
+        avatar: "Avatar"
+      project:
+        name: "Name"
+        tag: "Tag"
+        time: "Time"
+        description: "Description"
+        weight: "Weight"
+      education:
+        school: "School"
+        degree: "Degree"
+        major: "Major"
+        gpa: "GPA"
+        time: "Time"
+        weight: "Weight"
+      skill:
+        name: "Name"
+        weight: "Weight"
+        description: "Description"
+      experience:
+        company: "Company"
+        position: "Position"
+        time: "Time"
+        description: "Description"
+        weight: "Weight"
+      social:
+        name: "Name"
+        url: "URL"
+        weight: "Weight"
+

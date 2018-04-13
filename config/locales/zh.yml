@@ -25,7 +25,7 @@ zh:
   project_time: "时期"
   project_description: "项目描述"
   weight: "权重"
-  project_lists: "项目列表"
+  project_lists: "项目经历列表"
   new_education: "新建教育经历"
   update_education: "更新教育经历"
   education_list: "教育经历列表"
@@ -77,6 +77,19 @@ zh:
   upload_wechat_two_dimension_code: "上传微信二维码"
   reupload_wechat_two_dimension_code: "重新上传微信二维码"
   new_wechat: "新建微信信息"
+  incorrect_old_password: "旧密码不正确"
+  password_reset_successfully: "密码已经重置成功"
+  create_successfully: "创建成功"
+  update_successfully: "更新成功"
+  destroy_successfully: "删除成功"
+  upload_successfully: "上传成功"
+  tailor_successfully: "头像裁剪成功"
+  login_successfully: "用户登录成功"
+  github_login_successfully: "GitHub登录成功"
+  email_or_password_error: "邮箱或者密码错误"
+  user_need_login: "用户需要进行登录"
+  must_upload: "必须提交"
+  
   views:
     pagination:
       first: "&laquo; 首页"
@@ -131,19 +144,49 @@ zh:
         email: "邮箱"
         password: "密码"
         password_confirmation: "密码确认"
-      article:
-        title: "标题"
-        content: "内容"
+        city: "城市"
+        description: "个人说明"
+      education:
+        school: "学校"
+        degree: "学位"
+        major: "专业"
+        gpa: "绩点"
+        time: "时期"
+        weight: "权重"
+      project:
+        name: "项目名称"
+        tag: "标签"
+        time: "时期"
+        description: "项目描述"
+        weight: "权重"
+      skill:
+        name: "技术名称"
+        weight: "权重"
+        description: "技术描述"
+      experience: 
+        company: "公司"
+        position: "职位"
+        time: "时期"
+        description: "职位描述"
+        weight: "权重"
+      social:
+        name: "社交名称"
+        url: "url"
+        weight: "权重"
     errors:
       models:
         user:
           attributes:
             name:
-              blank: "名字不能为空"
+              blank: "不能为空"
+              too_long: "字符太长"
             email:
-              blank: "邮件不能为空"
-              invalid: "邮件格式不正确"
-              taken: "该邮箱已经被注册"
+              blank: "不能为空"
+              invalid: "格式不正确"
+              taken: "已经被注册"
+              too_long: "字符太长"
+            avatar:
+              blank: "不能为空"
             password:
               blank: "密码不能为空"
               too_short: "密码字符太短"
@@ -152,61 +195,58 @@ zh:
         social:
           attributes:
             name:
-              blank: "名称不能为空"
+              blank: "不能为空"
+              taken: "已经重复"
             url:
-              blank: "url不能为空"
-              invalid: "url格式不正确"
+              blank: "不能为空"
+              invalid: "格式不正确"
             weight:
-              blank: "权重值不能为空"
-        comment:
-          attributes:
-            content:
-              blank: "评论内容不能为空"
+              blank: "不能为空"
         project:
           attributes:
             name:
-              blank: "名称不能为空"
+              blank: "不能为空"
             tag:
-              blank: "标签不能为空"
+              blank: "不能为空"
             time:
-              blank: "时期不能为空"
+              blank: "不能为空"
             description:
-              blank: "项目描述不能为空"
+              blank: "不能为空"
             weight:
-              blank: "权重值不能为空"
+              blank: "不能为空"
         education:
           attributes:
             school:
-              blank: "学校不能为空"
+              blank: "不能为空"
             degree:
-              blank: "学位不能为空"
+              blank: "不能为空"
             major:
-              blank: "专业不能为空"
+              blank: "不能为空"
             gpa:
-              blank: "GPA值不能为空"
+              blank: "不能为空"
             time:
-              blank: "时期不能为空"
+              blank: "不能为空"
             weight:
-              blank: "权重值不能为空"
+              blank: "不能为空"
         skill:
           attributes:
             name:
-              blank: "名称不能为空"
+              blank: "不能为空"
             weight: 
-              blank: "权重值不能为空"
+              blank: "不能为空"
             description:
-              blank: "描述不能为空"
+              blank: "不能为空"
         experience:
           attributes:
             company:
-              blank: "公司不能为空"
+              blank: "不能为空"
             position:
-              blank: "职位不能为空"
+              blank: "不能为空"
             description:
-              blank: "职位描述不能为空"
+              blank: "不能为空"
             weight:
-              blank: "权重值不能为空"
+              blank: "不能为空"
             time:
-              blank: "时期不能为空"
+              blank: "不能为空"
 
 

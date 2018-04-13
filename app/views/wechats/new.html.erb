@@ -1,4 +1,4 @@
-<% provide(:title, '社交信息') %>
+<% provide(:title, @wechat.new_record? ? t('upload_wechat_two_dimension_code') : t('reupload_wechat_two_dimension_code')) %>
 <div class="row">
   <%= render 'shared/basic_bar' %>
   <%= render 'wechat_new' %>

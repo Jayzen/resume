@@ -11,7 +11,7 @@ class SkillsController < ApplicationController
 
   def update
     if @skill.update(skill_params)
-      flash[:success] = "技术介绍更新成功"
+      flash[:success] = t('update_successfully')
       redirect_to skill_path(@skill)
     else
       render 'edit'
@@ -29,7 +29,7 @@ class SkillsController < ApplicationController
   def create
     @skill = current_user.skills.build(skill_params)
     if @skill.save
-      flash[:success] = "技术介绍创建成功"
+      flash[:success] = t('create_successfully')
       redirect_to skills_path
     else
       render 'new'
@@ -38,7 +38,7 @@ class SkillsController < ApplicationController
 
   def destroy
     @skill.destroy
-    flash[:success] = "技术介绍删除成功"
+    flash[:success] = t('destroy_successfully')
     redirect_to skills_path
   end
 

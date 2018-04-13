@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update(project_params)
-      flash[:success] = "项目经历更新成功"
+      flash[:success] = t('update_successfully')
       redirect_to project_path(@project)
     else
       render 'edit'
@@ -29,7 +29,7 @@ class ProjectsController < ApplicationController
   def create
     @project = current_user.projects.build(project_params)
      if @project.save
-       flash[:success] = "项目经历创建成功"
+       flash[:success] = t('create_successfully')
        redirect_to projects_path
      else
        render 'new'
@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project.destroy
-    flash[:success] = "项目经历删除成功"
+    flash[:success] = t('destroy_successfully')
     redirect_to projects_path
   end
 

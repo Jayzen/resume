@@ -8,14 +8,14 @@ class PortraitsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     if params[:portrait].nil? 
-      @user.errors.add(:avatar, "必须提交头像!")
+      @user.errors.add(:avatar, t('must_upload'))
       render 'new'
     elsif @user.update_attributes(user_params)
       if params[:portrait][:avatar].present?
         render :crop
       else
         redirect_to portrait_path(current_user.id)
-        flash[:success] = "头像上传成功!"
+        flash[:success] = t('upload_successfully')
       end
     else
       render :new
@@ -28,7 +28,7 @@ class PortraitsController < ApplicationController
       if params[:portrait][:avatar].present?
         render :crop
       else
-        flash[:success] = "头像裁剪成功!"
+        flash[:success] = t('tailor_successfully')
         redirect_to new_portrait_path
       end
     else

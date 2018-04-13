@@ -1,4 +1,4 @@
-<% provide(:title, '教育经历') %>
+<% provide(:title, @education.new_record? ? t('new_education') : t('update_education')) %>
 <div class="row">
   <%= render 'shared/resume_bar' %>
   <%= render 'education_new' %>

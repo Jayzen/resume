@@ -8,12 +8,12 @@ class PdfResumesController < ApplicationController
   def create
     if params[:pdf_resume].nil? 
       @pdf_resume = current_user.build_pdf_resume
-      @pdf_resume.errors.add(:name, "不能提交空文件!")
+      @pdf_resume.errors.add(:name, t('must_upload'))
       render 'new'
     elsif
       @pdf_resume = current_user.build_pdf_resume(pdf_resume_params)
       @pdf_resume.save
-      flash[:success] = "PDF简历提交成功!"
+      flash[:success] = t('upload_successfully')
       redirect_to pdf_resumes_path
     else
       flash[:danger] = "只能上传PDF格式的文件!"
@@ -33,11 +33,11 @@ class PdfResumesController < ApplicationController
   def update
     if params[:pdf_resume].nil?
       @pdf_resume = current_user.build_pdf_resume
-      @pdf_resume.errors.add(:name, "不能提交空文件!")
+      @pdf_resume.errors.add(:name, t('must_upload'))
       render 'new'
     elsif
       @pdf_resume = current_user.pdf_resume.update_attributes(pdf_resume_params)
-      flash[:success] = "PDF简历提交成功!"
+      flash[:success] = t('update_successfully')
       redirect_to pdf_resumes_path
     else
       flash[:danger] = "只能上传PDF格式的文件!"
@@ -47,7 +47,7 @@ class PdfResumesController < ApplicationController
  
   def destroy
     current_user.pdf_resume.destroy
-    flash[:success] = "简历删除成功!"
+    flash[:success] = t('destroy_successfully')
     redirect_to pdf_resumes_path
   end
 

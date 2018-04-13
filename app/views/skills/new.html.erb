@@ -1,4 +1,4 @@
-<% provide(:title, '技术介绍') %>
+<% provide(:title, @skill.new_record? ? t('new_skill') : t('update_skill')) %>
 <div class="row">
   <%= render 'shared/resume_bar' %>
   <%= render 'skill_new' %>

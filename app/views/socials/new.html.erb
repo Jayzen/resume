@@ -1,4 +1,4 @@
-<% provide(:title, '社交信息') %>
+<% provide(:title, @social.new_record? ? t('new_social') : t('update_social')) %>
 <div class="row">
   <%= render 'shared/basic_bar' %>
   <%= render 'social_new' %>

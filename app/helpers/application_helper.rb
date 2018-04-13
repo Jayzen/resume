@@ -34,7 +34,7 @@ module ApplicationHelper
   def logged_in_user
     unless logged_in?
       store_location
-      flash[:danger] = "用户需要进行登录!"
+      flash[:danger] = t('user_need_login')
       redirect_to login_url
     end
   end

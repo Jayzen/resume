@@ -11,7 +11,7 @@ class SocialsController < ApplicationController
 
   def update
     if @social.update(social_params)
-      flash[:success] = "社交信息更新成功"
+      flash[:success] = t('update_successfully')
       redirect_to social_path(@social)
     else
       render 'edit'
@@ -29,7 +29,7 @@ class SocialsController < ApplicationController
   def create
     @social = current_user.socials.build(social_params)
     if @social.save
-      flash[:success] = "社交信息创建成功"
+      flash[:success] = t('create_successfully')
       redirect_to socials_path
     else
       render 'new'
@@ -38,7 +38,7 @@ class SocialsController < ApplicationController
 
   def destroy
     @social.destroy
-    flash[:success] = "社交信息删除成功"
+    flash[:success] = t('destroy_successfully')
     redirect_to socials_path
   end
 
