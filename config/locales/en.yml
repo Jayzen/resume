@@ -86,6 +86,8 @@ en:
   old_password: "Old Password"
   new_password: "New Password"
   password_confirmation: "Password Confirmation"
+  can_not_be_blank: "cant't be blank"
+  old_password_can_not_be_used: "old_password can't be used"
   alter_password: "Alter Password"
   social_lists: "Social Lists"
   new_social: "New Social"
@@ -108,7 +110,7 @@ en:
   upload_wechat_two_dimension_code: "Upload WeChat Two Dimension Code"
   reupload_wechat_two_dimension_code: "ReUpload WeChat Two Dimension Code"
   new_wechat: "New WeChat"
-  incorrect_old_password: "incorrect old password"
+  incorrect_old_password: "incorrect"
   password_reset_successfully: "Password Reset Successfully"
   create_successfully: "Successfully Create"
   update_successfully: "Successfully Update"
@@ -126,6 +128,9 @@ en:
         name: "Name"
         email: "Email"
         city: "City"
+        password: "Password"
+        old_password: "Old Password"
+        password_confirmation: "Password Confirmation"
         description: "Description"
         avatar: "Avatar"
       project:
@@ -155,4 +160,6 @@ en:
         name: "Name"
         url: "URL"
         weight: "Weight"
+      pdf_resume:
+        name: "PDF Resume"
 

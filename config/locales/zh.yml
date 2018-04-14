@@ -77,8 +77,10 @@ zh:
   upload_wechat_two_dimension_code: "上传微信二维码"
   reupload_wechat_two_dimension_code: "重新上传微信二维码"
   new_wechat: "新建微信信息"
-  incorrect_old_password: "旧密码不正确"
+  incorrect_old_password: "不正确"
+  can_not_be_blank: "不能为空"
   password_reset_successfully: "密码已经重置成功"
+  old_password_can_not_be_used: "不能使用旧密码进行更新"
   create_successfully: "创建成功"
   update_successfully: "更新成功"
   destroy_successfully: "删除成功"
@@ -143,7 +145,9 @@ zh:
         name: "用户名"
         email: "邮箱"
         password: "密码"
+        old_password: "旧密码"
         password_confirmation: "密码确认"
+        avatar: "头像"
         city: "城市"
         description: "个人说明"
       education:
@@ -173,6 +177,8 @@ zh:
         name: "社交名称"
         url: "url"
         weight: "权重"
+      pdf_resume:
+        name: "PDF简历"
     errors:
       models:
         user:
@@ -188,10 +194,10 @@ zh:
             avatar:
               blank: "不能为空"
             password:
-              blank: "密码不能为空"
-              too_short: "密码字符太短"
+              blank: "不能为空"
+              too_short: "字符太短"
             password_confirmation:
-              confirmation: "两次密码不一致"
+              confirmation: "不一致"
         social:
           attributes:
             name:

@@ -14,7 +14,7 @@ class PasswordAltersController < ApplicationController
       @user.errors.add(:password, "不能使用旧密码进行更新!")
       render 'edit'
     elsif params[:password_alter][:password].empty?
-      @user.errors.add(:password, "密码不能为空!")
+      @user.errors.add(:password, t('can_not_be_blank'))
       render 'edit'
     elsif @user.update_attributes(user_params)
       log_in @user
