@@ -1,25 +1,21 @@
 <div class='col-md-2'>
     <div class="card">
       <div class="card-header text-secondary text-center">
-        简历设置
+        <%= t('resume_settings') %>
       </div>
       <div class="card-body d-flex flex-column">
-        <div class=" align-self-center">
-          <a href="<%= projects_path %>", class="btn <%= controller_name == 'projects' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block">
-            项目经历</a>
-        </div>
-        <div class="p-1 item-hl align-self-center">
-          <a href="<%= educations_path %>", class="btn <%= controller_name == 'educations' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block">
-            教育经历</a>
-        </div> 
-        <div class="p-1 item-hl align-self-center">
-          <a href="<%= skills_path %>", class="btn <%= controller_name == 'skills' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block">
-            技术介绍</a>
-        </div>
-        <div class="p-1 item-hl align-self-center">
-          <a href="<%= experiences_path %>", class="btn <%= controller_name == 'experiences' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block">
-            工作经历</a>
-        </div>
+          <a href="<%= projects_path %>">
+            <button type="button" class="btn <%= controller_name == 'projects' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block"><%= t('project') %></button>
+          </a>
+          <a href="<%= educations_path %>">
+            <button type="button" class="btn <%= controller_name == 'educations' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2"><%= t('education') %></button>
+          </a>
+          <a href="<%= skills_path %>">
+            <button type="button" class="btn <%= controller_name == 'skills' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2"><%= t('skill') %></button>
+          </a>
+          <a href="<%= experiences_path %>">
+            <button type="button" class="btn <%= controller_name == 'experiences' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2"><%= t('experience') %></button>
+          </a>
       </div>
     </div>
 </div>

@@ -1,39 +1,51 @@
 <div class='col-md-2'>
     <div class="card">
       <div class="card-header text-secondary text-center">
-        基本信息设置
+        <%= t('basic_settings') %>
       </div>
       <div class="card-body d-flex flex-column row-hl">
-        <div class="p-1 item-hl align-self-center">
-          <a href="<%= edit_user_path(current_user) %>", class="btn <%= controller_name == 'users' ? 'btn-primary' : 'btn-outline-secondary' %>">
-            <i class="fa fa-user fa-fw"></i> 基本信息</a>
-        </div>
-        <div class="p-1 item-hl align-self-center">
-          <a href="<%= new_portrait_path %>", class="btn <%= controller_name == 'portraits' ? 'btn-primary' : 'btn-outline-secondary' %>">
-            <i class="fa fa-file-image-o fa-fw"></i> 修改头像</a>
-        </div>
-        <div class="p-1 item-hl align-self-center">
-          <a href="<%= socials_path %>", class="btn <%= controller_name == 'socials' ? 'btn-primary' : 'btn-outline-secondary' %>">
-            <i class="fa fa-qq fa-fw"></i> 社交信息</a>
-        </div> 
+        <a href="<%= edit_user_path(current_user) %>">
+          <button type="button" class="btn <%= controller_name == 'users' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block">
+            <i class="fa fa-user fa-fw"></i> <%= t('basic_information') %>
+          </button>
+        </a>
+        <a href="<%= new_portrait_path %>">
+          <button type="button" class="btn <%= controller_name == 'portraits' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2">
+            <i class="fa fa-file-image-o fa-fw"></i> <%= t('portrait_information') %>
+          </button>
+        </a>
+        <a href="<%= socials_path %>">
+          <button type="button" class="btn <%= controller_name == 'socials' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2">
+            <i class="fa fa-qq fa-fw"></i> <%= t('social_information') %>
+          </button>
+        </a>
         <% unless current_user.provider %>
-          <div class="p-1 item-hl align-self-center">
-            <a href="<%= edit_password_alter_path(current_user) %>", class="btn <%= controller_name == 'password_alters' ? 'btn-primary' : 'btn-outline-secondary' %>">
-              <i class="fa fa-key fa-fw"></i> 修改密码</a>
-          </div>
+          <a href="<%= edit_password_alter_path(current_user) %>">
+            <button type="button" class="btn <%= controller_name == 'password_alters' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2">
+              <i class="fa fa-key fa-fw"></i> <%= t('password_information') %>
+            </button>
+          </a>
         <% end %>
-        <div class="p-1 item-hl align-self-center">
-          <a href="<%= pdf_resumes_path %>", class="btn <%= controller_name == 'pdf_resumes' ? 'btn-primary' : 'btn-outline-secondary' %>">
-            <i class="fa fa-cloud-upload fa-fw"></i> 上传简历</a>
-        </div>
-        <div class="p-1 item-hl align-self-center">
-          <a href="<%= edit_set_template_path(current_user) %>", class="btn <%= controller_name == 'set_templates' ? 'btn-primary' : 'btn-outline-secondary' %>">
-            <i class="fa fa-exchange fa-fw"></i> 设置模板</a>
-        </div>
-        <div class="p-1 item-hl align-self-center">
-          <a href="<%= online_path(current_user.name) %>", class="btn btn-outline-secondary", target="_blank">
-            <i class="fa fa-cloud fa-fw"></i> 在线简历</a>
-        </div>
+        <a href="<%= pdf_resumes_path %>">
+          <button type="button" class="btn <%= controller_name == 'pdf_resumes' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2">
+            <i class="fa fa-cloud-upload fa-fw"></i> <%= t('resume_information') %>
+          </button>
+        </a>
+        <a href="<%= edit_set_template_path(current_user) %>">
+          <button type="button" class="btn <%= controller_name == 'set_templates' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2">
+            <i class="fa fa-exchange fa-fw"></i> <%= t('template_information') %>
+          </button>
+        </a>
+        <a href="<%= set_language_path %>">
+          <button type="button" class="btn <%= controller_name == 'welcomes' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2">
+            <i class="fa fa-exchange fa-fw"></i> <%= t('language_information') %>
+          </button>
+        </a>
+        <a href="<%= online_path(current_user.name) %>">
+          <button type="button" class="btn btn-outline-secondary btn-block mt-2">
+            <i class="fa fa-cloud fa-fw"></i> <%= t('online_resume_information') %>
+          </button>
+        </a>
       </div>
     </div>
 </div>

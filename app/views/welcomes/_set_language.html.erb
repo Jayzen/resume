@@ -1,0 +1,19 @@
+<div class="col-md-10">
+    <div class="card">
+      <div class="card-header text-secondary text-center">
+        <%= t('set_language_information') %>
+      </div>
+      <div class="card-body">
+        <a href="<%= set_zh_path %>">
+          <button type="button" class="btn <%= cookies[:locale] == 'zh' ? 'btn-primary' : 'btn-outline-secondary' %> mt-2">
+            <i class="fa fa-language fa-fw"></i> <%= t('set_chinese') %>
+          </button>
+        </a>
+        <a href="<%= set_en_path %>">
+          <button type="button" class="btn <%= cookies[:locale] == 'en' ? 'btn-primary' : 'btn-outline-secondary' %> mt-2">
+            <i class="fa fa-language fa-fw"></i> <%= t('set_english') %>
+          </button>
+        </a> 
+      </div>
+    </div>
+</div>
