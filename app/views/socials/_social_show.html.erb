@@ -13,7 +13,9 @@
         <div class="form-group mb-0">
           <label class="col-sm-12 col-form-label text-secondary"><%= t('weight') %>: <%= @social.weight %></label>
         </div>
-     
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label text-secondary"><%= t('language') %>: <%= @social.language == "zh" ? t('chinese') : t('english') %></label>
+        </div> 
         <div class="form-group mb-0">
           <label class="col-sm-12 col-form-label"><%= link_to t('social_lists'), socials_path, class: "btn btn-primary btn-sm" %></label>
         </div>

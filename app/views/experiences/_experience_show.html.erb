@@ -19,7 +19,9 @@
         <div class="form-group mb-0">
           <label class="col-sm-12 col-form-label text-secondary"><%= t('weight') %>: <%= @experience.weight %></label>
         </div>
-     
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label text-secondary"><%= t('language') %>: <%= @experience.language == "zh" ? t('chinese') : t('english') %></label>
+        </div> 
         <div class="form-group mb-0">
           <label class="col-sm-12 col-form-label"><%= link_to t('work_experience_list'), experiences_path, class: "btn btn-primary btn-sm" %></label>
         </div>

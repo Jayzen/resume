@@ -48,6 +48,6 @@ class EducationsController < ApplicationController
     end
 
     def education_params
-      params.require(:education).permit(:school, :degree, :major, :gpa, :time,  :weight)
+      params.require(:education).permit(:language, :school, :degree, :major, :gpa, :time,  :weight)
     end
 end

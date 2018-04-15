@@ -8,6 +8,24 @@
         <%= form_for(@experience, 
                      url: (@experience.new_record? ? experiences_path : experience_path(@experience)), 
                      method: (@experience.new_record? ? 'post' : 'put')) do |f| %>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label text-secondary"><%= t('select_language_information') %></label>
+          <div class="col-sm-10">
+            <% if @experience.new_record? %>
+              <select name="experience[language]" class="form-control">
+                <%= options_for_select([[""],["zh"], ["en"]]) %>
+              </select>
+            <% else %>
+              <select name="experience[language]" class="form-control">
+                <% ["zh", "en"].each do |category| %>
+                  <option value="<%= category %>" <%= @experience.language == category ? 'selected' : '' %>><%= category %></option>
+                <% end %>
+              </select>
+            <% end %>
+          </div>
+        </div>
+
         <div class="form-group row">
           <label class="col-sm-2 col-form-label text-secondary"><%= t('company') %></label>
           <div class="col-sm-10">

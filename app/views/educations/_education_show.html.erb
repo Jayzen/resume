@@ -22,7 +22,9 @@
         <div class="form-group mb-0">
           <label class="col-sm-12 col-form-label text-secondary"><%= t('weight') %>: <%= @education.weight %></label>
         </div>
-     
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label text-secondary"><%= t('language') %>: <%= @education.language == "zh" ? t('chinese') : t('english') %></label>
+        </div> 
         <div class="form-group mb-0">
           <label class="col-sm-12 col-form-label"><%= link_to t('education_list'), educations_path, class: "btn btn-primary btn-sm" %></label>
         </div>

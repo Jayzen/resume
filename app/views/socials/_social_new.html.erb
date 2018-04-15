@@ -8,6 +8,24 @@
         <%= form_for(@social, 
                      url: (@social.new_record? ? socials_path : social_path(@social)), 
                      method: (@social.new_record? ? 'post' : 'put')) do |f| %>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label text-secondary"><%= t('select_language_information') %></label>
+          <div class="col-sm-10">
+            <% if @social.new_record? %>
+              <select name="social[language]" class="form-control">
+                <%= options_for_select([[""],["zh"], ["en"]]) %>
+              </select>
+            <% else %>
+              <select name="social[language]" class="form-control">
+                <% ["zh", "en"].each do |category| %>
+                  <option value="<%= category %>" <%= @social.language == category ? 'selected' : '' %>><%= category %></option>
+                <% end %>
+              </select>
+            <% end %>
+          </div>
+        </div>
+
         <div class="form-group row">
           <label class="col-sm-2 col-form-label text-secondary"><%= t('social_name') %></label>
           <div class="col-sm-10">

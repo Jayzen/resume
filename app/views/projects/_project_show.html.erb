@@ -19,7 +19,9 @@
         <div class="form-group mb-0">
           <label class="col-sm-12 col-form-label text-secondary"><%= t('weight') %>: <%= @project.weight %></label>
         </div>
-     
+        <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label text-secondary"><%= t('language') %>: <%= @project.language == "zh" ? t('chinese') : t('english') %></label>
+        </div>
         <div class="form-group mb-0">
           <label class="col-sm-12 col-form-label"><%= link_to t('project_lists'), projects_path, class: "btn btn-primary btn-sm" %></label>
         </div>
