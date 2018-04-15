@@ -2,7 +2,8 @@ en:
   resume: "Resume"
   home: "Home"
   login: "Login"
-  app_description: "A customized and neat resume platform"
+  app_description: "Brief&Customizable Online Resume"
+  footer: "Brief and Customizable Online Resume, Created by Jayzen"
   logout: "Logout"
   basic_settings: "Basic Setup"
   resume_settings: "Resume Setup"
@@ -102,6 +103,10 @@ en:
   email_or_password_error: "Email or Password error"
   user_need_login: "User must Login"
   must_upload: "Must Upload"
+  github_login: "Support GitHub Login"
+  support_en_and_zh: "Support English&Chinese"
+  support_set_template: "Support Template Exchange"
+  support_online_resume: "Support Online Resume"
   activerecord:
     attributes:
       user:

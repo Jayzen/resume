@@ -2,7 +2,8 @@ zh:
   resume: "简历"
   home: "主页"
   login: "登录"
-  app_description: "简洁、可定制的简历模板平台"
+  app_description: "简洁、可定制的在线简历"
+  footer: "简洁、可定制的在线简历, 关关制作"
   logout: "退出"
   basic_settings: "基本信息设置"
   resume_settings: "简历信息设置"
@@ -102,7 +103,10 @@ zh:
   email_or_password_error: "邮箱或者密码错误"
   user_need_login: "用户需要进行登录"
   must_upload: "必须提交"
-  
+  github_login: "支持GitHub 登录"
+  support_en_and_zh: "支持中英文切换"
+  support_set_template: "支持简历模板切换"
+  support_online_resume: "支持在线简历"
   views:
     pagination:
       first: "&laquo; 首页"
