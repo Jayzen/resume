@@ -17,6 +17,8 @@ zh:
   language_information: "设置语言"
   set_language_information: "设置语言"
   select_language_information: "选择语言"
+  english_resume: "英文简历"
+  chinese_resume: "中文简历"
   language: "语言"
   english: "英文"
   chinese: "中文"
@@ -164,8 +166,9 @@ zh:
   activerecord:
     attributes:
       user:
-        name: "用户名"
+        name: "用户名(中文)"
         email: "邮箱"
+        name_en: "用户名(英文)"
         password: "密码"
         old_password: "旧密码"
         password_confirmation: "密码确认"
@@ -211,6 +214,9 @@ zh:
         user:
           attributes:
             name:
+              blank: "不能为空"
+              too_long: "字符太长"
+            name_en:
               blank: "不能为空"
               too_long: "字符太长"
             email:

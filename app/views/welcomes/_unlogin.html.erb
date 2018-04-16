@@ -20,12 +20,12 @@
       <h1 class="jumbotron-heading text-dark"><%= t('app_description') %></h1>
       <p class="lead text-muted">
         <a href="<%= set_zh_path %>">
-          <button type="button" class="btn <%= cookies[:locale] == 'zh' ? 'btn-primary' : 'btn-outline-secondary' %> mt-2">
+          <button type="button" class="btn <%= I18n.locale == :zh ? 'btn-primary' : 'btn-outline-secondary' %> mt-2">
             <i class="fa fa-language fa-fw"></i> <%= t('set_chinese') %>
           </button>
         </a>
         <a href="<%= set_en_path %>">
-          <button type="button" class="btn <%= cookies[:locale] == 'en' ? 'btn-primary' : 'btn-outline-secondary' %> mt-2">
+          <button type="button" class="btn <%= I18n.locale == :en ? 'btn-primary' : 'btn-outline-secondary' %> mt-2">
             <i class="fa fa-language fa-fw"></i> <%= t('set_english') %>
           </button>
         </a>

@@ -1,7 +1,10 @@
-<% provide(:title, @user.name) %>
-<% case @template %>
-<% when 1 %>
-  <%= render 'show_template_one' %>
-<% when 2%>
-  <%= render 'show_template_two' %>
+<% if params[:locale].nil? %>
+  <%= render 'set_show' %>
+<% else %>
+  <% case @template %>
+  <% when 1 %>
+    <%= render 'show_template_one' %>
+  <% when 2%>
+    <%= render 'show_template_two' %>
+  <% end %>
 <% end %>

@@ -41,15 +41,13 @@
 
       <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
         <div class="my-auto">
-          <% cache @user do %>
             <h1 class="mb-0">
-              <span class="text-primary"><%= @user.name %></span>
+              <span class="text-primary"><%= I18n.locale == :zh ? @user.name : @user.name_en %></span>
             </h1>
-            <div class="subheading mb-5"><%= @user.city %>
+            <div class="subheading mb-5"><%= I18n.locale == :zh ? @user.city : @user.city_en %>
               <a href="mailto:<%= @user.email %>"><%= @user.email %></a>
             </div>
-            <p class="mb-5"><%= @user.description %></p>
-          <% end %>
+            <p class="mb-5"><%= I18n.locale == :zh ? @user.description : @user.description_en %></p>
           <ul class="list-inline list-social-icons mb-0">
             <% if @wechat %>
               <% cache_if @wechat, @wechat do %>

@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   get "welcomes/set_zh", as: :set_zh
   get "welcomes/set_en", as: :set_en
   get "welcomes/set_language", as: :set_language
-  get ":user_name", to: "welcomes#show", as: :online
+  get ":name_en", to: "welcomes#show", as: :online
 end

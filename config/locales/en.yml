@@ -17,6 +17,8 @@ en:
   language_information: "Language"
   set_language_information: "Set Language"
   select_language_information: "Select Language"
+  english_resume: "English Resume"
+  chinese_resume: "Chinese Resume"
   language: "Language"
   set_chinese: "Set Chinese"
   set_english: "Set English"
@@ -117,7 +119,8 @@ en:
   activerecord:
     attributes:
       user:
-        name: "Name"
+        name: "Name(Chinese)"
+        name_en: "Name(English)"
         email: "Email"
         city: "City"
         password: "Password"

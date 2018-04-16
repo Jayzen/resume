@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :name, presence: true, length: { maximum: 50 }, allow_nil: true
+  validates :name_en, presence: true, length: { maximum: 50 }, allow_nil: true
   validates :email, presence: true, length: { maximum: 255}, uniqueness: { case_sensitive: false }, allow_nil: true
   validates :email, format: { with: VALID_EMAIL_REGEX }, unless: proc{ |user| user.email.blank? }
   validates :password, length: { minimum: 6 }, allow_nil: true
@@ -68,7 +69,7 @@ class User < ApplicationRecord
         user.nickname = auth["info"]["nickname"]
         user.password = random_password
         user.password_confirmation = random_password
-        user.name = auth["info"]["nickname"] + "-" +RandomCode.generate_name_uuid
+        user.name_en = auth["info"]["nickname"] + "-" +RandomCode.generate_name_uuid
       end
     end
   end

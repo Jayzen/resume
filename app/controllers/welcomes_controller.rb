@@ -1,6 +1,6 @@
 class WelcomesController < ApplicationController
   before_action :logged_in_user, only: [:set_language]
-  
+
   def index
     if logged_in?
       @socials = current_user.socials.order("weight desc")
@@ -23,7 +23,7 @@ class WelcomesController < ApplicationController
   end
 
   def show
-    if @user = User.find_by(name: params[:user_name])
+    if @user = User.find_by(name_en: params[:name_en])
       @socials = @user.socials.order("weight desc")
       @projects = @user.projects.order("weight desc")
       @educations = @user.educations.order("weight desc")
@@ -32,11 +32,15 @@ class WelcomesController < ApplicationController
       @pdf_resume = @user.pdf_resume 
       @wechat = @user.wechat
       @template = @user.template
-      case @template
-      when 1
-        render layout: "template_one"
-      when 2
-        render layout: "template_two"
+      if params[:locale].nil?
+        render layout: 'unlogin'
+      else
+        case @template
+        when 1
+          render layout: "template_one"
+        when 2
+          render layout: "template_two"
+        end
       end
     else
       redirect_to root_path
@@ -45,19 +49,27 @@ class WelcomesController < ApplicationController
 
   def set_zh
     cookies[:locale] = :zh
-    if logged_in?
-      redirect_to set_language_path
+    if params[:language]
+      redirect_to online_path
     else
-      redirect_to root_path
+      if logged_in?
+        redirect_to set_language_path
+      else
+        redirect_to root_path
+      end
     end
   end
 
   def set_en
     cookies[:locale] = :en
-    if logged_in?
-      redirect_to set_language_path
+    if params[:language]
+      redirect_to online_path
     else
-      redirect_to root_path
+      if logged_in?
+        redirect_to set_language_path
+      else
+        redirect_to root_path
+      end
     end
   end
 

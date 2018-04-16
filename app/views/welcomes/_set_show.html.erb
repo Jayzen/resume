@@ -1,0 +1,43 @@
+<% provide(:title, t('home')) %>
+
+<nav class="navbar navbar-expand-sm navbar-light bg-dark">
+  <div class="container">
+    <strong><%= link_to t('resume'), root_path, class: "navbar-brand text-secondary text-light" %></strong>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav"><li class="nav-item"></li></ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item text-secondary"><%= link_to "中文", set_zh_path(language: "zh"), class: "text-secondary" %></li>&nbsp&nbsp
+        <li class="nav-item text-secondary"><%= link_to "English", set_en_path(language: "en"), class: "text-secondary" %></li>&nbsp&nbsp
+        <li class="nav-item text-secondary"><%= link_to t('login'), login_path, class: "text-secondary text-light" %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<main role="main">
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading text-dark"><%= t('app_description') %></h1>
+      <p class="lead text-muted">
+        <a href="<%= online_path(@user.name_en) %>?locale=en" target="_blank">
+          <button type="button" class="btn btn-primary mt-2">
+            <i class="fa fa-language fa-fw"></i> <%= t('english_resume') %>
+          </button>
+        </a>
+        <a href="<%= online_path(@user.name_en) %>?locale=zh" target="_blank">
+          <button type="button" class="btn btn-primary mt-2">
+            <i class="fa fa-language fa-fw"></i> <%= t('chinese_resume') %>
+          </button>
+        </a>
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="text-muted">
+  <div class="container">
+    <p><small><%= t('footer') %></small></p>
+  </div>
+</footer>
