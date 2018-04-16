@@ -14,11 +14,6 @@
             <i class="fa fa-file-image-o fa-fw"></i> <%= t('portrait_information') %>
           </button>
         </a>
-        <a href="<%= socials_path %>">
-          <button type="button" class="btn <%= controller_name == 'socials' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2">
-            <i class="fa fa-qq fa-fw"></i> <%= t('social_information') %>
-          </button>
-        </a>
         <% unless current_user.provider %>
           <a href="<%= edit_password_alter_path(current_user) %>">
             <button type="button" class="btn <%= controller_name == 'password_alters' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2">
@@ -26,11 +21,6 @@
             </button>
           </a>
         <% end %>
-        <a href="<%= pdf_resumes_path %>">
-          <button type="button" class="btn <%= controller_name == 'pdf_resumes' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2">
-            <i class="fa fa-cloud-upload fa-fw"></i> <%= t('resume_information') %>
-          </button>
-        </a>
         <a href="<%= edit_set_template_path(current_user) %>">
           <button type="button" class="btn <%= controller_name == 'set_templates' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2">
             <i class="fa fa-exchange fa-fw"></i> <%= t('template_information') %>

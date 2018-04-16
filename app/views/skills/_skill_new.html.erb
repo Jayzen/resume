@@ -13,12 +13,12 @@
           <div class="col-sm-10">
             <% if @skill.new_record? %>
               <select name="skill[language]" class="form-control">
-                <%= options_for_select([[""],["zh"], ["en"]]) %>
+                <%= options_for_select([[""],[t('chinese'),"zh"], [t('english'),"en"]]) %>
               </select>
             <% else %>
               <select name="skill[language]" class="form-control">
-                <% ["zh", "en"].each do |category| %>
-                  <option value="<%= category %>" <%= @skill.language == category ? 'selected' : '' %>><%= category %></option>
+                <% [["zh", t('chinese')], ["en", t('english')]].each do |category| %>
+                  <option value="<%= category.first %>" <%= @skill.language == category.first ? 'selected' : '' %>><%= category.last %></option>
                 <% end %>
               </select>
             <% end %>

@@ -1,4 +1,4 @@
-<% provide(:title, current_user.name) %>
+<% provide(:title, cookies[:locale] == "zh" ? current_user.name : current_user.name_en) %>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
         <span class="d-block d-lg-none">Hello World</span>
@@ -42,12 +42,12 @@
       <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
         <div class="my-auto">
           <h1 class="mb-0">
-            <span class="text-primary"><%= current_user.name %></span>
+            <span class="text-primary"><%= I18n.locale == :zh ? current_user.name : current_user.name_en %></span>
           </h1>
-          <div class="subheading mb-5"><%= current_user.city %>
+          <div class="subheading mb-5"><%= I18n.locale == :zh ? current_user.city : current_user.city_en %>
           <a href="mailto:<%= current_user.email %>"><%= current_user.email %></a>
           </div>
-          <p class="mb-5"><%= current_user.description %></p>
+          <p class="mb-5"><%= I18n.locale == :zh ? current_user.description : current_user.description_en %></p>
           <ul class="list-inline list-social-icons mb-0">
             <% if @wechat %>
               <% cache_if @wechat, @wechat do %>

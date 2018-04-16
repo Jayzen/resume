@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_15_121633) do
+ActiveRecord::Schema.define(version: 2018_04_15_161942) do
 
   create_table "educations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "school"
@@ -95,6 +95,9 @@ ActiveRecord::Schema.define(version: 2018_04_15_121633) do
     t.string "city"
     t.string "nickname"
     t.string "provider"
+    t.string "name_en"
+    t.string "city_en"
+    t.string "description_en"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

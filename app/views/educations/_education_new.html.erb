@@ -14,12 +14,12 @@
           <div class="col-sm-10">
             <% if @education.new_record? %>
               <select name="education[language]" class="form-control">
-                <%= options_for_select([[""],["zh"], ["en"]]) %>
+                <%= options_for_select([[""],[t('chinese'),"zh"], [t('english'),"en"]]) %>
               </select>
             <% else %>
               <select name="education[language]" class="form-control">
-                <% ["zh", "en"].each do |category| %>
-                  <option value="<%= category %>" <%= @education.language == category ? 'selected' : '' %>><%= category %></option>
+                <% [["zh", t('chinese')], ["en", t('english')]].each do |category| %>
+                  <option value="<%= category.first %>" <%= @education.language == category.first ? 'selected' : '' %>><%= category.last %></option>
                 <% end %>
               </select>
             <% end %>

@@ -22,6 +22,9 @@ zh:
   chinese: "中文"
   set_chinese: "设为中文"
   set_english: "设为英文"
+  name_en: "用户名(英文)"
+  city_en: "城市(英文)"
+  description_en: "个人说明(英文)"
   email: "邮箱"
   password: "密码"
   user_login: "用户登录"
@@ -63,10 +66,10 @@ zh:
   new_work_experience: "新建工作经历"
   update_work_experience: "更新工作经历"
   essential_information: "基本信息"
-  user_name: "用户名"
-  city: "城市"
+  user_name: "用户名(中文)"
+  city: "城市(中文)"
   email: "邮箱"
-  user_description: "个人说明"
+  user_description: "个人说明(中文)"
   update_information: "更新资料"
   old_password: "旧密码"
   new_password: "新密码"
@@ -176,26 +179,31 @@ zh:
         gpa: "绩点"
         time: "时期"
         weight: "权重"
+        language: "选择语言"
       project:
         name: "项目名称"
         tag: "标签"
         time: "时期"
         description: "项目描述"
         weight: "权重"
+        language: "选择语言"
       skill:
         name: "技术名称"
         weight: "权重"
         description: "技术描述"
+        language: "选择语言"
       experience: 
         company: "公司"
         position: "职位"
         time: "时期"
         description: "职位描述"
         weight: "权重"
+        language: "选择语言"
       social:
         name: "社交名称"
         url: "url"
         weight: "权重"
+        language: "选择语言"
       pdf_resume:
         name: "PDF简历"
     errors:
@@ -227,6 +235,8 @@ zh:
               invalid: "格式不正确"
             weight:
               blank: "不能为空"
+            language:
+              blank: "不能为空"
         project:
           attributes:
             name:
@@ -238,6 +248,8 @@ zh:
             description:
               blank: "不能为空"
             weight:
+              blank: "不能为空"
+            language:
               blank: "不能为空"
         education:
           attributes:
@@ -253,6 +265,8 @@ zh:
               blank: "不能为空"
             weight:
               blank: "不能为空"
+            language:
+              blank: "不能为空"
         skill:
           attributes:
             name:
@@ -260,6 +274,8 @@ zh:
             weight: 
               blank: "不能为空"
             description:
+              blank: "不能为空"
+            language:
               blank: "不能为空"
         experience:
           attributes:
@@ -272,6 +288,8 @@ zh:
             weight:
               blank: "不能为空"
             time:
+              blank: "不能为空"
+            language:
               blank: "不能为空"
 
 
