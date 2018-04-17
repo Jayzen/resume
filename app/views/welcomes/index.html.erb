@@ -1,10 +1,103 @@
-<% if logged_in? %>
-  <% case @template %>
-  <% when 1 %>
-    <%= render 'index_template_one' %>
-  <% when 2%>
-    <%= render 'index_template_two' %>
-  <% end %>
-<% else %>
-  <%= render 'unlogin' %>
-<% end %>
+<% provide(:title, t('home')) %>
+
+<nav class="navbar navbar-expand-sm navbar-light bg-dark">
+  <div class="container">
+    <strong><%= link_to t('resume'), root_path, class: "navbar-brand text-secondary text-light" %></strong>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav"><li class="nav-item"></li></ul>
+      <ul class="navbar-nav ml-auto">
+        <% if logged_in? %>
+          <li class="nav-item"></li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+              <% if current_user.avatar.to_s.size == 0 %>
+                <%= image_tag "male.jpeg", size: "25x25", class: "rounded-circle" %>
+              <% else %>
+                <%= image_tag current_user.avatar.large.url, size: "25x25", class: "rounded-circle" %>
+              <% end %>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <%= link_to t('basic_settings'), edit_user_path(current_user), class: "dropdown-item text-secondary" %>
+              <%= link_to t('resume_settings'), projects_path, class: "dropdown-item text-secondary" %>
+              <div class="dropdown-divider"></div>
+              <%= link_to t('logout'), logout_path, method: "delete", class: "dropdown-item text-secondary" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item"><%= link_to t('login'), login_path, class: "nav-link text-light" %></li>
+        <% end -%>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<main role="main">
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading text-dark"><%= t('app_description') %></h1>
+      <p class="lead text-muted">
+        <a href="<%= set_zh_path %>">
+          <button type="button" class="btn <%= I18n.locale == :zh ? 'btn-primary' : 'btn-outline-secondary' %> mt-2">
+            <i class="fa fa-language fa-fw"></i> <%= t('set_chinese') %>
+          </button>
+        </a>
+        <a href="<%= set_en_path %>">
+          <button type="button" class="btn <%= I18n.locale == :en ? 'btn-primary' : 'btn-outline-secondary' %> mt-2">
+            <i class="fa fa-language fa-fw"></i> <%= t('set_english') %>
+          </button>
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card box-shadow">
+            <i class="fa fa-github fa-5x"></i>
+            <div class="card-header">
+              <p class="card-text text-secondary"><%= t('github_login') %></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card box-shadow">
+            <i class="fa fa-language fa-5x"></i>
+            <div class="card-header">
+              <p class="card-text text-secondary"><%= t('support_en_and_zh') %></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card box-shadow">
+            <i class="fa fa-exchange fa-5x"></i>
+            <div class="card-header">
+              <p class="card-text text-secondary"><%= t('support_set_template') %></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card box-shadow">
+            <i class="fa fa-cloud fa-5x"></i>
+            <div class="card-header">
+              <p class="card-text text-secondary"><%= t('support_online_resume') %></p>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p><small><%= t('footer') %></small></p>
+      </div>
+    </footer>

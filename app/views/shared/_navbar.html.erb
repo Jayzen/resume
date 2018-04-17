@@ -8,6 +8,8 @@
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><%= link_to "中文", set_zh_path, class: "text-secondary nav-link" %></li>
+          <li class="nav-item"><%= link_to "English", set_en_path, class: "text-secondary nav-link" %></li>
           <% if logged_in? %>
             <li class="nav-item"></li>
             <li class="nav-item dropdown">

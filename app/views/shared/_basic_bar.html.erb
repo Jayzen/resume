@@ -26,11 +26,6 @@
             <i class="fa fa-exchange fa-fw"></i> <%= t('template_information') %>
           </button>
         </a>
-        <a href="<%= set_language_path %>">
-          <button type="button" class="btn <%= controller_name == 'welcomes' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2">
-            <i class="fa fa-exchange fa-fw"></i> <%= t('language_information') %>
-          </button>
-        </a>
         <a href="<%= online_path(current_user.name_en) %>" target="_blank">
           <button type="button" class="btn btn-outline-secondary btn-block mt-2">
             <i class="fa fa-cloud fa-fw"></i> <%= t('online_resume_information') %>

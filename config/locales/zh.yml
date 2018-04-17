@@ -114,7 +114,7 @@ zh:
   must_upload: "必须提交"
   github_login: "支持GitHub 登录"
   support_en_and_zh: "支持中英文切换"
-  support_set_template: "支持简历模板切换"
+  support_set_template: "支持选择简历模板"
   support_online_resume: "支持在线简历"
   views:
     pagination:
