@@ -13,16 +13,12 @@
         <% if logged_in? %>
           <li class="nav-item"></li>
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-              <% if current_user.avatar.to_s.size == 0 %>
-                <%= image_tag "male.jpeg", size: "25x25", class: "rounded-circle" %>
-              <% else %>
-                <%= image_tag current_user.avatar.large.url, size: "25x25", class: "rounded-circle" %>
-              <% end %>
+            <a href="#" class="nav-link dropdown-toggle text-light" data-toggle="dropdown">
+              <%= current_user.name_en %>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
               <%= link_to t('basic_settings'), edit_user_path(current_user), class: "dropdown-item text-secondary" %>
-              <%= link_to t('resume_settings'), projects_path, class: "dropdown-item text-secondary" %>
+              <%= link_to t('resume_settings'), socials_path, class: "dropdown-item text-secondary" %>
               <div class="dropdown-divider"></div>
               <%= link_to t('logout'), logout_path, method: "delete", class: "dropdown-item text-secondary" %>
             </div>
@@ -39,7 +35,13 @@
 <main role="main">
   <section class="jumbotron text-center">
     <div class="container">
-      <h1 class="jumbotron-heading text-dark"><%= t('app_description') %></h1>
+      <div class="mb-4">
+        <% if current_user.avatar.to_s.size == 0 %>
+          <%= image_tag "male.jpeg", size: "120x120", class: "rounded-circle" %>
+        <% else %>
+          <%= image_tag current_user.avatar.large.url, size: "120x120", class: "rounded-circle" %>
+        <% end %>
+      </div>
       <p class="lead text-muted">
         <a href="<%= online_path(@user.name_en) %>?locale=en" target="_blank">
           <button type="button" class="btn btn-primary mt-2">
@@ -56,8 +58,8 @@
   </section>
 </main>
 
-<footer class="text-muted">
+<footer class="text-muted footer">
   <div class="container">
-    <p><small><%= t('footer') %></small></p>
+    <p><small><u><%= t('footer') %></u></small></p>
   </div>
 </footer>

@@ -7,6 +7,7 @@
         <ul class="list-group list-group-flush">
           <% @skills.each do |skill| %>
             <li class="list-group-item text-secondary">
+              <%= skill.language == "zh" ? t('chinese') : t('english') %>|
               <%= skill.name %> &nbsp
               <%= link_to t('show'), skill_path(skill), class: "text-secondary" %>|
               <%= link_to t('edit'), edit_skill_path(skill), class: "text-secondary" %>|

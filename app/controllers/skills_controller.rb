@@ -19,7 +19,7 @@ class SkillsController < ApplicationController
   end
 
   def index
-    @skills = current_user.skills.order("weight desc")
+    @skills = current_user.skills.order("language")
   end
 
   def new

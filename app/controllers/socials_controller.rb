@@ -48,6 +48,6 @@ class SocialsController < ApplicationController
     end
 
     def social_params
-      params.require(:social).permit(:language, :name, :weight, :url)
+      params.require(:social).permit(:name, :weight, :url)
     end
 end

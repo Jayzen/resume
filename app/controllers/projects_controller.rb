@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects = current_user.projects.order("weight desc")
+    @projects = current_user.projects.order("language")
   end
 
   def new

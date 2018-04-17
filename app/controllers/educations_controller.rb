@@ -19,7 +19,7 @@ class EducationsController < ApplicationController
   end
 
   def index
-    @educations = current_user.educations.order("weight desc")
+    @educations = current_user.educations.order("language")
   end
 
   def new

@@ -7,6 +7,7 @@
         <ul class="list-group list-group-flush">
           <% @experiences.each do |experience| %>
             <li class="list-group-item text-secondary">
+              <%= experience.language == "zh" ? t('chinese') : t('english') %>|
               <%= experience.company %> &nbsp
               <%= link_to t('show'), experience_path(experience), class: "text-secondary" %>|
               <%= link_to t('edit'), edit_experience_path(experience), class: "text-secondary" %>|

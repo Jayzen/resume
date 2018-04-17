@@ -7,6 +7,7 @@
         <ul class="list-group list-group-flush">
           <% @projects.each do |project| %>
             <li class="list-group-item text-secondary">
+              <%= project.language == "zh" ? t('chinese') : t('english') %>|
               <%= project.name %> &nbsp
               <%= link_to t('show'), project_path(project), class: "text-secondary" %>|
               <%= link_to t('edit'), edit_project_path(project), class: "text-secondary" %>|

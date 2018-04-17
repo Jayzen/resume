@@ -1,20 +1,27 @@
 class WelcomesController < ApplicationController
   def index
-    render layout: "unlogin"
+    render layout: "home"
   end
 
   def show
     if @user = User.find_by(name_en: params[:name_en])
-      @socials = @user.socials.order("weight desc")
-      @projects = @user.projects.order("weight desc")
-      @educations = @user.educations.order("weight desc")
-      @skills = @user.skills.order("weight desc")
-      @experiences = @user.experiences.order("weight desc")
-      @pdf_resume = @user.pdf_resume 
       @wechat = @user.wechat
       @template = @user.template
+      @pdf_resume = @user.pdf_resume
+      @socials = @user.socials.order("weight desc")
+      if params[:locale] == "zh"
+        @projects = @user.projects.zh_order
+        @educations = @user.educations.zh_order
+        @skills = @user.skills.zh_order
+        @experiences = @user.experiences.zh_order
+      elsif params[:locale] == "en"
+        @projects = @user.projects.en_order
+        @educations = @user.educations.en_order
+        @skills = @user.skills.en_order
+        @experiences = @user.experiences.en_order
+      end
       if params[:locale].nil?
-        render layout: 'unlogin'
+        render layout: 'home'
       else
         case @template
         when 1

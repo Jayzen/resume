@@ -19,7 +19,7 @@ class ExperiencesController < ApplicationController
   end
 
   def index
-    @experiences = current_user.experiences.order("weight desc")
+    @experiences = current_user.experiences.order("language")
   end
 
   def new
