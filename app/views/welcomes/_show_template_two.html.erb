@@ -1,3 +1,4 @@
+<% provide(:title, @user.name_en) %>
 <div class="container">
   <header id="main-header">
     <div class="row no-gutters">
@@ -12,33 +13,30 @@
         <div class="d-flex flex-column">
           <div class="p-5 bg-dark text-white">
             <div class="name d-flex flex-row justify-content-between align-items-center">
-              <h1 class="display-4"><%= @user.name %></h1>
+              <h1 class="display-4"><%= I18n.locale == :zh ? @user.name : @user.name_en %></h1>
               <% if @wechat %>
-                <% cache_if @wechat, @wecaht do %>
-                  <div>
-                    <a class="color" href="#" data-toggle="tooltip" title='<%= image_tag @wechat.name.middle.url, width: "200" %>'>
-                      <i class="fa fa-wechat"></i></a>
-                  </div>
-                <% end %>
+                <div>
+                  <a class="color" href="#" data-toggle="tooltip" title='<%= image_tag @wechat.name.middle.url, width: "200" %>'>
+                    <i class="fa fa-wechat"></i>
+                  </a>
+                </div>
               <% end %>
-              <% cache @socials do %>
-                <% @socials.each do |social| %>
-                  <% case social.name %>
-                    <% when "github" %>
-                      <div><a class="color" href="<%= social.url %>"><i class="fa fa-github"></i></a></div>
-                    <% when "weibo" %>
-                      <div><a class="color" href="<%= social.url %>"><i class="fa fa-weibo"></i></a></div>
-                    <% when "facebook" %>
-                      <div><a class="color" href="<%= social.url %>"><i class="fa fa-facebook"></i></a></div>
-                    <% when "twitter" %>
-                      <div><a class="color" href="<%= social.url %>"><i class="fa fa-twitter"></i></a></div>
-                  <% end %>
+              <% @socials.each do |social| %>
+                <% case social.name %>
+                  <% when "github" %>
+                    <div><a class="color" href="<%= social.url %>"><i class="fa fa-github"></i></a></div>
+                  <% when "weibo" %>
+                    <div><a class="color" href="<%= social.url %>"><i class="fa fa-weibo"></i></a></div>
+                  <% when "facebook" %>
+                    <div><a class="color" href="<%= social.url %>"><i class="fa fa-facebook"></i></a></div>
+                  <% when "twitter" %>
+                    <div><a class="color" href="<%= social.url %>"><i class="fa fa-twitter"></i></a></div>
                 <% end %>
               <% end %>
             </div>
           </div>
 
-          <div class="p-4 bg-black"><%= @user.description %></div>
+          <div class="p-4 bg-black"><%= I18n.locale == :zh ? @user.description : @user.description_en %></div>
 
           <div>
             <div class="d-flex flex-row text-white align-items-stretch text-center">
@@ -63,14 +61,12 @@
   
   <div id="project" class="collapse show">
     <div class="card card-body bg-primary text-white py-5">
-      <h2>Projects</h2>
+      <h2><%= t('project') %></h2>
       <div>
-        <% cache @projects do %>
-          <% @projects.each do |project| %>
-            <ul class="fa-ul mb-0">
-              <li><i class="fa-li fa fa-check"></i><%= project.tag%>|<%= project.name %>|<%= project.time%>|<%= project.description %></li>
-            </ul>
-          <% end %>
+        <% @projects.each do |project| %>
+          <ul class="fa-ul mb-0">
+            <li><i class="fa-li fa fa-check"></i><%= project.tag%>|<%= project.name %>|<%= project.time%>|<%= project.description %></li>
+          </ul>
         <% end %>
       </div> 
     </div>
@@ -78,14 +74,12 @@
 
   <div id="education" class="collapse">
     <div class="card card-body bg-success text-white py-5">
-      <h2>Education</h2>
+      <h2><%= t('education') %></h2>
       <div>
-        <% cache @educations do %>
-          <% @educations.each do |education| %>
-            <ul class="fa-ul mb-0">
-              <li><i class="fa-li fa fa-check"></i><%= education.school%>|<%= education.degree %>|<%= education.major%>|GPA:<%= education.gpa%>|<%= education.time %></li>
-            </ul>
-          <% end %>
+        <% @educations.each do |education| %>
+          <ul class="fa-ul mb-0">
+            <li><i class="fa-li fa fa-check"></i><%= education.school%>|<%= education.degree %>|<%= education.major%>|GPA:<%= education.gpa%>|<%= education.time %></li>
+          </ul>
         <% end %>
       </div>
     </div>
@@ -93,14 +87,12 @@
   
   <div id="experience" class="collapse">
     <div class="card card-body bg-warning text-white py-5">
-      <h2>Experience</h2>
+      <h2><%= t('experience') %></h2>
       <div>
-        <% cache @experienced do %>
-          <% @experiences.each do |experience| %>
-            <ul class="fa-ul mb-0">
-              <li><i class="fa-li fa fa-check"></i><%= experience.time%>|<%= experience.company %>|<%= experience.position%>|<%= experience.description%></li>
-            </ul>
-          <% end %>
+        <% @experiences.each do |experience| %>
+          <ul class="fa-ul mb-0">
+            <li><i class="fa-li fa fa-check"></i><%= experience.time%>|<%= experience.company %>|<%= experience.position%>|<%= experience.description%></li>
+          </ul>
         <% end %>
       </div>
     </div>
@@ -108,14 +100,12 @@
   
   <div id="skill" class="collapse">
     <div class="card card-body bg-danger text-white py-5">
-      <h2>Skills</h2>
+      <h2><%= t('skill') %></h2>
       <div>
-        <% cache @skills do %>
-          <% @skills.each do |skill| %>
-            <ul class="fa-ul mb-0">
-              <li><i class="fa-li fa fa-check"></i><%= skill.name%>|<%= skill.description %></li>
-            </ul>
-          <% end %>
+        <% @skills.each do |skill| %>
+          <ul class="fa-ul mb-0">
+            <li><i class="fa-li fa fa-check"></i><%= skill.name%>|<%= skill.description %></li>
+          </ul>
         <% end %>
       </div>
     </div>
@@ -124,11 +114,9 @@
   <footer id="main-footer" class="p-5 bg-dark text-white">
     <div class="row">
       <% if @pdf_resume %>
-        <% cache_if @pdf_resume, @pdf_resume do %>
-          <div class="col-md-6">
-            <a href="<%= @pdf_resume.name.url %>" class="btn btn-outline-light"><i class="fa fa-cloud"></i> Download Resume</a>
-          </div>
-        <% end %>
+        <div class="col-md-6">
+          <a href="<%= @pdf_resume.name.url %>" class="btn btn-outline-light"><i class="fa fa-cloud-download"></i> <%= t('download_resume') %></a>
+        </div>
       <% end %>
     </div>
   </footer> 

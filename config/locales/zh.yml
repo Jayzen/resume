@@ -93,6 +93,7 @@ zh:
   template_one: "模板1"
   template_two: "模板2"
   upload_pdf_resume: "上传PDF简历"
+  download_resume: "简历下载"
   pdf_resume: "PDF简历"
   pdf_resume_uploaded: "PDF简历已经上传"
   wechat_two_dimension_code: "微信二维码"
