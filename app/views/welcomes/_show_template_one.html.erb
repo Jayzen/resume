@@ -6,7 +6,7 @@
           <% unless @user.avatar.to_s.size == 0 %>
             <%= image_tag @user.avatar.large.url, class: "img-fluid img-profile rounded-circle mx-auto mb-2" %>
           <% else %>
-            <%= image_tag "avatar", class: "img-fluid img-profile rounded-circle mx-auto mb-2" %>
+            <%= image_tag "male.jpeg", class: "img-fluid img-profile rounded-circle mx-auto mb-2" %>
           <% end %>
         </span>
       </a>
