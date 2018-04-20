@@ -51,4 +51,4 @@ production:
   <<: *default
   database: resume_production
   username: root
-  password: <%= ENV['DEMO_DATABASE_PASSWORD'] %>
+  password: <%= Rails.application.credentials.dig(:development, :mysql_password) %>
