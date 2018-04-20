@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Resume
   class Application < Rails::Application
+    config.enable_dependency_loading = true
     config.autoload_paths += %W[#{Rails.root}/lib]
     
     config.load_defaults 5.2
