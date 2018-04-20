@@ -37,7 +37,7 @@
     <div class="container">
       <div class="mb-4">
         <% if @user.avatar.to_s.size == 0 %>
-          <%= image_tag "male.jpeg", size: "120x120", class: "rounded-circle" %>
+          <%= image_tag "avatar.png", size: "120x120", class: "rounded-circle" %>
         <% else %>
           <%= image_tag @user.avatar.large.url, size: "120x120", class: "rounded-circle" %>
         <% end %>
