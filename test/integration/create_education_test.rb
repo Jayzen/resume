@@ -19,7 +19,8 @@ class CreateEducationTest < ActionDispatch::IntegrationTest
       time: "time",
       major: "major",
       gpa: 3.5,
-      weight: 1
+      weight: 1,
+      language: "language"
     }}
     refute_predicate flash, :empty?
   end

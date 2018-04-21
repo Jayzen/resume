@@ -16,7 +16,8 @@ class CreateSkillTest < ActionDispatch::IntegrationTest
     post skills_path, params: { skill: {
       name: "name",
       description: "description",
-      weight: 1
+      weight: 1,
+      language: "language"
     }}
     refute_predicate flash, :empty?
   end

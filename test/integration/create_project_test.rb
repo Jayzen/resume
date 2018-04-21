@@ -19,6 +19,7 @@ class CreateProjectTest < ActionDispatch::IntegrationTest
       time: "time",
       description: "description",
       weight: 1,
+      language: "language"
     }}
     refute_predicate flash, :empty?
   end

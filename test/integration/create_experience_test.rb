@@ -18,7 +18,8 @@ class CreateExperienceTest < ActionDispatch::IntegrationTest
       position: "position",
       description: "description",
       weight: 1,
-      time: "time"
+      time: "time",
+      language: "language"
     }}
     refute_predicate flash, :empty?
   end
