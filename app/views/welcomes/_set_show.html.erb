@@ -37,7 +37,7 @@
     <div class="container">
       <div class="mb-4">
         <% if @user.avatar.to_s.size == 0 %>
-          <%= image_tag "avatar.png", size: "120x120", class: "rounded-circle" %>
+          <img src="https://test.zhengjiajun.com/uploads/wechat/name/29/middle_avatar.png" class="rounded-circle" height="120" width="120"/>
         <% else %>
           <%= image_tag @user.avatar.large.url, size: "120x120", class: "rounded-circle" %>
         <% end %>
