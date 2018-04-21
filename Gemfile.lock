@@ -235,7 +235,7 @@ GEM
       redis-actionpack (>= 5.0, < 6)
       redis-activesupport (>= 5.0, < 6)
       redis-store (>= 1.2, < 2)
-    redis-store (1.4.1)
+    redis-store (1.5.0)
       redis (>= 2.2, < 5)
     ruby-progressbar (1.9.0)
     ruby_dep (1.5.0)

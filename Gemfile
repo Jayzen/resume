@@ -36,7 +36,6 @@ gem 'rails-assets-jcrop', source: 'https://rails-assets.org'
 gem 'mini_magick', '~> 4.8'
 gem 'mysql2', '~> 0.4.4'
 gem 'omniauth-github'
-gem 'rack-mini-profiler'
 gem 'redis-rails'
 gem 'meta-tags'
 # Use Capistrano for deployment
@@ -57,7 +56,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  # gem 'rack-mini-profiler'
+  gem 'rack-mini-profiler'
 end
 
 group :test do
