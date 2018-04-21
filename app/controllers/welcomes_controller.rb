@@ -9,6 +9,13 @@ class WelcomesController < ApplicationController
       @template = @user.template
       @pdf_resume = @user.pdf_resume
       @socials = @user.socials.order("weight desc")
+      set_meta_tags(title: @user.name_en,
+                    site: 'resume',
+                    reverse: true,
+                    description: @user.name,
+                    image: 'http://lorempixel.com/320/240/cats',
+                    url: online_path(@user.name_en)
+                   )
       if params[:locale] == "zh"
         @projects = @user.projects.zh_order
         @educations = @user.educations.zh_order
