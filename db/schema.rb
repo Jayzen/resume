@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_17_132632) do
+ActiveRecord::Schema.define(version: 2018_04_23_064943) do
 
   create_table "educations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "school"
@@ -37,6 +37,20 @@ ActiveRecord::Schema.define(version: 2018_04_17_132632) do
     t.string "time"
     t.string "language"
     t.index ["user_id"], name: "index_experiences_on_user_id"
+  end
+
+  create_table "papers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "language"
+    t.string "time"
+    t.string "title"
+    t.text "description"
+    t.string "author_ranking"
+    t.string "paper_level"
+    t.integer "weight"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_papers_on_user_id"
   end
 
   create_table "pdf_resumes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -108,6 +122,7 @@ ActiveRecord::Schema.define(version: 2018_04_17_132632) do
     t.index ["user_id"], name: "index_wechats_on_user_id"
   end
 
+  add_foreign_key "papers", "users"
   add_foreign_key "pdf_resumes", "users"
   add_foreign_key "skills", "users"
   add_foreign_key "wechats", "users"

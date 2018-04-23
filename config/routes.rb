@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :educations
   resources :experiences 
   resources :socials
+  resources :papers
   resources :wechats
   resources :set_templates
   resources :pdf_resumes

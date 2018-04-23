@@ -1,0 +1,23 @@
+<div class="col-md-10 col-sm-8">
+    <div class="card">
+      <div class="card-header text-secondary text-center">
+        <%= t('paper_lists') %>
+      </div>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          <% @papers.each do |paper| %>
+            <li class="list-group-item text-secondary">
+              <%= paper.language == "zh" ? t('chinese') : t('english') %>|
+              <%= paper.title %> &nbsp
+              <%= link_to t('show'), paper_path(paper), class: "text-secondary" %>|
+              <%= link_to t('edit'), edit_paper_path(paper), class: "text-secondary" %>|
+              <%= link_to t('destroy'), paper, method: :delete, data: { confirm: "确定删除?"}, class: "text-secondary" %>
+            </li>
+          <% end %>
+          <li class="list-group-item text-secondary">
+            <%= link_to t('new_paper'), new_paper_path, class: "btn btn-primary btn-sm" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>

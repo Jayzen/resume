@@ -20,6 +20,7 @@ class User < ApplicationRecord
   has_many :experiences, dependent: :destroy
   has_many :projects, dependent: :destroy
   has_many :socials, dependent: :destroy
+  has_many :papers, dependent: :destroy
   has_one :wechat, dependent: :destroy
   has_one :pdf_resume, dependent: :destroy
 

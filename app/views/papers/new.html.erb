@@ -1,0 +1,5 @@
+<% provide(:title, @paper.new_record? ? t('new_paper') : t('update_paper')) %>
+<div class="row">
+  <%= render 'shared/resume_bar' %>
+  <%= render 'paper_new' %>
+</div>
