@@ -22,7 +22,7 @@
               </a>
               <div class="dropdown-menu dropdown-menu-right">
                 <%= link_to t('basic_settings'), edit_user_path(current_user), class: "dropdown-item text-secondary" %>
-                <%= link_to t('resume_settings'), socials_path, class: "dropdown-item text-secondary" %>
+                <%= link_to t('resume_settings'), resume_information_path, class: "dropdown-item text-secondary" %>
                 <div class="dropdown-divider"></div>
                 <%= link_to t('logout'), logout_path, method: "delete", class: "dropdown-item text-secondary" %>
               </div>

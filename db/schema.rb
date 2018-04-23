@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_23_064943) do
+ActiveRecord::Schema.define(version: 2018_04_23_104635) do
 
   create_table "educations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "school"
@@ -111,6 +111,13 @@ ActiveRecord::Schema.define(version: 2018_04_23_064943) do
     t.string "name_en"
     t.string "city_en"
     t.string "description_en"
+    t.boolean "has_social", default: true
+    t.boolean "has_project", default: true
+    t.boolean "has_education", default: true
+    t.boolean "has_skill", default: true
+    t.boolean "has_experience", default: true
+    t.boolean "has_paper", default: true
+    t.boolean "has_pdf_resume", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

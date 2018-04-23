@@ -21,11 +21,13 @@ class WelcomesController < ApplicationController
         @educations = @user.educations.zh_order
         @skills = @user.skills.zh_order
         @experiences = @user.experiences.zh_order
+        @papers = @user.papers.zh_order
       elsif params[:locale] == "en"
         @projects = @user.projects.en_order
         @educations = @user.educations.en_order
         @skills = @user.skills.en_order
         @experiences = @user.experiences.en_order
+        @papers = @user.papers.en_order
       end
       if params[:locale].nil?
         render layout: 'home'
