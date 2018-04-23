@@ -44,11 +44,11 @@ class WelcomesController < ApplicationController
 
   def set_zh
     I18n.locale = cookies[:locale] = :zh
-    redirect_to request.referer, status: :moved_permanently
+    redirect_to request.referer
   end
 
   def set_en
     I18n.locale = cookies[:locale] = :en
-    redirect_to request.referer, status: :moved_permanently
+    redirect_to request.referer
   end
 end
