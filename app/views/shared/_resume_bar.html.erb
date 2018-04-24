@@ -34,11 +34,6 @@
               <button type="button" class="btn <%= controller_name == 'papers' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2"><%= t('paper') %></button>
             </a>
           <% end %>
-          <% if current_user.has_pdf_resume? %>
-            <a href="<%= pdf_resumes_path %>">
-              <button type="button" class="btn <%= controller_name == 'pdf_resumes' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2"><%= t('resume_information') %></button>
-            </a>
-          <% end %>
       </div>
     </div>
 </div>
