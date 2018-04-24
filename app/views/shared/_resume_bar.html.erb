@@ -8,32 +8,37 @@
             <a href="<%= socials_path %>">
               <button type="button" class="btn <%= ((controller_name == 'wechats') || (controller_name == 'socials')) ? 'btn-primary' : 'btn-outline-secondary' %> btn-block"><%= t('social_information') %></button>
             </a>
-          <% end %>
+          <% end -%>
           <% if current_user.has_project? %>
             <a href="<%= projects_path %>">
               <button type="button" class="btn <%= controller_name == 'projects' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2"><%= t('project') %></button>
             </a>
-          <% end %>
+          <% end -%>
           <% if current_user.has_education? %>
             <a href="<%= educations_path %>">
               <button type="button" class="btn <%= controller_name == 'educations' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2"><%= t('education') %></button>
             </a>
-          <% end %>
+          <% end -%>
           <% if current_user.has_skill? %>
             <a href="<%= skills_path %>">
               <button type="button" class="btn <%= controller_name == 'skills' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2"><%= t('skill') %></button>
             </a>
-          <% end %>
+          <% end -%>
           <% if current_user.has_experience? %>
             <a href="<%= experiences_path %>">
               <button type="button" class="btn <%= controller_name == 'experiences' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2"><%= t('experience') %></button>
             </a>
-          <% end %>
+          <% end -%>
           <% if current_user.has_paper? %>
             <a href="<%= papers_path %>">
               <button type="button" class="btn <%= controller_name == 'papers' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2"><%= t('paper') %></button>
             </a>
-          <% end %>
+          <% end -%>
+          <% if current_user.has_paper? %>
+            <a href="<%= pdf_resumes_path %>">
+              <button type="button" class="btn <%= controller_name == 'pdf_resumes' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2"><%= t('resume_information') %></button>
+            </a>
+          <% end -%>
       </div>
     </div>
 </div>
