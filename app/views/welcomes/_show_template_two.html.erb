@@ -14,27 +14,27 @@
           <div class="p-5 bg-dark text-white">
             <div class="name d-flex flex-row justify-content-between align-items-center">
               <h1 class="display-4"><%= I18n.locale == :zh ? @user.name : @user.name_en %></h1>
-              <% if @user.has_social? %>
-                <% if @wechat %>
+                <% if @user.has_social && @wechat %>
                   <div>
                     <a class="color" href="#" data-toggle="tooltip" title='<%= image_tag @wechat.name.middle.url, width: "200" %>'>
                       <i class="fa fa-wechat"></i>
                     </a>
                   </div>
                 <% end %>
-                <% @socials.each do |social| %>
-                  <% case social.name %>
-                    <% when "github" %>
-                      <div><a class="color" href="<%= social.url %>"><i class="fa fa-github"></i></a></div>
-                    <% when "weibo" %>
-                      <div><a class="color" href="<%= social.url %>"><i class="fa fa-weibo"></i></a></div>
-                    <% when "facebook" %>
-                      <div><a class="color" href="<%= social.url %>"><i class="fa fa-facebook"></i></a></div>
-                    <% when "twitter" %>
-                      <div><a class="color" href="<%= social.url %>"><i class="fa fa-twitter"></i></a></div>
-                  <% end %>
-                <% end %>
-              <% end %>
+                <% if @user.has_social && !(@socials.size == 0) %>
+                  <% @socials.each do |social| %>
+                    <% case social.name %>
+                      <% when "github" %>
+                        <div><a class="color" href="<%= social.url %>"><i class="fa fa-github"></i></a></div>
+                      <% when "weibo" %>
+                        <div><a class="color" href="<%= social.url %>"><i class="fa fa-weibo"></i></a></div>
+                      <% when "facebook" %>
+                        <div><a class="color" href="<%= social.url %>"><i class="fa fa-facebook"></i></a></div>
+                      <% when "twitter" %>
+                        <div><a class="color" href="<%= social.url %>"><i class="fa fa-twitter"></i></a></div>
+                    <% end -%>
+                  <% end -%>
+                <% end -%>
             </div>
           </div>
 
@@ -42,27 +42,27 @@
 
           <div>
             <div class="d-flex flex-row flex-wrap text-white align-items-stretch text-center">
-              <% if @user.has_project? %>
+              <% if @user.has_project? && !(@projects.size == 0) %>
                 <div class="port-item p-4 bg-primary" data-toggle="collapse" data-target="#project">
                   <i class="fa fa-home d-block"></i>
                 </div>
               <% end %>
-              <% if @user.has_education? %>
+              <% if @user.has_education? && !(@educations.size == 0) %>
                 <div class="port-item p-4 bg-success" data-toggle="collapse" data-target="#education">
                   <i class="fa fa-graduation-cap d-block"></i>
                 </div>
               <% end %>
-              <% if @user.has_experience? %>
+              <% if @user.has_experience? && !(@experiences.size == 0) %>
                 <div class="port-item p-4 bg-warning" data-toggle="collapse" data-target="#experience">
                   <i class="fa fa-folder-open d-block"></i>
                 </div>
               <% end %>
-              <% if @user.has_skill? %>
+              <% if @user.has_skill? && !(@skills.size == 0) %>
                 <div class="port-item p-4 bg-danger" data-toggle="collapse" data-target="#skill">
                   <i class="fa fa-envelope d-block"></i>
                 </div>
               <% end %>
-              <% if @user.has_paper? %>
+              <% if @user.has_paper? && !(@papers.size == 0) %>
                 <div class="port-item p-4 bg-info" data-toggle="collapse" data-target="#paper">
                   <i class="fa fa-newspaper-o d-block"></i>
                 </div>
@@ -139,17 +139,17 @@
     </div>
   </div>
 
-  <% if @user.has_pdf_resume? %>
+  <% if @user.has_pdf_resume? && !(@pdf_resumes.size == 0) %>
     <footer id="main-footer" class="p-5 bg-dark text-white">
       <div class="row">
-        <% if @pdf_resume %>
+        <% @pdf_resumes.each do |pdf_resume|%>
           <div class="col-md-6">
-            <a href="<%= @pdf_resume.name.url %>" class="btn btn-outline-light"><i class="fa fa-cloud-download"></i> <%= t('download_resume') %></a>
+            <a href="<%= pdf_resume.name.url %>" class="btn btn-outline-light"><i class="fa fa-cloud-download"></i> <%= t('download_resume') %></a>
           </div>
-        <% end %>
+        <% end -%>
       </div>
     </footer>
-  <% end %>
+  <% end -%>
 </div>
 
 

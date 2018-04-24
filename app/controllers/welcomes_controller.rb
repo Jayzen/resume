@@ -5,10 +5,9 @@ class WelcomesController < ApplicationController
 
   def show
     if @user = User.find_by(name_en: params[:name_en])
-      @wechat = @user.wechat
+      @wechat = @user.wechat if @user.wechat.status
       @template = @user.template
-      @pdf_resume = @user.pdf_resume
-      @socials = @user.socials.order("weight desc")
+      @socials = @user.socials.where(status: true).order("weight desc")
       set_meta_tags(title: @user.name_en,
                     site: 'resume',
                     reverse: true,
@@ -17,12 +16,14 @@ class WelcomesController < ApplicationController
                     url: online_path(@user.name_en)
                    )
       if params[:locale] == "zh"
+        @pdf_resumes = @user.pdf_resumes.zh
         @projects = @user.projects.zh_order
         @educations = @user.educations.zh_order
         @skills = @user.skills.zh_order
         @experiences = @user.experiences.zh_order
         @papers = @user.papers.zh_order
       elsif params[:locale] == "en"
+        @pdf_resumes = @user.pdf_resumes.en
         @projects = @user.projects.en_order
         @educations = @user.educations.en_order
         @skills = @user.skills.en_order

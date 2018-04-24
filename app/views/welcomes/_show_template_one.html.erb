@@ -18,32 +18,32 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#about"><%= t('about') %></a>
           </li>
-          <% if @user.has_project? %>
+          <% if @user.has_project? && !(@projects.size == 0) %>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#projects"><%= t('project') %></a>
             </li>
           <% end %>
-          <% if @user.has_education? %>
+          <% if @user.has_education? && !(@educations.size == 0) %>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#education"><%= t('education') %></a>
             </li>
           <% end %>
-          <% if @user.has_experience? %>
+          <% if @user.has_experience? && !(@experiences.size == 0) %>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#experience"><%= t('experience') %></a>
             </li>
           <% end %>
-          <% if @user.has_skill? %>
+          <% if @user.has_skill? && !(@skills.size == 0) %>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#skills"><%= t('skill') %></a>
             </li>
           <% end %>
-          <% if @user.has_paper? %>
+          <% if @user.has_paper? && !(@papers.size == 0) %>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#paper"><%= t('paper') %></a>
             </li>
           <% end %>
-          <% if @user.has_pdf_resume? %>
+          <% unless @pdf_resumes.size == 0 %>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#download"><%= t('download') %></a>
             </li>
@@ -63,9 +63,8 @@
               <a href="mailto:<%= @user.email %>"><%= @user.email %></a>
             </div>
             <p class="mb-5"><%= I18n.locale == :zh ? @user.description : @user.description_en %></p>
-            <% if @user.has_social? %>
               <ul class="list-inline list-social-icons mb-0">
-                <% if @wechat %>
+                <% if @user.has_social && @wechat %>
                   <li class="list-inline-item">
                     <a href="#" data-toggle="tooltip" title='<%= image_tag @wechat.name.middle.url, width: "200" %>'>
                       <span class="fa-stack fa-lg">
@@ -75,7 +74,7 @@
                    </a>
                   </li>
                 <% end %>
-            
+                <% if @user.has_social && !(@socials.size == 0) %>
                 <% @socials.each do |social| %>
                   <% case social.name %>
                   <% when "github" %> 
@@ -114,14 +113,14 @@
                         </span>
                       </a>
                     </li>
-                  <% end %>
-                <% end %>
+                  <% end -%>
+                <% end -%>
+                <% end -%>
               </ul>
-            <% end %>
         </div>
       </section>
       
-      <% if @user.has_project? %>
+      <% if @user.has_project? && !(@projects.size == 0) %>
         <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="projects">
           <div class="my-auto">
             <h2 class="mb-5"><%= t('project') %></h2>
@@ -136,12 +135,12 @@
                   <span class="text-primary"><%= project.time %></span>
                 </div>
               </div>
-            <% end %>
+            <% end -%>
           </div>
         </section>
-      <% end %>
+      <% end -%>
       
-      <% if @user.has_education? %>
+      <% if @user.has_education? && !(@educations.size == 0) %>
         <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="education">
           <div class="my-auto">
             <h2 class="mb-5"><%= t('education') %></h2>
@@ -157,12 +156,12 @@
                     <span class="text-primary"><%= education.time %></span>
                   </div>
                 </div>
-              <% end %>
+              <% end -%>
           </div>
         </section>
-      <% end %>
+      <% end -%>
 
-      <% if @user.has_experience? %>
+      <% if @user.has_experience? && !(@experiences.size == 0) %>
         <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
           <div class="my-auto">
             <h2 class="mb-5"><%= t('experience') %></h2>
@@ -177,12 +176,12 @@
                     <span class="text-primary"><%= experience.time %></span>
                   </div>
                 </div>
-              <% end %>
+              <% end -%>
           </div>
         </section>
-      <% end %>
+      <% end -%>
 
-      <% if @user.has_skill? %>
+      <% if @user.has_skill? && !(@skills.size == 0) %>
         <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
           <div class="my-auto">
             <h2 class="mb-5"><%= t('skill') %></h2>
@@ -190,12 +189,12 @@
               <ul class="fa-ul mb-0">
                 <li><i class="fa-li fa fa-check"></i><%= skill.name%>|<%= skill.description %></li>
               </ul>
-            <% end %>
+            <% end -%>
           </div>
         </section>
-      <% end %>
+      <% end -%>
 
-      <% if @user.has_paper? %>
+      <% if @user.has_paper? && !(@papers.size == 0) %>
         <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="paper">
           <div class="my-auto">
             <h2 class="mb-5"><%= t('paper') %></h2>
@@ -210,23 +209,23 @@
                   <span class="text-primary"><%= paper.time %></span>
                 </div>
               </div>
-            <% end %>
+            <% end -%>
           </div>
         </section>
-      <% end %>
-
-      <% if @user.has_pdf_resume? %>
+      <% end -%>
+      
+      <% if @user.has_pdf_resume? && !(@pdf_resumes.size == 0) %>
         <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="download">
           <div class="my-auto">
             <h2 class="mb-5"><%= t('download') %></h2>
-            <% if @pdf_resume %>
+            <% @pdf_resumes.each do |pdf_resume| %>
               <div class="subheading mb-3">
-                <a href="<%= @pdf_resume.name.url %>" class="btn btn-secondary btn-lg"><i class="fa fa-cloud"></i> Download Resume</a>
+                <a href="<%= pdf_resume.name.url %>" class="btn btn-secondary btn-lg"><i class="fa fa-cloud"></i><%= t('download_resume') %></a>
               </div>
-            <% end %>
+            <% end -%>
           </div>
         </section>
-      <% end %>
+      <% end -%>
     </div>
 
 
