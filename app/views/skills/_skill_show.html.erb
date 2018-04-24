@@ -17,6 +17,9 @@
           <label class="col-sm-12 col-form-label text-secondary"><%= t('language') %>: <%= @skill.language == "zh" ? t('chinese') : t('english') %></label>
         </div> 
         <div class="form-group mb-0">
+          <label class="col-sm-12 col-form-label text-secondary"><%= t('status') %>: <%= @skill.status == true ? t('published') : t('unpublished') %></label>
+        </div> 
+        <div class="form-group mb-0">
           <label class="col-sm-12 col-form-label"><%= link_to t('skill_lists'), skills_path, class: "btn btn-primary btn-sm" %></label>
         </div>
       </div>

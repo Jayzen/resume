@@ -1,6 +1,6 @@
 class ExperiencesController < ApplicationController
   before_action :logged_in_user
-  before_action :find_experience, only: [:edit, :update, :show, :destroy]
+  before_action :find_experience, only: [:edit, :update, :show, :destroy, :published]
 
   def show
   end
@@ -39,6 +39,11 @@ class ExperiencesController < ApplicationController
   def destroy
     @experience.destroy
     flash[:success] = t('destroy_successfully')
+    redirect_to experiences_path
+  end
+  
+  def published
+    @experience.toggle!(:status)
     redirect_to experiences_path
   end
 

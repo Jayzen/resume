@@ -1,6 +1,6 @@
 class SocialsController < ApplicationController
   before_action :logged_in_user
-  before_action :find_social, only: [:edit, :update, :show, :destroy]
+  before_action :find_social, only: [:edit, :update, :show, :destroy, :published]
 
   def show
   end
@@ -39,6 +39,11 @@ class SocialsController < ApplicationController
   def destroy
     @social.destroy
     flash[:success] = t('destroy_successfully')
+    redirect_to socials_path
+  end
+
+  def published
+    @social.toggle!(:status)
     redirect_to socials_path
   end
 

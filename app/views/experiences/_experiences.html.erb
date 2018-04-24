@@ -8,10 +8,19 @@
           <% @experiences.each do |experience| %>
             <li class="list-group-item text-secondary">
               <%= experience.language == "zh" ? t('chinese') : t('english') %>|
-              <%= experience.company %> &nbsp
+              <%= experience.company %> 
+              <% if experience.status? %>
+                <span class='badge badge-primary'><%= t('published')%></span>
+              <% end -%>
+              &nbsp&nbsp
               <%= link_to t('show'), experience_path(experience), class: "text-secondary" %>|
               <%= link_to t('edit'), edit_experience_path(experience), class: "text-secondary" %>|
-              <%= link_to t('destroy'), experience, method: :delete, data: { confirm: "确定删除?"}, class: "text-secondary" %>
+              <%= link_to t('destroy'), experience, method: :delete, data: { confirm: "确定删除?"}, class: "text-secondary" %>|
+              <% if experience.status? %>
+                <%= link_to t('unpublish'), published_experience_path(experience), class: "text-secondary" %>
+              <% else %>
+                <%= link_to t('publish'), published_experience_path(experience), class: "text-secondary" %>
+              <% end %>
             </li>
           <% end %>
           <li class="list-group-item text-secondary">

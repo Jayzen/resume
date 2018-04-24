@@ -1,6 +1,6 @@
 class PapersController < ApplicationController
   before_action :logged_in_user
-  before_action :find_paper, only: [:edit, :update, :show, :destroy]
+  before_action :find_paper, only: [:edit, :update, :show, :destroy, :published]
 
   def show
   end
@@ -42,12 +42,17 @@ class PapersController < ApplicationController
     redirect_to papers_path
   end
 
+  def published
+    @paper.toggle!(:status)
+    redirect_to papers_path
+  end
+ 
   private
     def find_paper
       @paper = current_user.papers.find(params[:id])
     end
 
     def paper_params
-      params.require(:paper).permit(:language, :title, :description, :time,  :weight, :author_ranking, :paper_level)
+      params.require(:paper).permit(:status, :language, :title, :description, :time,  :weight, :author_ranking, :paper_level)
     end
 end

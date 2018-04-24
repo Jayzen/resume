@@ -1,6 +1,6 @@
 class EducationsController < ApplicationController
   before_action :logged_in_user
-  before_action :find_education, only: [:edit, :update, :show, :destroy]
+  before_action :find_education, only: [:edit, :update, :show, :destroy, :published]
 
   def show
   end
@@ -39,6 +39,11 @@ class EducationsController < ApplicationController
   def destroy
     @education.destroy
     flash[:success] = t('destroy_successfully')
+    redirect_to educations_path
+  end
+
+  def published
+    @education.toggle!(:status)
     redirect_to educations_path
   end
 

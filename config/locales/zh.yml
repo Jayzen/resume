@@ -138,7 +138,7 @@ zh:
   
   errors:
     messages:
-      extension_whitelist_error: "%{extension}格式文件不能上传，只能上传pdf文件"
+      extension_whitelist_error: "不能上传以%{extension}结尾的文件"
   views:
     pagination:
       first: "&laquo; 首页"
@@ -233,6 +233,8 @@ zh:
       pdf_resume:
         language: "选择语言"
         name: "PDF简历"
+      wechat:
+        name: "微信二维码"
     errors:
       models:
         user:
@@ -328,5 +330,11 @@ zh:
             language:
               blank: "不能为空"
               taken: "已经上传"
+        wechat:
+          attributes:
+            name:
+              blank: "不能为空"
+            status:
+              blank: "不能为空"
 
 

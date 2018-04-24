@@ -69,6 +69,17 @@
         </div> 
 
         <div class="form-group row">
+          <label class="col-sm-2 col-form-label text-secondary"><%= t('status') %>:</label>
+          <div class="col-sm-10">
+            <select name="education[status]" class="form-control text-secondary">
+              <% [[ApplicationRecord::Status::On, t('publish')], [ApplicationRecord::Status::Off, t('unpublish')]].each do |row| %>
+                <option value="<%= row.first %>" <%= 'selected' if @education.status == row.first %>><%= row.last %></option>
+              <% end -%> 
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
           <label class="col-sm-2 col-form-label"></label>
           <div class="col-sm-10">
             <%= f.submit (@education.new_record? ? t('new_education') : t('update_education')), class: "btn btn-primary btn-sm"%>

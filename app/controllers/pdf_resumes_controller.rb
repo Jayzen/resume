@@ -1,6 +1,6 @@
 class PdfResumesController < ApplicationController
   before_action :logged_in_user
-  before_action :find_pdf_resume, only: [:edit, :update, :show, :destroy]
+  before_action :find_pdf_resume, only: [:edit, :update, :show, :destroy, :published]
 
   def new
     @pdf_resume = current_user.pdf_resumes.build
@@ -41,13 +41,18 @@ class PdfResumesController < ApplicationController
   def index
     @pdf_resumes= current_user.pdf_resumes
   end
-  
+
+  def published
+    @pdf_resume.toggle!(:status)
+    redirect_to pdf_resumes_path
+  end
+
   private
     def find_pdf_resume
       @pdf_resume = current_user.pdf_resumes.find(params[:id])
     end
 
     def pdf_resume_params
-      params.require(:pdf_resume).permit(:name, :language)
+      params.require(:pdf_resume).permit(:name, :language, :status)
     end
 end

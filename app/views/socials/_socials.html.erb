@@ -7,18 +7,36 @@
         <ul class="list-group list-group-flush">
           <% @socials.each do |social| %>
             <li class="list-group-item text-secondary">
-              <%= social.name %> &nbsp
+              <%= social.name %> 
+              <% if social.status? %>
+                <span class='badge badge-primary'><%= t('published')%></span>
+              <% end -%> 
+              &nbsp&nbsp
               <%= link_to t('show'), social_path(social), class: "text-secondary" %>|
               <%= link_to t('edit'), edit_social_path(social), class: "text-secondary" %>|
-              <%= link_to t('destroy'), social, method: :delete, data: { confirm: t('confirm_delete') }, class: "text-secondary" %>
+              <%= link_to t('destroy'), social, method: :delete, data: { confirm: t('confirm_delete') }, class: "text-secondary" %>|
+              <% if social.status? %>
+                <%= link_to t('unpublish'), published_social_path(social), class: "text-secondary" %>
+              <% else %>
+                <%= link_to t('publish'), published_social_path(social), class: "text-secondary" %>
+              <% end %>
             </li>
           <% end %>
           <% if current_user.wechat %>
             <li class="list-group-item text-secondary">
-              wechat &nbsp
+              wechat 
+              <% if current_user.wechat.status? %>
+                <span class='badge badge-primary'><%= t('published')%></span>
+              <% end -%>
+              &nbsp&nbsp
               <%= link_to t('show'), wechat_path(current_user.wechat), class: "text-secondary" %>|
               <%= link_to t('edit'), edit_wechat_path(current_user.wechat), class: "text-secondary" %>|
-              <%= link_to t('destroy'), current_user.wechat, method: :delete, data: { confirm: t('confirm_delete') }, class: "text-secondary" %>
+              <%= link_to t('destroy'), current_user.wechat, method: :delete, data: { confirm: t('confirm_delete') }, class: "text-secondary" %>|
+              <% if current_user.wechat.status? %>
+                <%= link_to t('unpublish'), published_wechat_path(current_user.wechat), class: "text-secondary" %>
+              <% else %>
+                <%= link_to t('publish'), published_wechat_path(current_user.wechat), class: "text-secondary" %>
+              <% end %> 
             </li>
           <% end %>
           <li class="list-group-item text-secondary">

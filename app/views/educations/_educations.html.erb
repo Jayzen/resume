@@ -8,10 +8,19 @@
           <% @educations.each do |education| %>
             <li class="list-group-item text-secondary">
               <%= education.language == "zh" ? t('chinese') : t('english') %>|
-              <%= education.school %> &nbsp
+              <%= education.school %> 
+              <% if education.status? %>
+                <span class='badge badge-primary'><%= t('published')%></span>
+              <% end -%>
+              &nbsp&nbsp
               <%= link_to t('show'), education_path(education), class: "text-secondary" %>|
               <%= link_to t('edit'), edit_education_path(education), class: "text-secondary" %>|
-              <%= link_to t('destroy'), education, method: :delete, data: { confirm: t('confirm_delete') }, class: "text-secondary" %>
+              <%= link_to t('destroy'), education, method: :delete, data: { confirm: t('confirm_delete') }, class: "text-secondary" %>|
+              <% if education.status? %>
+                <%= link_to t('unpublish'), published_education_path(education), class: "text-secondary" %>
+              <% else %>
+                <%= link_to t('publish'), published_education_path(education), class: "text-secondary" %>
+              <% end %>
             </li>
           <% end %>
           <li class="list-group-item text-secondary">

@@ -1,6 +1,6 @@
 class SkillsController < ApplicationController
   before_action :logged_in_user
-  before_action :find_skill, only: [:edit, :update, :show, :destroy]
+  before_action :find_skill, only: [:edit, :update, :show, :destroy, :published]
 
   def show
   end
@@ -39,6 +39,11 @@ class SkillsController < ApplicationController
   def destroy
     @skill.destroy
     flash[:success] = t('destroy_successfully')
+    redirect_to skills_path
+  end
+
+  def published
+    @skill.toggle!(:status)
     redirect_to skills_path
   end
 

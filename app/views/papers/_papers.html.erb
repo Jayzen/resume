@@ -8,10 +8,19 @@
           <% @papers.each do |paper| %>
             <li class="list-group-item text-secondary">
               <%= paper.language == "zh" ? t('chinese') : t('english') %>|
-              <%= paper.title %> &nbsp
+              <%= paper.title %>
+              <% if paper.status? %>
+                <span class='badge badge-primary'><%= t('published')%></span>
+              <% end -%>
+               &nbsp&nbsp
               <%= link_to t('show'), paper_path(paper), class: "text-secondary" %>|
               <%= link_to t('edit'), edit_paper_path(paper), class: "text-secondary" %>|
-              <%= link_to t('destroy'), paper, method: :delete, data: { confirm: "确定删除?"}, class: "text-secondary" %>
+              <%= link_to t('destroy'), paper, method: :delete, data: { confirm: "确定删除?"}, class: "text-secondary" %>|
+              <% if paper.status? %>
+                <%= link_to t('unpublish'), published_paper_path(paper), class: "text-secondary" %>
+              <% else %>
+                <%= link_to t('publish'), published_paper_path(paper), class: "text-secondary" %>
+              <% end %>
             </li>
           <% end %>
           <li class="list-group-item text-secondary">

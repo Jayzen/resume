@@ -8,10 +8,19 @@
           <% @pdf_resumes.each do |pdf_resume| %>
             <li class="list-group-item text-secondary">
               <%= pdf_resume.language == "zh" ? t('chinese') : t('english') %>|
-              <%= t('pdf_resume_uploaded') %> | 
+              <%= t('pdf_resume_uploaded') %>
+              <% if pdf_resume.status? %>
+                <span class='badge badge-primary'><%= t('published')%></span>
+              <% end -%>
+              &nbsp&nbsp 
               <%= link_to t('download'), pdf_resume.name.url, class: "text-secondary" %>|
               <%= link_to t('reupload'), edit_pdf_resume_path(pdf_resume), class: "text-secondary" %>|
-              <%= link_to t('destroy'), pdf_resume, method: :delete, data: { confirm: "确定删除?"}, class: "text-secondary" %>
+              <%= link_to t('destroy'), pdf_resume, method: :delete, data: { confirm: "确定删除?"}, class: "text-secondary" %>|
+              <% if pdf_resume.status? %>
+                <%= link_to t('unpublish'), published_pdf_resume_path(pdf_resume), class: "text-secondary" %>
+              <% else %>
+                <%= link_to t('publish'), published_pdf_resume_path(pdf_resume), class: "text-secondary" %>
+              <% end %>
             </li>
           <% end %>
           <li class="list-group-item text-secondary">

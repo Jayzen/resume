@@ -6,11 +6,9 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   resources :users, :password_alters, :set_templates, :set_modules, only: [:edit, :update]
   resources :portraits, only: [:new, :create, :update] 
-  resources :projects, :skills, :educations, :experiences, :socials, :papers do
+  resources :projects, :skills, :educations, :experiences, :socials, :papers, :pdf_resumes, :wechats do
     get :published, on: :member
   end
-  resources :wechats
-  resources :pdf_resumes
   get "welcomes/set_zh", as: :set_zh
   get "welcomes/set_en", as: :set_en
   get "resume_information", to: "resume_information#show", as: :resume_information
