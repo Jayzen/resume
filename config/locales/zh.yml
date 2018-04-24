@@ -3,7 +3,7 @@ zh:
   home: "主页"
   login: "登录"
   app_description: "简洁、可定制的在线简历"
-  footer: "简洁、可定制的在线简历, 天才制作"
+  footer: "简洁、可定制的在线简历, 象科技制作"
   about: "关于我"
   logout: "退出"
   status: "状态"
@@ -135,6 +135,10 @@ zh:
   support_en_and_zh: "支持中英文切换"
   support_set_template: "支持选择简历模板"
   support_online_resume: "支持在线简历"
+  
+  errors:
+    messages:
+      extension_whitelist_error: "%{extension}格式文件不能上传，只能上传pdf文件"
   views:
     pagination:
       first: "&laquo; 首页"
@@ -227,6 +231,7 @@ zh:
         weight: "权重"
         language: "选择语言"
       pdf_resume:
+        language: "选择语言"
         name: "PDF简历"
     errors:
       models:
@@ -316,5 +321,12 @@ zh:
               blank: "不能为空"
             language:
               blank: "不能为空"
+        pdf_resume:
+          attributes:
+            name:
+              blank: "不能为空"
+            language:
+              blank: "不能为空"
+              taken: "已经上传"
 
 

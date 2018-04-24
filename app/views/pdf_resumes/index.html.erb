@@ -1,7 +1,7 @@
 <% provide(:title, t('pdf_resume_uploaded')) %>
 <div class="row">
   <%= render 'shared/resume_bar' %>
-  <% if current_user.pdf_resume.id? %>
+  <% if current_user.pdf_resumes %>
     <%= render 'pdf_resumes' %>
   <% else %>
     <%= render 'pdf_resume_new' %>

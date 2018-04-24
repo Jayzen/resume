@@ -21,8 +21,8 @@ class User < ApplicationRecord
   has_many :projects, dependent: :destroy
   has_many :socials, dependent: :destroy
   has_many :papers, dependent: :destroy
+  has_many :pdf_resumes, dependent: :destroy
   has_one :wechat, dependent: :destroy
-  has_one :pdf_resume, dependent: :destroy
 
   def downcase_email
     self.email = email.downcase

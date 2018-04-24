@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_24_021936) do
+ActiveRecord::Schema.define(version: 2018_04_24_050432) do
 
   create_table "educations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "school"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2018_04_24_021936) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "status", default: true
+    t.string "language"
     t.index ["user_id"], name: "index_pdf_resumes_on_user_id"
   end
 
