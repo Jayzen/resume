@@ -8,10 +8,19 @@
           <% @projects.each do |project| %>
             <li class="list-group-item text-secondary">
               <%= project.language == "zh" ? t('chinese') : t('english') %>|
-              <%= project.name %> &nbsp
+              <%= project.name %>
+              <% if project.status? %>
+                <span class='badge badge-primary'><%= t('published')%></span>
+              <% end -%> 
+              &nbsp&nbsp
               <%= link_to t('show'), project_path(project), class: "text-secondary" %>|
               <%= link_to t('edit'), edit_project_path(project), class: "text-secondary" %>|
-              <%= link_to t('destroy'), project, method: :delete, data: { confirm: t('confirm_delete') }, class: "text-secondary" %>
+              <%= link_to t('destroy'), project, method: :delete, data: { confirm: t('confirm_delete') }, class: "text-secondary" %>|
+              <% if project.status? %>
+                <%= link_to t('unpublish'), published_project_path(project), class: "text-secondary" %>
+              <% else %>
+                <%= link_to t('publish'), published_project_path(project), class: "text-secondary" %>
+              <% end %>
             </li>
           <% end %>
           <li class="list-group-item text-secondary">

@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :logged_in_user
-  before_action :find_project, only: [:edit, :update, :show, :destroy]
+  before_action :find_project, only: [:edit, :update, :show, :destroy, :published]
 
   def show
   end
@@ -42,12 +42,17 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
 
+  def published
+    @project.toggle!(:status)
+    redirect_to projects_path
+  end
+
   private
     def find_project
       @project = current_user.projects.find(params[:id])
     end
 
     def project_params
-      params.require(:project).permit(:language, :name, :tag, :time, :description, :weight)
+      params.require(:project).permit(:status, :language, :name, :tag, :time, :description, :weight)
     end
 end

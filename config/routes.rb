@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :users,               only: [:edit, :update]
   resources :password_alters,     only: [:edit, :update]
   resources :portraits,           only: [:new, :create, :update] 
-  resources :projects
+  resources :projects do
+    get :published, on: :member
+  end
   resources :skills
   resources :educations
   resources :experiences 

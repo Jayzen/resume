@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_23_104635) do
+ActiveRecord::Schema.define(version: 2018_04_24_021936) do
 
   create_table "educations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "school"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2018_04_23_104635) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.string "language"
+    t.boolean "status", default: true
     t.index ["user_id"], name: "index_educations_on_user_id"
   end
 
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 2018_04_23_104635) do
     t.datetime "updated_at", null: false
     t.string "time"
     t.string "language"
+    t.boolean "status", default: true
     t.index ["user_id"], name: "index_experiences_on_user_id"
   end
 
@@ -50,6 +52,7 @@ ActiveRecord::Schema.define(version: 2018_04_23_104635) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "status", default: true
     t.index ["user_id"], name: "index_papers_on_user_id"
   end
 
@@ -58,6 +61,7 @@ ActiveRecord::Schema.define(version: 2018_04_23_104635) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "status", default: true
     t.index ["user_id"], name: "index_pdf_resumes_on_user_id"
   end
 
@@ -71,6 +75,7 @@ ActiveRecord::Schema.define(version: 2018_04_23_104635) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "language"
+    t.boolean "status", default: true
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
@@ -82,6 +87,7 @@ ActiveRecord::Schema.define(version: 2018_04_23_104635) do
     t.integer "weight"
     t.text "description"
     t.string "language"
+    t.boolean "status", default: true
     t.index ["user_id"], name: "index_skills_on_user_id"
   end
 
@@ -92,6 +98,7 @@ ActiveRecord::Schema.define(version: 2018_04_23_104635) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "status", default: true
     t.index ["user_id"], name: "index_socials_on_user_id"
   end
 
@@ -126,6 +133,7 @@ ActiveRecord::Schema.define(version: 2018_04_23_104635) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "status", default: true
     t.index ["user_id"], name: "index_wechats_on_user_id"
   end
 
