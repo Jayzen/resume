@@ -136,7 +136,7 @@ en:
   must_upload: "Must Upload"
   github_login: "Support GitHub Login"
   support_en_and_zh: "Support English&Chinese"
-  support_set_template: "Support Template Exchange"
+  support_set_template: "Support Template&Module"
   support_online_resume: "Support Online Resume"
   activerecord:
     attributes:
