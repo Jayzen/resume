@@ -14,7 +14,7 @@
           <label class="col-sm-12 col-form-label text-secondary"><%= t('project_time') %>: <%= @project.time %></label>
         </div>
         <div class="form-group mb-0">
-          <label class="col-sm-12 col-form-label text-secondary"><%= t('project_description') %>: <%= @project.description %></label>
+          <label class="col-sm-12 col-form-label text-secondary"><%= t('project_description') %>: <%= sanitize @project.description %></label>
         </div>
         <div class="form-group mb-0">
           <label class="col-sm-12 col-form-label text-secondary"><%= t('weight') %>: <%= @project.weight %></label>

@@ -14,7 +14,7 @@
           <label class="col-sm-12 col-form-label text-secondary"><%= t('work_time') %>: <%= @experience.time %></label>
         </div>
         <div class="form-group mb-0">
-          <label class="col-sm-12 col-form-label text-secondary"><%= t('work_description') %>: <%= @experience.description %></label>
+          <label class="col-sm-12 col-form-label text-secondary"><%= t('work_description') %>: <%= sanitize @experience.description %></label>
         </div>
         <div class="form-group mb-0">
           <label class="col-sm-12 col-form-label text-secondary"><%= t('weight') %>: <%= @experience.weight %></label>
