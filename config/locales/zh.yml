@@ -1,7 +1,10 @@
 zh:
   resume: "简历"
   home: "主页"
+  login_github: "GitHub用户登录"
   login: "登录"
+  or: "或者"
+  third_part: "第三方登录"
   app_description: "简洁、可定制的在线简历"
   footer: "简洁、可定制的在线简历, 象科技制作"
   about: "关于我"

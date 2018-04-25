@@ -1,7 +1,10 @@
 en:
   resume: "Resume"
   home: "Home"
+  login_github: "GitHub User Login"
   login: "Login"
+  or: "OR"
+  third_part: "Third Part Login"
   app_description: "Brief&Customizable Online Resume"
   footer: "Brief and Customizable Online Resume, Created by Jayzen"
   about: "About"
