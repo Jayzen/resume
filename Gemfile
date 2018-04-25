@@ -37,7 +37,6 @@ gem 'mini_magick', '~> 4.8'
 gem 'mysql2', '~> 0.4.4'
 gem 'omniauth-github'
 gem 'redis-rails'
-gem 'meta-tags'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
