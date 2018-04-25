@@ -1,3 +1,4 @@
+<% provide(:title, @user.name_en) %>
 <% if params[:locale].nil? %>
   <%= render 'set_show' %>
 <% else %>
