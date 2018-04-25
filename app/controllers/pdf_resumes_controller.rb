@@ -1,5 +1,6 @@
 class PdfResumesController < ApplicationController
   before_action :logged_in_user
+  before_action :correct_user, only: [:edit, :update, :show, :destroy, :published]
   before_action :find_pdf_resume, only: [:edit, :update, :show, :destroy, :published]
 
   def new
@@ -45,6 +46,15 @@ class PdfResumesController < ApplicationController
   def published
     @pdf_resume.toggle!(:status)
     redirect_to pdf_resumes_path
+  end
+
+  def correct_user
+    begin
+      @pdf_resume = current_user.pdf_resumes.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      @pdf_resume = nil
+    end
+    redirect_to resume_information_path if @pdf_resume.nil?
   end
 
   private

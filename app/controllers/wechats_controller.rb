@@ -1,5 +1,6 @@
 class WechatsController < ApplicationController
   before_action :logged_in_user
+  before_action :correct_user, only: [:edit, :update, :show, :destroy, :published]
   before_action :find_wechat, only: [:edit, :update, :show, :destroy, :published]
   
   def new
@@ -44,6 +45,17 @@ class WechatsController < ApplicationController
   end
 
   private
+    def correct_user
+      begin
+        @wechat = Wechat.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        @wechat = nil
+      end
+      if (@wechat == nil) || (current_user.wechat != Wechat.find(params[:id]))
+        redirect_to resume_information_path
+      end
+    end
+    
     def find_wechat
       @wechat = current_user.wechat
     end

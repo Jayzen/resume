@@ -1,5 +1,6 @@
 class EducationsController < ApplicationController
   before_action :logged_in_user
+  before_action :correct_user, only: [:edit, :update, :show, :destroy, :published]
   before_action :find_education, only: [:edit, :update, :show, :destroy, :published]
 
   def show
@@ -45,6 +46,15 @@ class EducationsController < ApplicationController
   def published
     @education.toggle!(:status)
     redirect_to educations_path
+  end
+
+  def correct_user
+    begin
+      @education = current_user.educations.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      @education = nil
+    end
+    redirect_to resume_information_path if @education.nil?
   end
 
   private

@@ -1,5 +1,6 @@
 class SkillsController < ApplicationController
   before_action :logged_in_user
+  before_action :correct_user, only: [:edit, :update, :show, :destroy, :published]
   before_action :find_skill, only: [:edit, :update, :show, :destroy, :published]
 
   def show
@@ -45,6 +46,15 @@ class SkillsController < ApplicationController
   def published
     @skill.toggle!(:status)
     redirect_to skills_path
+  end
+
+  def correct_user
+    begin
+      @skill = current_user.skills.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      @skill = nil
+    end
+    redirect_to resume_information_path if @skill.nil?
   end
 
   private

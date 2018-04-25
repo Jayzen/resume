@@ -1,5 +1,6 @@
 class PapersController < ApplicationController
   before_action :logged_in_user
+  before_action :correct_user, only: [:edit, :update, :show, :destroy, :published]
   before_action :find_paper, only: [:edit, :update, :show, :destroy, :published]
 
   def show
@@ -45,6 +46,15 @@ class PapersController < ApplicationController
   def published
     @paper.toggle!(:status)
     redirect_to papers_path
+  end
+
+  def correct_user
+    begin
+      @paper = current_user.papers.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      @paper = nil
+    end
+    redirect_to resume_information_path if @paper.nil?
   end
  
   private

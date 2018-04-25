@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :logged_in_user
+  before_action :correct_user, only: [:edit, :update, :show, :destroy, :published]
   before_action :find_project, only: [:edit, :update, :show, :destroy, :published]
 
   def show
@@ -45,6 +46,15 @@ class ProjectsController < ApplicationController
   def published
     @project.toggle!(:status)
     redirect_to projects_path
+  end
+
+  def correct_user
+    begin
+      @project = current_user.projects.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      @project = nil
+    end
+    redirect_to resume_information_path if @project.nil?
   end
 
   private
