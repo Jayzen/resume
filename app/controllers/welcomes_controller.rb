@@ -47,4 +47,12 @@ class WelcomesController < ApplicationController
     I18n.locale = cookies[:locale] = :en
     redirect_to request.referer
   end
+
+  def introduction_zh
+    render layout: "home"
+  end
+
+  def introduction_en
+    render layout: "home"
+  end
 end

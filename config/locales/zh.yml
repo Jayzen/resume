@@ -4,6 +4,8 @@ zh:
   login_github: "GitHub用户登录"
   login: "登录"
   or: "或者"
+  english_introduction: "英文介绍"
+  chinese_introduction: "中文介绍"
   third_part: "第三方登录"
   app_description: "简洁、可定制的在线简历"
   footer: "简洁、可定制的在线简历, 象科技制作"
