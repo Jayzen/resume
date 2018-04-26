@@ -143,7 +143,7 @@ zh:
   
   errors:
     messages:
-      extension_whitelist_error: "不能上传以%{extension}结尾的文件"
+      extension_whitelist_error: "格式不正确"
   views:
     pagination:
       first: "&laquo; 首页"
