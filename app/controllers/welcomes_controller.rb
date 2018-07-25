@@ -5,7 +5,7 @@ class WelcomesController < ApplicationController
 
   def show
     if @user = User.find_by(name_en: params[:name_en])
-      @wechat = @user.wechat if @user.wechat.status
+      @wechat = @user.wechat if @user.wechat
       @template = @user.template
       @socials = @user.socials.where(status: true).order("weight desc")
       if params[:locale] == "zh"
