@@ -4,10 +4,10 @@
     <title><%= full_title(yield(:title)) %></title>
     <link rel="icon" href='<i class="fa fa-check fa-fw"></i>'>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= favicon_link_tag 'resume.ico' %>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= favicon_link_tag 'resume.ico' %>
     <%= render 'layouts/shim' %>
   </head>
 
