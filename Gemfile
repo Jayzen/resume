@@ -37,6 +37,8 @@ gem 'mini_magick', '~> 4.8'
 gem 'mysql2', '~> 0.4.4'
 gem 'omniauth-github'
 gem 'redis-rails'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -21,14 +21,19 @@
             </button>
           </a>
         <% end %>
-        <a href="<%= edit_set_template_path(current_user) %>">
-          <button type="button" class="btn <%= controller_name == 'set_templates' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2">
-            <i class="fa fa-exchange fa-fw"></i> <%= t('template_information') %>
-          </button>
-        </a>
         <a href="<%= edit_set_module_path(current_user) %>">
           <button type="button" class="btn <%= controller_name == 'set_modules' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2">
             <i class="fa fa-check fa-fw"></i> <%= t('set_module') %>
+          </button>
+        </a>
+        <a href="<%= edit_set_template_path(current_user) %>">
+          <button type="button" class="btn <%= controller_name == 'set_templates' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2">
+            <i class="fa fa-internet-explorer fa-fw"></i> <%= t('template_information') %>
+          </button>
+        </a>
+        <a href="<%= '#' %>">
+          <button type="button" class="btn <%= controller_name == 'pdf_onlines' ? 'btn-primary' : 'btn-outline-secondary' %> btn-block mt-2">
+            <i class="fa fa-file-pdf-o fa-fw"></i> <%= t('pdf_settings') %>
           </button>
         </a>
       </div>
