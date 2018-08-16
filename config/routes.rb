@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   get "welcomes/set_en", as: :set_en
   get "resume_information", to: "resume_information#show", as: :resume_information
   get ":name_en", to: "welcomes#show", as: :online
+  get "pdf_onlines/lists", as: :pdf_lists
+  get "pdf_onlines/set_pdf", as: :set_pdf
 end
