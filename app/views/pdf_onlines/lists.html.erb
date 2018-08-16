@@ -1,7 +1,8 @@
 <% provide(:title, t('pdf_settings')) %>
 <div class="row">
   <%= render 'shared/basic_bar' %>
-  <div>
-    <%= link_to "PDF 1", set_pdf_path(format: :pdf) %>
-  </div>
+  <div><%= link_to "one", set_pdf_path(format: :pdf, template: "one") %></div>
+  <div><%= link_to "two", set_pdf_path(format: :pdf, template: "two") %></div>
+  <div><%= link_to "download_two", download_path(template: "two") %></div>
+  <div><%= link_to "download_two", download_path(template: "two") %></div>
 </div>

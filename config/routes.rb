@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get ":name_en", to: "welcomes#show", as: :online
   get "pdf_onlines/lists", as: :pdf_lists
   get "pdf_onlines/set_pdf", as: :set_pdf
+  get "pdf_onlines/download", as: :download
 end
