@@ -4,6 +4,7 @@ class PdfOnlinesController < ApplicationController
   def lists
   end
 
+
   def set_pdf
     respond_to do |format|
       format.pdf do

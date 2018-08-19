@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   get "pdf_onlines/lists", as: :pdf_lists
   get "pdf_onlines/set_pdf", as: :set_pdf
   get "pdf_onlines/download", as: :download
+  get "pdf_onlines/demo", as: :demo
+  get "pdf_onlines/demo_one", as: :demo_one
+  mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdfjs'
 end

@@ -39,6 +39,7 @@ gem 'omniauth-github'
 gem 'redis-rails'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'pdfjs_viewer-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
